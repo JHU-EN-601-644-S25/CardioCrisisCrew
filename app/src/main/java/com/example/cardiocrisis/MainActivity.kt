@@ -1,5 +1,6 @@
 package com.example.cardiocrisis
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -9,6 +10,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cardiocrisis.ble.DeviceScanActivity
 import java.text.SimpleDateFormat
 import java.util.Locale
 import kotlin.math.sin
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val ekgView = findViewById<EkgView>(R.id.ekgView)
         setupUserButton()
         setupExportButton()
+        setupBleScanButton()
 
         loadEkgData()
 
@@ -76,6 +79,14 @@ class MainActivity : AppCompatActivity() {
         val exportButton = findViewById<Button>(R.id.exportButton)
         exportButton.setOnClickListener {
             showExportDialog()
+        }
+    }
+
+    private fun setupBleScanButton() {
+        val bleScanButton = findViewById<Button>(R.id.ble_scan_button)
+        bleScanButton.setOnClickListener {
+            val intent = Intent(this, DeviceScanActivity::class.java)
+            startActivity(intent)
         }
     }
 
