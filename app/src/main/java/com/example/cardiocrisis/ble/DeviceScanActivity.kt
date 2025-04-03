@@ -44,7 +44,15 @@ class DeviceScanActivity : AppCompatActivity() {
         if (allPermissionsGranted) {
             scanLeDevice()
         } else {
-            Toast.makeText(this, "Bluetooth and location permissions are required", Toast.LENGTH_SHORT).show()
+            // Show which permissions are still missing
+            val deniedPermissions = permissions.filter { !it.value }.keys.joinToString(", ") { 
+                it.split(".").last() 
+            }
+            Toast.makeText(
+                this,
+                "Missing permissions: $deniedPermissions. These are required for BLE scanning.",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
     
@@ -123,11 +131,20 @@ class DeviceScanActivity : AppCompatActivity() {
     }
     
     private fun checkPermissionsAndScan() {
-        val requiredPermissions = arrayOf(
-            Manifest.permission.BLUETOOTH_SCAN,
-            Manifest.permission.BLUETOOTH_CONNECT,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
+        // Different permission sets based on Android version
+        val requiredPermissions = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            arrayOf(
+                Manifest.permission.BLUETOOTH_SCAN,
+                Manifest.permission.BLUETOOTH_CONNECT,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+        } else {
+            arrayOf(
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.BLUETOOTH_ADMIN,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+        }
         
         val missingPermissions = requiredPermissions.filter {
             ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
@@ -136,12 +153,29 @@ class DeviceScanActivity : AppCompatActivity() {
         if (missingPermissions.isEmpty()) {
             scanLeDevice()
         } else {
+            // Show a toast explaining why we need these permissions
+            Toast.makeText(
+                this,
+                "Bluetooth and location permissions are required for device scanning",
+                Toast.LENGTH_LONG
+            ).show()
             requestPermissionLauncher.launch(missingPermissions)
         }
     }
     
     private fun scanLeDevice() {
         if (!scanning) {
+            // Check permissions again just to be safe
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S &&
+                (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED ||
+                 ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED)) {
+                Toast.makeText(this, "Bluetooth permissions not granted", Toast.LENGTH_SHORT).show()
+                return
+            } else if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Location permission not granted", Toast.LENGTH_SHORT).show()
+                return
+            }
+            
             // Clear the list of devices
             leDeviceListAdapter.clear()
             leDeviceListAdapter.notifyDataSetChanged()
