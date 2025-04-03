@@ -7,16 +7,19 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
+import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ListView
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +33,7 @@ class DeviceScanActivity : AppCompatActivity() {
     private lateinit var deviceListView: ListView
     private lateinit var scanButton: Button
     private lateinit var scanningProgressBar: ProgressBar
+    private lateinit var statusTextView: TextView
     
     private var scanning = false
     private val handler = Handler(Looper.getMainLooper())
@@ -86,6 +90,8 @@ class DeviceScanActivity : AppCompatActivity() {
         deviceListView.adapter = leDeviceListAdapter
         scanButton = findViewById(R.id.scan_button)
         scanningProgressBar = findViewById(R.id.scanning_progress)
+        statusTextView = findViewById(R.id.status_text)
+        statusTextView.text = "Ready to scan"
         
         scanButton.setOnClickListener {
             if (!scanning) {
@@ -180,7 +186,12 @@ class DeviceScanActivity : AppCompatActivity() {
             leDeviceListAdapter.clear()
             leDeviceListAdapter.notifyDataSetChanged()
             
-            // Stop scanning after SCAN_PERIOD
+            // Start scanning and show progress
+            scanning = true
+            scanButton.text = "Stop"
+            scanningProgressBar.visibility = View.VISIBLE
+            
+            // Use a longer scan period (15 seconds instead of default)
             handler.postDelayed({
                 if (scanning) {
                     scanning = false
@@ -188,17 +199,23 @@ class DeviceScanActivity : AppCompatActivity() {
                     scanningProgressBar.visibility = View.GONE
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
                         bluetoothAdapter.bluetoothLeScanner?.stopScan(leScanCallback)
+                        Toast.makeText(this, "Scan complete", Toast.LENGTH_SHORT).show()
                     }
                 }
-            }, SCAN_PERIOD)
+            }, 15000) // 15 seconds
             
-            scanning = true
-            scanButton.text = "Stop"
-            scanningProgressBar.visibility = View.VISIBLE
+            // Configure scan settings for better results
+            val scanSettings = ScanSettings.Builder()
+                .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY) // Use highest power/performance
+                .build()
+                
+            // Start the scan with our settings
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
-                bluetoothAdapter.bluetoothLeScanner?.startScan(leScanCallback)
+                bluetoothAdapter.bluetoothLeScanner?.startScan(null, scanSettings, leScanCallback)
+                Toast.makeText(this, "Scanning for devices...", Toast.LENGTH_SHORT).show()
             }
         } else {
+            // Stop scanning
             scanning = false
             scanButton.text = "Scan"
             scanningProgressBar.visibility = View.GONE
@@ -213,8 +230,33 @@ class DeviceScanActivity : AppCompatActivity() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
             runOnUiThread {
-                leDeviceListAdapter.addDevice(result.device)
+                val device = result.device
+                // Log device found
+                Log.d("BLEScan", "Found device: ${device.address} - ${device.name ?: "Unknown"}")
+                
+                // Add to adapter and update UI
+                leDeviceListAdapter.addDevice(device)
                 leDeviceListAdapter.notifyDataSetChanged()
+            }
+        }
+
+        override fun onScanFailed(errorCode: Int) {
+            super.onScanFailed(errorCode)
+            runOnUiThread {
+                scanning = false
+                scanButton.text = "Scan"
+                scanningProgressBar.visibility = View.GONE
+                
+                // Show error message based on error code
+                val errorMessage = when (errorCode) {
+                    ScanCallback.SCAN_FAILED_ALREADY_STARTED -> "Scan already started"
+                    ScanCallback.SCAN_FAILED_APPLICATION_REGISTRATION_FAILED -> "App registration failed"
+                    ScanCallback.SCAN_FAILED_FEATURE_UNSUPPORTED -> "BLE not supported"
+                    ScanCallback.SCAN_FAILED_INTERNAL_ERROR -> "Internal error"
+                    else -> "Error code: $errorCode"
+                }
+                Toast.makeText(applicationContext, "Scan failed: $errorMessage", Toast.LENGTH_LONG).show()
+                Log.e("BLEScan", "Scan failed: $errorMessage")
             }
         }
     }

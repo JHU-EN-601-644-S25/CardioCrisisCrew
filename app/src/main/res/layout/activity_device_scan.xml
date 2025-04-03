@@ -29,6 +29,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Ready to scan"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/scan_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ListView
         android:id="@+id/device_list"
         android:layout_width="match_parent"
