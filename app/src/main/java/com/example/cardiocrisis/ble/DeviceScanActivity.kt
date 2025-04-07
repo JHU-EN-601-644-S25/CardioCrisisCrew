@@ -107,10 +107,19 @@ class DeviceScanActivity : AppCompatActivity() {
 
         deviceListView.setOnItemClickListener { _, _, position, _ ->
             val device = leDeviceListAdapter.getDevice(position)
-            val intent = Intent()
+            
+            // Stop scanning if we're still scanning
+            if (scanning) {
+                stopScan()
+            }
+            
+            // Show connecting status
+            statusTextView.text = "Connecting to ${device.name ?: "Unknown Device"}..."
+            
+            // Start the DeviceConnectionActivity with the selected device
+            val intent = Intent(this, DeviceConnectionActivity::class.java)
             intent.putExtra(EXTRA_DEVICE, device)
-            setResult(Activity.RESULT_OK, intent)
-            finish()
+            startActivity(intent)
         }
     }
 

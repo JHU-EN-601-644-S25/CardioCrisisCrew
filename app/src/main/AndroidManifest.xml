@@ -41,5 +41,10 @@
             android:name=".ble.DeviceScanActivity"
             android:exported="false" />
             
+        <activity
+            android:name=".ble.DeviceConnectionActivity"
+            android:label="Device Connection"
+            android:exported="false" />
+            
     </application>
 </manifest>
