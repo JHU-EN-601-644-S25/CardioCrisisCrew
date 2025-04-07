@@ -80,10 +80,14 @@ class DeviceScanActivity : AppCompatActivity() {
         
         // Ensures Bluetooth is available on the device
         if (bluetoothAdapter == null) {
+            Log.e("BLEScan", "Bluetooth not supported on this device")
             Toast.makeText(this, "Bluetooth not supported on this device", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
+        
+        // Log Bluetooth state
+        logBluetoothState()
         
         leDeviceListAdapter = LeDeviceListAdapter()
         deviceListView = findViewById(R.id.device_list)
@@ -175,12 +179,17 @@ class DeviceScanActivity : AppCompatActivity() {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S &&
                 (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED ||
                  ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED)) {
+                Log.e("BLEScan", "Missing Bluetooth permissions")
                 Toast.makeText(this, "Bluetooth permissions not granted", Toast.LENGTH_SHORT).show()
                 return
             } else if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Log.e("BLEScan", "Missing location permission")
                 Toast.makeText(this, "Location permission not granted", Toast.LENGTH_SHORT).show()
                 return
             }
+            
+            Log.d("BLEScan", "Starting BLE scan...")
+            statusTextView.text = "Starting scan..."
             
             // Clear the list of devices
             leDeviceListAdapter.clear()
@@ -191,73 +200,164 @@ class DeviceScanActivity : AppCompatActivity() {
             scanButton.text = "Stop"
             scanningProgressBar.visibility = View.VISIBLE
             
+            // Check if bluetoothAdapter is enabled
+            if (!bluetoothAdapter.isEnabled) {
+                Log.e("BLEScan", "Bluetooth is not enabled")
+                statusTextView.text = "Bluetooth is not enabled"
+                return
+            }
+            
+            // Check if bluetoothLeScanner is available
+            val scanner = bluetoothAdapter.bluetoothLeScanner
+            if (scanner == null) {
+                Log.e("BLEScan", "BluetoothLeScanner is null")
+                statusTextView.text = "Bluetooth scanner unavailable"
+                scanning = false
+                scanButton.text = "Scan"
+                scanningProgressBar.visibility = View.GONE
+                return
+            }
+            
             // Use a longer scan period (15 seconds instead of default)
             handler.postDelayed({
                 if (scanning) {
+                    Log.d("BLEScan", "Scan timeout reached")
                     scanning = false
                     scanButton.text = "Scan"
                     scanningProgressBar.visibility = View.GONE
+                    
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
                         bluetoothAdapter.bluetoothLeScanner?.stopScan(leScanCallback)
-                        Toast.makeText(this, "Scan complete", Toast.LENGTH_SHORT).show()
+                        Log.d("BLEScan", "Scan stopped after timeout")
+                        
+                        // Check if any devices were found
+                        if (leDeviceListAdapter.count == 0) {
+                            Log.d("BLEScan", "No devices were found during scan")
+                            statusTextView.text = "No devices found"
+                        } else {
+                            Log.d("BLEScan", "Found ${leDeviceListAdapter.count} devices")
+                            statusTextView.text = "Found ${leDeviceListAdapter.count} devices"
+                        }
                     }
                 }
             }, 15000) // 15 seconds
             
-            // Configure scan settings for better results
-            val scanSettings = ScanSettings.Builder()
-                .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY) // Use highest power/performance
-                .build()
+            try {
+                // Configure scan settings for better results
+                val scanSettings = ScanSettings.Builder()
+                    .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY) // Use highest power/performance
+                    .build()
+                    
+                Log.d("BLEScan", "Starting scan with settings: ${scanSettings.scanMode}")
                 
-            // Start the scan with our settings
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
-                bluetoothAdapter.bluetoothLeScanner?.startScan(null, scanSettings, leScanCallback)
-                Toast.makeText(this, "Scanning for devices...", Toast.LENGTH_SHORT).show()
+                // Start the scan with our settings
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+                    scanner.startScan(null, scanSettings, leScanCallback)
+                    Log.d("BLEScan", "Successfully started BLE scan")
+                    statusTextView.text = "Scanning for devices..."
+                }
+            } catch (e: Exception) {
+                Log.e("BLEScan", "Exception during scan start: ${e.message}", e)
+                statusTextView.text = "Error: ${e.message}"
+                scanning = false
+                scanButton.text = "Scan"
+                scanningProgressBar.visibility = View.GONE
             }
         } else {
             // Stop scanning
+            Log.d("BLEScan", "Stopping scan by user request")
             scanning = false
             scanButton.text = "Scan"
             scanningProgressBar.visibility = View.GONE
+            statusTextView.text = "Scan stopped"
+            
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
                 bluetoothAdapter.bluetoothLeScanner?.stopScan(leScanCallback)
+                Log.d("BLEScan", "Scan stopped successfully")
             }
         }
     }
     
-    // Device scan callback
+    // ScanCallback for BLE device discovery
     private val leScanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
+            val device = result.device
+            val deviceName = device.name ?: "Unknown"
+            val deviceAddress = device.address
+            val rssi = result.rssi
+            
+            Log.d("BLEScan", "Found device: $deviceName ($deviceAddress) with RSSI: $rssi")
+            
             runOnUiThread {
-                val device = result.device
-                // Log device found
-                Log.d("BLEScan", "Found device: ${device.address} - ${device.name ?: "Unknown"}")
-                
-                // Add to adapter and update UI
                 leDeviceListAdapter.addDevice(device)
                 leDeviceListAdapter.notifyDataSetChanged()
+                statusTextView.text = "Scanning... (${leDeviceListAdapter.count} found)"
+            }
+        }
+
+        override fun onBatchScanResults(results: List<ScanResult>) {
+            super.onBatchScanResults(results)
+            Log.d("BLEScan", "Batch scan results: ${results.size} devices")
+            
+            runOnUiThread {
+                for (result in results) {
+                    leDeviceListAdapter.addDevice(result.device)
+                }
+                leDeviceListAdapter.notifyDataSetChanged()
+                statusTextView.text = "Scanning... (${leDeviceListAdapter.count} found)"
             }
         }
 
         override fun onScanFailed(errorCode: Int) {
             super.onScanFailed(errorCode)
+            val errorMessage = when (errorCode) {
+                ScanCallback.SCAN_FAILED_ALREADY_STARTED -> "Scan already started"
+                ScanCallback.SCAN_FAILED_APPLICATION_REGISTRATION_FAILED -> "App registration failed"
+                ScanCallback.SCAN_FAILED_FEATURE_UNSUPPORTED -> "BLE not supported"
+                ScanCallback.SCAN_FAILED_INTERNAL_ERROR -> "Internal error"
+                else -> "Error code: $errorCode"
+            }
+            
+            Log.e("BLEScan", "Scan failed: $errorMessage")
+            
             runOnUiThread {
                 scanning = false
                 scanButton.text = "Scan"
                 scanningProgressBar.visibility = View.GONE
-                
-                // Show error message based on error code
-                val errorMessage = when (errorCode) {
-                    ScanCallback.SCAN_FAILED_ALREADY_STARTED -> "Scan already started"
-                    ScanCallback.SCAN_FAILED_APPLICATION_REGISTRATION_FAILED -> "App registration failed"
-                    ScanCallback.SCAN_FAILED_FEATURE_UNSUPPORTED -> "BLE not supported"
-                    ScanCallback.SCAN_FAILED_INTERNAL_ERROR -> "Internal error"
-                    else -> "Error code: $errorCode"
-                }
-                Toast.makeText(applicationContext, "Scan failed: $errorMessage", Toast.LENGTH_LONG).show()
-                Log.e("BLEScan", "Scan failed: $errorMessage")
+                statusTextView.text = "Scan failed: $errorMessage"
             }
+        }
+    }
+    
+    private fun logBluetoothState() {
+        Log.d("BLEScan", "Checking Bluetooth state")
+        
+        // Check if Bluetooth is supported
+        if (bluetoothAdapter == null) {
+            Log.e("BLEScan", "Bluetooth not supported on this device")
+            return
+        }
+        
+        // Check if Bluetooth is enabled
+        if (!bluetoothAdapter.isEnabled) {
+            Log.e("BLEScan", "Bluetooth is disabled")
+        } else {
+            Log.d("BLEScan", "Bluetooth is enabled")
+        }
+        
+        // Check if BLE is supported
+        if (!packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
+            Log.e("BLEScan", "BLE not supported on this device")
+        } else {
+            Log.d("BLEScan", "BLE is supported")
+        }
+        
+        // Check if scanning is supported
+        if (bluetoothAdapter.isEnabled && bluetoothAdapter.bluetoothLeScanner == null) {
+            Log.e("BLEScan", "BluetoothLeScanner is null despite Bluetooth being enabled")
+        } else if (bluetoothAdapter.isEnabled) {
+            Log.d("BLEScan", "BluetoothLeScanner is available")
         }
     }
     
