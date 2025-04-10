@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		AB5FA6302DA828F10020B0B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB5FA61A2DA828ED0020B0B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB5FA6212DA828ED0020B0B3;
+			remoteInfo = Cardio_Crisis;
+		};
+		AB5FA63A2DA828F10020B0B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB5FA61A2DA828ED0020B0B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB5FA6212DA828ED0020B0B3;
+			remoteInfo = Cardio_Crisis;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AB5FA6222DA828ED0020B0B3 /* Cardio_Crisis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardio_Crisis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5FA62F2DA828F10020B0B3 /* Cardio_CrisisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cardio_CrisisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5FA6392DA828F10020B0B3 /* Cardio_CrisisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cardio_CrisisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AB5FA6242DA828ED0020B0B3 /* Cardio_Crisis */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Cardio_Crisis;
+			sourceTree = "<group>";
+		};
+		AB5FA6322DA828F10020B0B3 /* Cardio_CrisisTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Cardio_CrisisTests;
+			sourceTree = "<group>";
+		};
+		AB5FA63C2DA828F10020B0B3 /* Cardio_CrisisUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Cardio_CrisisUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB5FA61F2DA828ED0020B0B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB5FA62C2DA828F10020B0B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB5FA6362DA828F10020B0B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB5FA6192DA828ED0020B0B3 = {
+			isa = PBXGroup;
+			children = (
+				AB5FA6242DA828ED0020B0B3 /* Cardio_Crisis */,
+				AB5FA6322DA828F10020B0B3 /* Cardio_CrisisTests */,
+				AB5FA63C2DA828F10020B0B3 /* Cardio_CrisisUITests */,
+				AB5FA6232DA828ED0020B0B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB5FA6232DA828ED0020B0B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA6222DA828ED0020B0B3 /* Cardio_Crisis.app */,
+				AB5FA62F2DA828F10020B0B3 /* Cardio_CrisisTests.xctest */,
+				AB5FA6392DA828F10020B0B3 /* Cardio_CrisisUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB5FA6212DA828ED0020B0B3 /* Cardio_Crisis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB5FA6432DA828F10020B0B3 /* Build configuration list for PBXNativeTarget "Cardio_Crisis" */;
+			buildPhases = (
+				AB5FA61E2DA828ED0020B0B3 /* Sources */,
+				AB5FA61F2DA828ED0020B0B3 /* Frameworks */,
+				AB5FA6202DA828ED0020B0B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AB5FA6242DA828ED0020B0B3 /* Cardio_Crisis */,
+			);
+			name = Cardio_Crisis;
+			packageProductDependencies = (
+			);
+			productName = Cardio_Crisis;
+			productReference = AB5FA6222DA828ED0020B0B3 /* Cardio_Crisis.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB5FA62E2DA828F10020B0B3 /* Cardio_CrisisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB5FA6462DA828F10020B0B3 /* Build configuration list for PBXNativeTarget "Cardio_CrisisTests" */;
+			buildPhases = (
+				AB5FA62B2DA828F10020B0B3 /* Sources */,
+				AB5FA62C2DA828F10020B0B3 /* Frameworks */,
+				AB5FA62D2DA828F10020B0B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB5FA6312DA828F10020B0B3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AB5FA6322DA828F10020B0B3 /* Cardio_CrisisTests */,
+			);
+			name = Cardio_CrisisTests;
+			packageProductDependencies = (
+			);
+			productName = Cardio_CrisisTests;
+			productReference = AB5FA62F2DA828F10020B0B3 /* Cardio_CrisisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AB5FA6382DA828F10020B0B3 /* Cardio_CrisisUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB5FA6492DA828F10020B0B3 /* Build configuration list for PBXNativeTarget "Cardio_CrisisUITests" */;
+			buildPhases = (
+				AB5FA6352DA828F10020B0B3 /* Sources */,
+				AB5FA6362DA828F10020B0B3 /* Frameworks */,
+				AB5FA6372DA828F10020B0B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB5FA63B2DA828F10020B0B3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AB5FA63C2DA828F10020B0B3 /* Cardio_CrisisUITests */,
+			);
+			name = Cardio_CrisisUITests;
+			packageProductDependencies = (
+			);
+			productName = Cardio_CrisisUITests;
+			productReference = AB5FA6392DA828F10020B0B3 /* Cardio_CrisisUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB5FA61A2DA828ED0020B0B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					AB5FA6212DA828ED0020B0B3 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					AB5FA62E2DA828F10020B0B3 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = AB5FA6212DA828ED0020B0B3;
+					};
+					AB5FA6382DA828F10020B0B3 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = AB5FA6212DA828ED0020B0B3;
+					};
+				};
+			};
+			buildConfigurationList = AB5FA61D2DA828ED0020B0B3 /* Build configuration list for PBXProject "Cardio_Crisis" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB5FA6192DA828ED0020B0B3;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AB5FA6232DA828ED0020B0B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB5FA6212DA828ED0020B0B3 /* Cardio_Crisis */,
+				AB5FA62E2DA828F10020B0B3 /* Cardio_CrisisTests */,
+				AB5FA6382DA828F10020B0B3 /* Cardio_CrisisUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB5FA6202DA828ED0020B0B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB5FA62D2DA828F10020B0B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB5FA6372DA828F10020B0B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB5FA61E2DA828ED0020B0B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB5FA62B2DA828F10020B0B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB5FA6352DA828F10020B0B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB5FA6312DA828F10020B0B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB5FA6212DA828ED0020B0B3 /* Cardio_Crisis */;
+			targetProxy = AB5FA6302DA828F10020B0B3 /* PBXContainerItemProxy */;
+		};
+		AB5FA63B2DA828F10020B0B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB5FA6212DA828ED0020B0B3 /* Cardio_Crisis */;
+			targetProxy = AB5FA63A2DA828F10020B0B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AB5FA6412DA828F10020B0B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AB5FA6422DA828F10020B0B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB5FA6442DA828F10020B0B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lily.Cardio-Crisis";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB5FA6452DA828F10020B0B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lily.Cardio-Crisis";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AB5FA6472DA828F10020B0B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lily.Cardio-CrisisTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardio_Crisis.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cardio_Crisis";
+			};
+			name = Debug;
+		};
+		AB5FA6482DA828F10020B0B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lily.Cardio-CrisisTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardio_Crisis.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cardio_Crisis";
+			};
+			name = Release;
+		};
+		AB5FA64A2DA828F10020B0B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lily.Cardio-CrisisUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cardio_Crisis;
+			};
+			name = Debug;
+		};
+		AB5FA64B2DA828F10020B0B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lily.Cardio-CrisisUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cardio_Crisis;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB5FA61D2DA828ED0020B0B3 /* Build configuration list for PBXProject "Cardio_Crisis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB5FA6412DA828F10020B0B3 /* Debug */,
+				AB5FA6422DA828F10020B0B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB5FA6432DA828F10020B0B3 /* Build configuration list for PBXNativeTarget "Cardio_Crisis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB5FA6442DA828F10020B0B3 /* Debug */,
+				AB5FA6452DA828F10020B0B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB5FA6462DA828F10020B0B3 /* Build configuration list for PBXNativeTarget "Cardio_CrisisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB5FA6472DA828F10020B0B3 /* Debug */,
+				AB5FA6482DA828F10020B0B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB5FA6492DA828F10020B0B3 /* Build configuration list for PBXNativeTarget "Cardio_CrisisUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB5FA64A2DA828F10020B0B3 /* Debug */,
+				AB5FA64B2DA828F10020B0B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB5FA61A2DA828ED0020B0B3 /* Project object */;
+}
