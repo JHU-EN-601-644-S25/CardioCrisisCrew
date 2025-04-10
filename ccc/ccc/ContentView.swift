@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var showInvalidAlert = false
-    @State private var navigateToMain = false
+    @State private var navigateToHome = false
 
     let validUsers = [
         User(username: "admin", password: "admin123", role: "ADMIN"),
@@ -29,13 +29,15 @@ struct ContentView: View {
 
                 TextField("Username", text: $username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal)
 
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal)
 
                 Button("Login") {
                     if validUsers.contains(where: { $0.username == username && $0.password == password }) {
-                        navigateToMain = true
+                        navigateToHome = true
                     } else {
                         showInvalidAlert = true
                     }
@@ -43,7 +45,7 @@ struct ContentView: View {
                 .padding()
                 .buttonStyle(.borderedProminent)
 
-                NavigationLink(destination: MainView(), isActive: $navigateToMain) {
+                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
                     EmptyView()
                 }
             }

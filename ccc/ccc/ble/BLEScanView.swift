@@ -8,13 +8,50 @@ import SwiftUI
 
 struct BLEScanView: View {
     @StateObject private var scanner = BLEScanner()
-
+    @Environment(\.presentationMode) var presentationMode
+    @State private var selectedDevice: BLEDevice? = nil
+    @State private var showConnectionView = false
+    
     var body: some View {
         VStack {
+            HStack {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "arrow.left")
+                        .padding()
+                }
+                
+                Spacer()
+                
+                Text("Available Devices")
+                    .font(.headline)
+                
+                Spacer()
+                
+                // Empty view for balance
+                Image(systemName: "arrow.left")
+                    .padding()
+                    .opacity(0)
+            }
+            
             Text(scanner.status)
                 .font(.subheadline)
                 .padding(.top)
-
+            
+            if scanner.devices.isEmpty && scanner.scanning {
+                Text("Searching for devices...")
+                    .foregroundColor(.secondary)
+                    .padding()
+                
+                ProgressView()
+                    .padding()
+            } else if scanner.devices.isEmpty {
+                Text("No devices found")
+                    .foregroundColor(.secondary)
+                    .padding()
+            }
+            
             List(scanner.devices) { device in
                 VStack(alignment: .leading) {
                     Text(device.name)
@@ -28,20 +65,40 @@ struct BLEScanView: View {
                 }
                 .padding(.vertical, 4)
                 .onTapGesture {
-                    // TODO: Handle connection
-                    scanner.status = "Tapped \(device.name)"
+                    selectedDevice = device
+                    showConnectionView = true
                 }
             }
-
+            
             Button(scanner.scanning ? "Stop Scan" : "Start Scan") {
                 scanner.scanning ? scanner.stopScan() : scanner.startScan()
             }
             .padding()
+            .frame(minWidth: 200)
             .background(scanner.scanning ? Color.red : Color.blue)
             .foregroundColor(.white)
-            .clipShape(Capsule())
+            .cornerRadius(10)
+            .padding(.bottom)
         }
         .navigationTitle("BLE Scan")
+        .navigationBarHidden(true)
         .padding()
+        .onAppear {
+            // Auto-start scanning when view appears
+            if !scanner.scanning {
+                scanner.startScan()
+            }
+        }
+        .onDisappear {
+            // Stop scanning when view disappears
+            if scanner.scanning {
+                scanner.stopScan()
+            }
+        }
+        .sheet(isPresented: $showConnectionView) {
+            if let device = selectedDevice {
+                BLEConnectionView(device: device)
+            }
+        }
     }
 }
