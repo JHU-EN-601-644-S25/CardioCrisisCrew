@@ -1,0 +1,178 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.cardiocrisis"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="35" />
+10
+11    <!-- BLE permissions -->
+12    <uses-permission android:name="android.permission.BLUETOOTH" />
+12-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:6:5-68
+12-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:6:22-65
+13    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+13-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:7:5-74
+13-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:7:22-71
+14    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+14-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:8:5-76
+14-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:8:22-73
+15    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+15-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:9:5-73
+15-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:9:22-70
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:10:5-79
+16-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:10:22-76
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:11:5-81
+17-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:11:22-78
+18
+19    <!-- Declare that the app uses BLE -->
+20    <uses-feature
+20-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:14:5-89
+21        android:name="android.hardware.bluetooth_le"
+21-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:14:19-63
+22        android:required="true" />
+22-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:14:64-87
+23
+24    <permission
+24-->[androidx.core:core:1.10.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/af92ac0a9b1d736ae85ff49909aea5aa/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+25        android:name="com.example.cardiocrisis.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25-->[androidx.core:core:1.10.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/af92ac0a9b1d736ae85ff49909aea5aa/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+26        android:protectionLevel="signature" />
+26-->[androidx.core:core:1.10.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/af92ac0a9b1d736ae85ff49909aea5aa/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+27
+28    <uses-permission android:name="com.example.cardiocrisis.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28-->[androidx.core:core:1.10.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/af92ac0a9b1d736ae85ff49909aea5aa/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+28-->[androidx.core:core:1.10.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/af92ac0a9b1d736ae85ff49909aea5aa/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+29
+30    <application
+30-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:16:5-49:19
+31        android:allowBackup="true"
+31-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:17:9-35
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.10.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/af92ac0a9b1d736ae85ff49909aea5aa/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+33        android:dataExtractionRules="@xml/data_extraction_rules"
+33-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:18:9-65
+34        android:debuggable="true"
+35        android:extractNativeLibs="false"
+36        android:fullBackupContent="@xml/backup_rules"
+36-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:19:9-54
+37        android:icon="@mipmap/ic_launcher"
+37-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:20:9-43
+38        android:label="@string/app_name"
+38-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:21:9-41
+39        android:roundIcon="@mipmap/ic_launcher_round"
+39-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:22:9-54
+40        android:supportsRtl="true"
+40-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:23:9-35
+41        android:testOnly="true"
+42        android:theme="@style/Theme.CardioCrisis" >
+42-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:24:9-50
+43        <activity
+43-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:27:9-34:20
+44            android:name="com.example.cardiocrisis.LoginActivity"
+44-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:28:13-42
+45            android:exported="true" >
+45-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:29:13-36
+46            <intent-filter>
+46-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:30:13-33:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:31:17-69
+47-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:31:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:32:17-77
+49-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:32:27-74
+50            </intent-filter>
+51        </activity>
+52        <activity
+52-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:36:9-38:40
+53            android:name="com.example.cardiocrisis.MainActivity"
+53-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:37:13-41
+54            android:exported="false" />
+54-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:38:13-37
+55        <activity
+55-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:40:9-42:40
+56            android:name="com.example.cardiocrisis.ble.DeviceScanActivity"
+56-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:41:13-51
+57            android:exported="false" />
+57-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:42:13-37
+58        <activity
+58-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:44:9-47:40
+59            android:name="com.example.cardiocrisis.ble.DeviceConnectionActivity"
+59-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:45:13-57
+60            android:exported="false"
+60-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:47:13-37
+61            android:label="Device Connection" />
+61-->/Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/src/main/AndroidManifest.xml:46:13-46
+62
+63        <provider
+63-->[androidx.emoji2:emoji2:1.2.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d016d729f933b657973589ffd344154d/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+64            android:name="androidx.startup.InitializationProvider"
+64-->[androidx.emoji2:emoji2:1.2.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d016d729f933b657973589ffd344154d/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+65            android:authorities="com.example.cardiocrisis.androidx-startup"
+65-->[androidx.emoji2:emoji2:1.2.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d016d729f933b657973589ffd344154d/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+66            android:exported="false" >
+66-->[androidx.emoji2:emoji2:1.2.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d016d729f933b657973589ffd344154d/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+67            <meta-data
+67-->[androidx.emoji2:emoji2:1.2.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d016d729f933b657973589ffd344154d/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+68-->[androidx.emoji2:emoji2:1.2.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d016d729f933b657973589ffd344154d/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+69                android:value="androidx.startup" />
+69-->[androidx.emoji2:emoji2:1.2.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d016d729f933b657973589ffd344154d/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+70            <meta-data
+70-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/036158f47c0e7cdab480424aeb0140b5/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+71-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/036158f47c0e7cdab480424aeb0140b5/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+72                android:value="androidx.startup" />
+72-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/036158f47c0e7cdab480424aeb0140b5/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+73            <meta-data
+73-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+74                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+75                android:value="androidx.startup" />
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+76        </provider>
+77
+78        <receiver
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+79            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+80            android:directBootAware="false"
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+81            android:enabled="true"
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+82            android:exported="true"
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+83            android:permission="android.permission.DUMP" >
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+85                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+88                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+91                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+92            </intent-filter>
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+94                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/lilywheeler/.gradle/caches/8.10.2/transforms/d055049ab9ee3ac5df18bf010461a088/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+95            </intent-filter>
+96        </receiver>
+97    </application>
+98
+99</manifest>
