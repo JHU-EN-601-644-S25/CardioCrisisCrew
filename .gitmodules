@@ -1,0 +1,3 @@
+[submodule "external/gobbledegook"]
+	path = external/gobbledegook
+	url = https://github.com/nettlep/gobbledegook.git
