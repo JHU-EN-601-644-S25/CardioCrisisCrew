@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AWSCore
+import AWSCognitoAuth
+
 
 
 struct ContentView: View {
