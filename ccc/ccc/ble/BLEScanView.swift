@@ -9,8 +9,12 @@ import SwiftUI
 struct BLEScanView: View {
     @StateObject private var scanner = BLEScanner()
     @Environment(\.presentationMode) var presentationMode
-    @State private var selectedDevice: BLEDevice? = nil
+    @Binding var selectedDevice: BLEDevice?
     @State private var showConnectionView = false
+    
+    init(selectedDevice: Binding<BLEDevice?> = .constant(nil)) {
+        _selectedDevice = selectedDevice
+    }
     
     var body: some View {
         VStack {
@@ -66,7 +70,7 @@ struct BLEScanView: View {
                 .padding(.vertical, 4)
                 .onTapGesture {
                     selectedDevice = device
-                    showConnectionView = true
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
             

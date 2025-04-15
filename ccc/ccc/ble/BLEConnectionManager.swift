@@ -14,13 +14,13 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     
     private var centralManager: CBCentralManager!
     var peripheral: CBPeripheral?
-    private var deviceIdentifier: UUID
+    var deviceIdentifier: UUID
     private var connectionTimer: Timer?
     private let connectionTimeout: TimeInterval = 10.0 // 10 seconds timeout
     
     // Add these properties for Raspberry Pi specific communication
-    private var targetServiceUUID: CBUUID
-    private var targetCharacteristicUUID: CBUUID
+    var targetServiceUUID: CBUUID
+    var targetCharacteristicUUID: CBUUID
     private var targetCharacteristic: CBCharacteristic?
     
     // AWS API Service
