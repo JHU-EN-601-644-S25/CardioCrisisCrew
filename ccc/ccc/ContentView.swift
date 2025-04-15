@@ -93,8 +93,8 @@ struct ContentView: View {
     // MARK: - Cognito Login Function
 
     func loginWithCognito(username: String, password: String) async -> Bool {
-        let clientId = "your_cognito_app_client_id"  // Replace with your actual App Client ID
-        let region = "your_aws_region"               // e.g. "us-east-1"
+        let clientId = "7g0tcvh99nrkp5k0q790krqefr"  // Replace with your actual App Client ID
+        let region = "us-east-2"               // e.g. "us-east-1"
 
         do {
             let config = try await CognitoIdentityProviderClient.CognitoIdentityProviderClientConfiguration(region: region)
