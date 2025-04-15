@@ -113,7 +113,7 @@ struct ContentView: View {
             
 
             if let token = response.authenticationResult?.accessToken {
-                print("Login succeeded. Access token: \(token)")
+                print("Login succeeded.")
                 // Store token securely as needed
                 return true
             } else {

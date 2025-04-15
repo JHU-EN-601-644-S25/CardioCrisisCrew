@@ -15,7 +15,7 @@ class AWSAPIService {
     
     // For testing purposes - will be replaced with actual data from Raspberry Pi
     static let dummyPatientData = PatientData(
-        patientId: "12345ABC",
+        patientId: "CURRENT",
         firstName: "John",
         lastName: "Doe",
         sex: "male",
