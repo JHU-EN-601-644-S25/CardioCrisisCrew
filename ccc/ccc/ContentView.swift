@@ -5,26 +5,24 @@
 //  Created by Lily Wheeler on 4/8/25.
 //
 
+//
+//  ContentView.swift
+//  ccc
+//
+//  Created by Lily Wheeler on 4/8/25.
+//
+
 import SwiftUI
-import AWSCore
-import AWSCognitoAuth
-
-
+import AWSCognitoIdentityProvider
+import AWSClientRuntime
 
 struct ContentView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var showInvalidAlert = false
     @State private var navigateToHome = false
-    
-    // Keep the validUsers for now, but we'll implement a better auth system later
-    let validUsers = [
-        User(username: "admin", password: "admin123", role: "ADMIN"),
-        User(username: "Admin", password: "admin123", role: "ADMIN"),
-        User(username: "user", password: "user123", role: "USER")
-    ]
-    
     @State private var currentUser: User?
+    @State private var isLoading = false
 
     var body: some View {
         NavigationView {
@@ -34,11 +32,11 @@ struct ContentView: View {
                     .frame(width: 80, height: 80)
                     .foregroundColor(.red)
                     .padding(.bottom, 10)
-                
+
                 Text("Cardio Crisis Crew")
                     .font(.title)
                     .bold()
-                
+
                 Text("ECG Monitoring System")
                     .font(.subheadline)
                     .foregroundColor(.gray)
@@ -53,21 +51,34 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
 
-                Button("Login") {
-                    if let user = validUsers.first(where: { $0.username == username && $0.password == password }) {
-                        currentUser = user
-                        navigateToHome = true
-                    } else {
-                        showInvalidAlert = true
+                if isLoading {
+                    ProgressView()
+                        .padding()
+                } else {
+                    Button("Login") {
+                        Task {
+                            isLoading = true
+                            let success = await loginWithCognito(username: username, password: password)
+                            isLoading = false
+                            if success {
+                                currentUser = User(username: username, role: "USER") // Customize role logic as needed
+                                navigateToHome = true
+                            } else {
+                                showInvalidAlert = true
+                            }
+                        }
                     }
+                    .padding()
+                    .frame(width: 200)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
                 }
-                .padding()
-                .frame(width: 200)
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
 
-                NavigationLink(destination: HomeView(user: currentUser ?? User(username: "", password: "", role: "")), isActive: $navigateToHome) {
+                NavigationLink(
+                    destination: HomeView(user: currentUser ?? User(username: "", role: "")),
+                    isActive: $navigateToHome
+                ) {
                     EmptyView()
                 }
             }
@@ -78,13 +89,47 @@ struct ContentView: View {
             }
         }
     }
-    
+
+    // MARK: - Cognito Login Function
+
+    func loginWithCognito(username: String, password: String) async -> Bool {
+        let clientId = "your_cognito_app_client_id"  // Replace with your actual App Client ID
+        let region = "your_aws_region"               // e.g. "us-east-1"
+
+        do {
+            let config = try await CognitoIdentityProviderClient.CognitoIdentityProviderClientConfiguration(region: region)
+            let client = CognitoIdentityProviderClient(config: config)
+
+            let input = InitiateAuthInput(
+                authFlow: .userPasswordAuth,
+                authParameters: [
+                    "USERNAME": username,
+                    "PASSWORD": password
+                ],
+                clientId: clientId
+            )
+
+            let response = try await client.initiateAuth(input: input)
+
+            if let token = response.authenticationResult?.accessToken {
+                print("Login succeeded. Access token: \(token)")
+                // Store token securely as needed
+                return true
+            } else {
+                print("Login failed: no access token returned.")
+                return false
+            }
+        } catch {
+            print("Login error: \(error)")
+            return false
+        }
+    }
+
+    // MARK: - Local User Struct (used only to pass to HomeView)
+
     struct User: Identifiable {
         let id = UUID()
         let username: String
-        let password: String
         let role: String
     }
 }
-
-

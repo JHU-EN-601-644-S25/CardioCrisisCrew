@@ -344,6 +344,6 @@ struct HealthTipView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(user: ContentView.User(username: "admin", password: "", role: "ADMIN"))
+        HomeView(user: ContentView.User(username: "admin", role: "ADMIN"))
     }
 } 

@@ -7,14 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB5FA7082DAECD370020B0B3 /* AWSAppleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA7072DAECD370020B0B3 /* AWSAppleSignIn */; };
-		AB5FA70A2DAECD370020B0B3 /* AWSAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA7092DAECD370020B0B3 /* AWSAuthCore */; };
-		AB5FA70C2DAECD370020B0B3 /* AWSAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA70B2DAECD370020B0B3 /* AWSAuthUI */; };
-		AB5FA70E2DAECD370020B0B3 /* AWSCognitoAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA70D2DAECD370020B0B3 /* AWSCognitoAuth */; };
-		AB5FA7102DAECD370020B0B3 /* AWSCognitoIdentityProvider in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA70F2DAECD370020B0B3 /* AWSCognitoIdentityProvider */; };
-		AB5FA7122DAECD370020B0B3 /* AWSCognitoIdentityProviderASF in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA7112DAECD370020B0B3 /* AWSCognitoIdentityProviderASF */; };
-		AB5FA7142DAECD370020B0B3 /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA7132DAECD370020B0B3 /* AWSCore */; };
-		AB5FA7162DAECD370020B0B3 /* AWSUserPoolsSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA7152DAECD370020B0B3 /* AWSUserPoolsSignIn */; };
+		AB5FA7242DAF03950020B0B3 /* AWSClientRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA7232DAF03950020B0B3 /* AWSClientRuntime */; };
+		AB5FA7282DAF03950020B0B3 /* AWSCognitoIdentityProvider in Frameworks */ = {isa = PBXBuildFile; productRef = AB5FA7272DAF03950020B0B3 /* AWSCognitoIdentityProvider */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,14 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB5FA7142DAECD370020B0B3 /* AWSCore in Frameworks */,
-				AB5FA7162DAECD370020B0B3 /* AWSUserPoolsSignIn in Frameworks */,
-				AB5FA7122DAECD370020B0B3 /* AWSCognitoIdentityProviderASF in Frameworks */,
-				AB5FA70C2DAECD370020B0B3 /* AWSAuthUI in Frameworks */,
-				AB5FA7082DAECD370020B0B3 /* AWSAppleSignIn in Frameworks */,
-				AB5FA70E2DAECD370020B0B3 /* AWSCognitoAuth in Frameworks */,
-				AB5FA7102DAECD370020B0B3 /* AWSCognitoIdentityProvider in Frameworks */,
-				AB5FA70A2DAECD370020B0B3 /* AWSAuthCore in Frameworks */,
+				AB5FA7242DAF03950020B0B3 /* AWSClientRuntime in Frameworks */,
+				AB5FA7282DAF03950020B0B3 /* AWSCognitoIdentityProvider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +98,7 @@
 				AB5FA52A2DA6001B0020B0B3 /* ccc */,
 				AB5FA5382DA6001C0020B0B3 /* cccTests */,
 				AB5FA5422DA6001C0020B0B3 /* cccUITests */,
+				AB5FA7202DAEFE870020B0B3 /* Frameworks */,
 				AB5FA5292DA6001B0020B0B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,6 +111,13 @@
 				AB5FA53F2DA6001C0020B0B3 /* cccUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AB5FA7202DAEFE870020B0B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,20 +134,16 @@
 			buildRules = (
 			);
 			dependencies = (
+				AB5FA72C2DAF04F50020B0B3 /* PBXTargetDependency */,
+				AB5FA72A2DAF04E90020B0B3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				AB5FA52A2DA6001B0020B0B3 /* ccc */,
 			);
 			name = ccc;
 			packageProductDependencies = (
-				AB5FA7072DAECD370020B0B3 /* AWSAppleSignIn */,
-				AB5FA7092DAECD370020B0B3 /* AWSAuthCore */,
-				AB5FA70B2DAECD370020B0B3 /* AWSAuthUI */,
-				AB5FA70D2DAECD370020B0B3 /* AWSCognitoAuth */,
-				AB5FA70F2DAECD370020B0B3 /* AWSCognitoIdentityProvider */,
-				AB5FA7112DAECD370020B0B3 /* AWSCognitoIdentityProviderASF */,
-				AB5FA7132DAECD370020B0B3 /* AWSCore */,
-				AB5FA7152DAECD370020B0B3 /* AWSUserPoolsSignIn */,
+				AB5FA7232DAF03950020B0B3 /* AWSClientRuntime */,
+				AB5FA7272DAF03950020B0B3 /* AWSCognitoIdentityProvider */,
 			);
 			productName = ccc;
 			productReference = AB5FA5282DA6001B0020B0B3 /* ccc.app */;
@@ -236,7 +228,7 @@
 			mainGroup = AB5FA51F2DA6001B0020B0B3;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+				AB5FA7222DAF03950020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AB5FA5292DA6001B0020B0B3 /* Products */;
@@ -308,6 +300,14 @@
 			isa = PBXTargetDependency;
 			target = AB5FA5272DA6001B0020B0B3 /* ccc */;
 			targetProxy = AB5FA5402DA6001C0020B0B3 /* PBXContainerItemProxy */;
+		};
+		AB5FA72A2DAF04E90020B0B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = AB5FA7292DAF04E90020B0B3 /* AWSClientRuntime */;
+		};
+		AB5FA72C2DAF04F50020B0B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = AB5FA72B2DAF04F50020B0B3 /* AWSCognitoIdentityProvider */;
 		};
 /* End PBXTargetDependency section */
 
@@ -436,9 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ccc/ccc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8VAHQABJFS;
+				DEVELOPMENT_TEAM = MP823WVYJK;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -456,7 +457,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = jason.ccc;
+				PRODUCT_BUNDLE_IDENTIFIER = lily.ccc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -469,9 +470,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ccc/ccc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8VAHQABJFS;
+				DEVELOPMENT_TEAM = MP823WVYJK;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -489,7 +491,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = jason.ccc;
+				PRODUCT_BUNDLE_IDENTIFIER = lily.ccc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -607,56 +609,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
+		AB5FA7222DAF03950020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
+			repositoryURL = "https://github.com/awslabs/aws-sdk-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.40.1;
+				minimumVersion = 1.2.59;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AB5FA7072DAECD370020B0B3 /* AWSAppleSignIn */ = {
+		AB5FA7232DAF03950020B0B3 /* AWSClientRuntime */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSAppleSignIn;
+			package = AB5FA7222DAF03950020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-swift" */;
+			productName = AWSClientRuntime;
 		};
-		AB5FA7092DAECD370020B0B3 /* AWSAuthCore */ = {
+		AB5FA7272DAF03950020B0B3 /* AWSCognitoIdentityProvider */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSAuthCore;
-		};
-		AB5FA70B2DAECD370020B0B3 /* AWSAuthUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSAuthUI;
-		};
-		AB5FA70D2DAECD370020B0B3 /* AWSCognitoAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSCognitoAuth;
-		};
-		AB5FA70F2DAECD370020B0B3 /* AWSCognitoIdentityProvider */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			package = AB5FA7222DAF03950020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-swift" */;
 			productName = AWSCognitoIdentityProvider;
 		};
-		AB5FA7112DAECD370020B0B3 /* AWSCognitoIdentityProviderASF */ = {
+		AB5FA7292DAF04E90020B0B3 /* AWSClientRuntime */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSCognitoIdentityProviderASF;
+			package = AB5FA7222DAF03950020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-swift" */;
+			productName = AWSClientRuntime;
 		};
-		AB5FA7132DAECD370020B0B3 /* AWSCore */ = {
+		AB5FA72B2DAF04F50020B0B3 /* AWSCognitoIdentityProvider */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSCore;
-		};
-		AB5FA7152DAECD370020B0B3 /* AWSUserPoolsSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB5FA7062DAECD370020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSUserPoolsSignIn;
+			package = AB5FA7222DAF03950020B0B3 /* XCRemoteSwiftPackageReference "aws-sdk-swift" */;
+			productName = AWSCognitoIdentityProvider;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
