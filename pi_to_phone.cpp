@@ -1,86 +1,87 @@
+// pi_to_phone.cpp  –  minimal bridge to the built‑in  /text/string  characteristic
 #include <iostream>
-#include <string.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <signal.h>
-#include <iostream>
+#include <string>
 #include <thread>
-#include <sstream>
-#include "external/gobbledegook/include/Gobbledegook.h"
-#include <arpa/inet.h>  //INADDR_ANY
+#include <mutex>
+#include <unistd.h>
+#include <arpa/inet.h>
 #include <netinet/in.h>
 
-void LogError(const char *pText) { std::cout << "!!ERROR: " << pText << std::endl; }
+#include "external/gobbledegook/include/Gobbledegook.h"
 
-static std::string data;
-int server_fd, new_socket;
-struct sockaddr_in address;
-int addrlen = sizeof(address);
-char buffer[1024] = {0};
+// ────────────── globals ──────────────
+static std::string latest = "Hello, world!";   // initial value matches sample
+static std::mutex  latestMtx;
 
-const void* MyDataGetter(const char* pName) {
-    	if (pName == nullptr)
-	{
-		LogError("NULL name sent to server data getter");
-		return nullptr;
-	}
+constexpr uint16_t TCP_PORT = 5000;
+static const char *CHAR_PATH = "/com/gobbledegook/text/string"; // path in sample server
 
-	std::cout << "waiting for connection" << std::endl;
-	new_socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen);
-	if (new_socket < 0) {
-		perror("accept failed");
-		return nullptr;
-	}
+// ────────────── TCP listener ─────────
+void socketListener()
+{
+    int server_fd = socket(AF_INET, SOCK_STREAM, 0);
+    sockaddr_in addr{};
+    addr.sin_family      = AF_INET;
+    addr.sin_addr.s_addr = INADDR_ANY;
+    addr.sin_port        = htons(TCP_PORT);
 
-	//read data from Python server
-    	std::cout <<"about to read data" << std::endl;
-	int valread = read(new_socket, buffer, 1024);
-    	if (valread > 0) {
-        	data = std::string(buffer, valread);
-		std::cout << "received data: " << data << std::endl;
-    	} else {
-		std::cout << "failed to read data" << std::endl;
-	}
-	close(new_socket);
-    	return data.c_str();
-}
+    bind(server_fd, (sockaddr *)&addr, sizeof(addr));
+    listen(server_fd, 3);
 
-//receives data from client
-int MyDataSetter(const char* pName,const void *pData) {
-	std::string incomingData((const char*)pData);
+    char buf[1024];
 
-    	//end data to Python server to handle it
-    	std::cout << "Setting data " << pName << std::endl;
-    
-    	return 1;
-}
+    while (true)
+    {
+        int client = accept(server_fd, nullptr, nullptr);
+        if (client < 0) continue;
 
+        int n = read(client, buf, sizeof(buf));
+        close(client);
 
-int main() {
-	ggkLogRegisterInfo([](const char* msg) {
-                std::cout << "[GG INFO] " << msg << std::endl;
-        });
-        
-        ggkLogRegisterError(LogError);
+        if (n > 0)
+        {
+            std::lock_guard<std::mutex> lock(latestMtx);
+            latest.assign(buf, n);
 
-        if (!ggkStart("gobbledegook", "Gobbledegook", "Gobbledegook", MyDataGetter, MyDataSetter, 5000)) {
-                std::cerr << "failed to start server" << std::endl;
-                return -1;
+            // tell Gobbledegook the value changed
+            ggkNofifyUpdatedCharacteristic(CHAR_PATH);
         }
+    }
+}
 
-	server_fd = socket(AF_INET, SOCK_STREAM, 0);
-	address.sin_family = AF_INET;
-	address.sin_addr.s_addr = INADDR_ANY;
-	address.sin_port = htons(5000);
+// ────────────── GGK delegates ────────
+const void *dataGetter(const char *name)
+{
+    if (std::string(name) == "text/string")   // sample server asks for this key
+    {
+        std::lock_guard<std::mutex> lock(latestMtx);
+        return latest.c_str();                // must point to stable memory
+    }
+    return nullptr;
+}
 
-	bind(server_fd, (struct sockaddr*)&address, sizeof(address));
-	listen(server_fd, 3);
-	//new_socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen);
+int dataSetter(const char *, const void *)    // not used, but must exist
+{
+    return 1;
+}
 
-    while (true) {
-        sleep(1);
+// ────────────── main ─────────────────
+int main()
+{
+    std::thread(socketListener).detach();     // start background TCP listener
+
+    // optional console logging
+    ggkLogRegisterInfo([](const char *m){ std::cout << "[GG INFO] " << m << '\n'; });
+    ggkLogRegisterError([](const char *m){ std::cout << "!!ERROR: " << m << '\n'; });
+
+    // start the built‑in sample server (no custom services needed)
+    if (!ggkStart("gobbledegook", "Gobbledegook", "Gobbledegook",
+                  dataGetter, dataSetter, 5000))
+    {
+        std::cerr << "failed to start server\n";
+        return 1;
     }
 
+    pause();                                   // keep main thread alive
     return 0;
 }
