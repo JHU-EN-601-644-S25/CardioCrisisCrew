@@ -36,7 +36,7 @@ struct ECGDataRequest: Codable {
     let sex: String
     let age: Int
     let ecgTimestamp: String?
-    let ecgData: [Int]?
+    let ecgData: [Double]?
     
     enum CodingKeys: String, CodingKey {
         case patientId = "patient_id"
@@ -48,7 +48,7 @@ struct ECGDataRequest: Codable {
         case ecgData = "ecg_data"
     }
     
-    init(patientData: PatientData, ecgTimestamp: String? = nil, ecgData: [Int]? = nil) {
+    init(patientData: PatientData, ecgTimestamp: String? = nil, ecgData: [Double]? = nil) {
         self.patientId = patientData.patientId
         self.firstName = patientData.firstName
         self.lastName = patientData.lastName

@@ -226,9 +226,14 @@ struct BLEConnectionView: View {
         }
         .sheet(isPresented: $showPatientForm) {
             PatientFormView(patientInfo: $patientInfo, isPresented: $showPatientForm) { patientData in
-                // Parse ECG data from receivedData if needed
-                // For now, use dummy ECG data
-                let ecgData = AWSAPIService.dummyECGData
+                // Parse the received data into doubles
+                let components = connectionManager.receivedData.components(separatedBy: CharacterSet(charactersIn: ", \n"))
+                let ecgData = components.compactMap { component -> Double? in
+                    let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
+                    // Remove 'V' suffix if present
+                    let voltageString = trimmed.replacingOccurrences(of: "V", with: "").trimmingCharacters(in: .whitespaces)
+                    return Double(voltageString)
+                }
                 
                 // Send the data to AWS
                 connectionManager.sendDataToAWS(patientData: patientData, ecgData: ecgData)

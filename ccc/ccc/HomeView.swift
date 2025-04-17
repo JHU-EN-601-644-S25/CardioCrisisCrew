@@ -253,20 +253,61 @@ struct HomeView: View {
     }
     
     // Helper function to parse ECG data for upload to AWS
-    private func parseECGDataForUpload() -> [Int] {
+    private func parseECGDataForUpload() -> [Double] {
         let receivedData = connectionManager.receivedData
+        print("Parsing data for upload: \(receivedData)")
         
-        // Try to parse as comma-separated values
+        // First try to parse as voltage values (e.g., "0.066V 2.265 V")
         let components = receivedData.components(separatedBy: CharacterSet(charactersIn: ", \n"))
-        let validComponents = components.compactMap { Int($0.trimmingCharacters(in: .whitespacesAndNewlines)) }
+        let validComponents = components.compactMap { component -> Double? in
+            let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
+            // Remove 'V' suffix
+            let voltageString = trimmed.replacingOccurrences(of: "V", with: "").trimmingCharacters(in: .whitespaces)
+            if let voltage = Double(voltageString) {
+                return voltage
+            }
+            return nil
+        }
         
-        // If we have valid numeric data, return it
         if !validComponents.isEmpty {
+            print("Successfully parsed voltage values: \(validComponents)")
             return validComponents
         }
         
-        // If we can't parse the data, return dummy data
-        return AWSAPIService.dummyECGData
+        // If that fails, try to parse as regular numbers
+        let numberComponents = components.compactMap { component -> Double? in
+            let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
+            if let value = Double(trimmed) {
+                return value
+            }
+            return nil
+        }
+        
+        if !numberComponents.isEmpty {
+            print("Successfully parsed numeric values: \(numberComponents)")
+            return numberComponents
+        }
+        
+        // If that fails, try to parse as hex values
+        if receivedData.contains(" ") {
+            let hexComponents = receivedData.components(separatedBy: " ")
+            let values = hexComponents.compactMap { component -> Double? in
+                let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
+                if let value = UInt8(trimmed, radix: 16) {
+                    return Double(value)
+                }
+                return nil
+            }
+            
+            if !values.isEmpty {
+                print("Successfully parsed hex values: \(values)")
+                return values
+            }
+        }
+        
+        // If all parsing attempts fail, log the error and return empty array
+        print("Failed to parse ECG data. Raw data: \(receivedData)")
+        return []
     }
 }
 

@@ -25,7 +25,7 @@ class AWSAPIService {
     static let dummyECGData = [1, 2, 3, 4, -1, -2, -3, -4]
     
     // POST ECG data to AWS
-    func postECGData(patientData: PatientData, ecgData: [Int]) -> AnyPublisher<Bool, APIError> {
+    func postECGData(patientData: PatientData, ecgData: [Double]) -> AnyPublisher<Bool, APIError> {
         guard let url = URL(string: baseURL) else {
             return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }

@@ -113,12 +113,15 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     
     // MARK: - AWS API Integration
     
-    func sendDataToAWS(patientData: PatientData? = nil, ecgData: [Int]? = nil) {
+    func sendDataToAWS(patientData: PatientData? = nil, ecgData: [Double]? = nil) {
         // Use provided patient data or dummy data
         let patientInfo = patientData ?? AWSAPIService.dummyPatientData
         
-        // Use provided ECG data or dummy data
-        let ecgValues = ecgData ?? AWSAPIService.dummyECGData
+        // Use provided ECG data, but don't fall back to dummy data
+        guard let ecgValues = ecgData, !ecgValues.isEmpty else {
+            apiStatus = "No ECG data available to upload"
+            return
+        }
         
         isUploadingData = true
         apiStatus = "Uploading data to AWS..."
@@ -300,13 +303,13 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         if characteristic.uuid == targetCharacteristicUUID, let data = characteristic.value {
             // Try to convert the data to a string
             if let string = String(data: data, encoding: .utf8) {
+                print("Received UTF-8 string: \(string)")
                 receivedData = string
-                
-                // After receiving data from Raspberry Pi, we could send it to AWS
-                // For demonstration purposes, we'll add a button in the UI to trigger this
             } else {
                 // If it's not a string, show the raw data as hex
-                receivedData = data.map { String(format: "%02X", $0) }.joined(separator: " ")
+                let hexString = data.map { String(format: "%02X", $0) }.joined(separator: " ")
+                print("Received hex data: \(hexString)")
+                receivedData = hexString
             }
         }
     }
