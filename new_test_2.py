@@ -8,6 +8,7 @@ from gpiod.line import Direction, Value, Bias
 import sys
 import atexit
 from datetime import datetime
+import socket
 
 LINE = 27
 B_LINE = 21
@@ -68,6 +69,14 @@ with gpiod.request_lines(
 				for v in samples:
 					f.write(f"{v}\n")
 			print(f"Data written to {filename}")
+			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			s.connect(('127.0.0.1', 5000))
+
+			msg_lines = [f"{v:.3f}V" for v in samples]
+			msg = "\n".join(msg_lines).encode('utf-8')
+			s.sendall(msg)
+			print("Data sent successfully.")
+			s.close()
 		else:
 			if collecting:
 				print("Stopping data collection")
