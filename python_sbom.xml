@@ -1,0 +1,3377 @@
+<?xml version="1.0" ?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.5" serialNumber="urn:uuid:d1d05829-b16c-4227-b5e7-8f415eca7cf2" version="1">
+  <metadata>
+    <timestamp>2025-04-30T16:20:18.160112+00:00</timestamp>
+    <tools>
+      <components>
+        <component type="application">
+          <group>CycloneDX</group>
+          <name>cyclonedx-py</name>
+          <version>5.3.0</version>
+          <description>CycloneDX Software Bill of Materials (SBOM) generator for Python projects and environments</description>
+          <licenses>
+            <license>
+              <id>Apache-2.0</id>
+            </license>
+          </licenses>
+          <externalReferences>
+            <reference type="build-system">
+              <url>https://github.com/CycloneDX/cyclonedx-python/actions</url>
+            </reference>
+            <reference type="distribution">
+              <url>https://pypi.org/project/cyclonedx-bom/</url>
+            </reference>
+            <reference type="documentation">
+              <url>https://cyclonedx-bom-tool.readthedocs.io/</url>
+            </reference>
+            <reference type="issue-tracker">
+              <url>https://github.com/CycloneDX/cyclonedx-python/issues</url>
+            </reference>
+            <reference type="license">
+              <url>https://github.com/CycloneDX/cyclonedx-python/blob/main/LICENSE</url>
+            </reference>
+            <reference type="release-notes">
+              <url>https://github.com/CycloneDX/cyclonedx-python/blob/main/CHANGELOG.md</url>
+            </reference>
+            <reference type="vcs">
+              <url>https://github.com/CycloneDX/cyclonedx-python/</url>
+            </reference>
+            <reference type="website">
+              <url>https://github.com/CycloneDX/cyclonedx-python/#readme</url>
+            </reference>
+          </externalReferences>
+        </component>
+        <component type="library">
+          <group>CycloneDX</group>
+          <name>cyclonedx-python-lib</name>
+          <version>9.1.0</version>
+          <description>Python library for CycloneDX</description>
+          <licenses>
+            <license>
+              <id>Apache-2.0</id>
+            </license>
+          </licenses>
+          <externalReferences>
+            <reference type="build-system">
+              <url>https://github.com/CycloneDX/cyclonedx-python-lib/actions</url>
+            </reference>
+            <reference type="distribution">
+              <url>https://pypi.org/project/cyclonedx-python-lib/</url>
+            </reference>
+            <reference type="documentation">
+              <url>https://cyclonedx-python-library.readthedocs.io/</url>
+            </reference>
+            <reference type="issue-tracker">
+              <url>https://github.com/CycloneDX/cyclonedx-python-lib/issues</url>
+            </reference>
+            <reference type="license">
+              <url>https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE</url>
+            </reference>
+            <reference type="release-notes">
+              <url>https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md</url>
+            </reference>
+            <reference type="vcs">
+              <url>https://github.com/CycloneDX/cyclonedx-python-lib</url>
+            </reference>
+            <reference type="website">
+              <url>https://github.com/CycloneDX/cyclonedx-python-lib/#readme</url>
+            </reference>
+          </externalReferences>
+        </component>
+      </components>
+    </tools>
+  </metadata>
+  <components>
+    <component type="library" bom-ref="requirements-L6">
+      <name>Babel</name>
+      <version>2.10.3</version>
+      <description>requirements line 6: Babel==2.10.3</description>
+      <purl>pkg:pypi/babel@2.10.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/Babel/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L27">
+      <name>Flask</name>
+      <version>2.2.2</version>
+      <description>requirements line 27: Flask==2.2.2</description>
+      <purl>pkg:pypi/flask@2.2.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/Flask/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L35">
+      <name>Jinja2</name>
+      <version>3.1.2</version>
+      <description>requirements line 35: Jinja2==3.1.2</description>
+      <purl>pkg:pypi/jinja2@3.1.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/Jinja2/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L44">
+      <name>MarkupSafe</name>
+      <version>2.1.2</version>
+      <description>requirements line 44: MarkupSafe==2.1.2</description>
+      <purl>pkg:pypi/markupsafe@2.1.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/MarkupSafe/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L60">
+      <name>Pillow</name>
+      <version>9.4.0</version>
+      <description>requirements line 60: Pillow==9.4.0</description>
+      <purl>pkg:pypi/pillow@9.4.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/Pillow/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L70">
+      <name>PyGObject</name>
+      <version>3.42.2</version>
+      <description>requirements line 70: PyGObject==3.42.2</description>
+      <purl>pkg:pypi/pygobject@3.42.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/PyGObject/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L72">
+      <name>PyJWT</name>
+      <version>2.6.0</version>
+      <description>requirements line 72: PyJWT==2.6.0</description>
+      <purl>pkg:pypi/pyjwt@2.6.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/PyJWT/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L74">
+      <name>PyOpenGL</name>
+      <version>3.1.6</version>
+      <description>requirements line 74: PyOpenGL==3.1.6</description>
+      <purl>pkg:pypi/pyopengl@3.1.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/PyOpenGL/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L76">
+      <name>PyQt5</name>
+      <version>5.15.9</version>
+      <description>requirements line 76: PyQt5==5.15.9</description>
+      <purl>pkg:pypi/pyqt5@5.15.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/PyQt5/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L77">
+      <name>PyQt5-sip</name>
+      <version>12.11.1</version>
+      <description>requirements line 77: PyQt5-sip==12.11.1</description>
+      <purl>pkg:pypi/pyqt5-sip@12.11.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/PyQt5-sip/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L86">
+      <name>PyYAML</name>
+      <version>6.0</version>
+      <description>requirements line 86: PyYAML==6.0</description>
+      <purl>pkg:pypi/pyyaml@6.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/PyYAML/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L69">
+      <name>Pygments</name>
+      <version>2.14.0</version>
+      <description>requirements line 69: Pygments==2.14.0</description>
+      <purl>pkg:pypi/pygments@2.14.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/Pygments/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L93">
+      <name>RPi.GPIO</name>
+      <version>0.7.1a4</version>
+      <description>requirements line 93: RPi.GPIO==0.7.1a4</description>
+      <purl>pkg:pypi/rpi.gpio@0.7.1a4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/RPi.GPIO/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L94">
+      <name>RTIMULib</name>
+      <version>7.2.1</version>
+      <description>requirements line 94: RTIMULib==7.2.1</description>
+      <purl>pkg:pypi/rtimulib@7.2.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/RTIMULib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L95">
+      <name>Send2Trash</name>
+      <version>1.8.1b0</version>
+      <description>requirements line 95: Send2Trash==1.8.1b0</description>
+      <purl>pkg:pypi/send2trash@1.8.1b0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/Send2Trash/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L251">
+      <name>Werkzeug</name>
+      <version>2.2.2</version>
+      <description>requirements line 251: Werkzeug==2.2.2</description>
+      <purl>pkg:pypi/werkzeug@2.2.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/Werkzeug/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L1">
+      <name>asgiref</name>
+      <version>3.6.0</version>
+      <description>requirements line 1: asgiref==3.6.0</description>
+      <purl>pkg:pypi/asgiref@3.6.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/asgiref/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L2">
+      <name>astroid</name>
+      <version>2.14.2</version>
+      <description>requirements line 2: astroid==2.14.2</description>
+      <purl>pkg:pypi/astroid@2.14.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/astroid/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L3">
+      <name>asttokens</name>
+      <version>2.2.1</version>
+      <description>requirements line 3: asttokens==2.2.1</description>
+      <purl>pkg:pypi/asttokens@2.2.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/asttokens/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L4">
+      <name>attrs</name>
+      <version>22.2.0</version>
+      <description>requirements line 4: attrs==22.2.0</description>
+      <purl>pkg:pypi/attrs@22.2.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/attrs/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L5">
+      <name>av</name>
+      <version>10.0.0</version>
+      <description>requirements line 5: av==10.0.0</description>
+      <purl>pkg:pypi/av@10.0.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/av/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L7">
+      <name>beautifulsoup4</name>
+      <version>4.11.2</version>
+      <description>requirements line 7: beautifulsoup4==4.11.2</description>
+      <purl>pkg:pypi/beautifulsoup4@4.11.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/beautifulsoup4/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L8">
+      <name>blinker</name>
+      <version>1.5</version>
+      <description>requirements line 8: blinker==1.5</description>
+      <purl>pkg:pypi/blinker@1.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/blinker/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L9">
+      <name>bluezero</name>
+      <version>0.9.1</version>
+      <description>requirements line 9: bluezero==0.9.1</description>
+      <purl>pkg:pypi/bluezero@0.9.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/bluezero/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L10">
+      <name>certifi</name>
+      <version>2022.9.24</version>
+      <description>requirements line 10: certifi==2022.9.24</description>
+      <purl>pkg:pypi/certifi@2022.9.24</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/certifi/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L11">
+      <name>chardet</name>
+      <version>5.1.0</version>
+      <description>requirements line 11: chardet==5.1.0</description>
+      <purl>pkg:pypi/chardet@5.1.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/chardet/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L12">
+      <name>charset-normalizer</name>
+      <version>3.0.1</version>
+      <description>requirements line 12: charset-normalizer==3.0.1</description>
+      <purl>pkg:pypi/charset-normalizer@3.0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/charset-normalizer/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L13">
+      <name>click</name>
+      <version>8.1.3</version>
+      <description>requirements line 13: click==8.1.3</description>
+      <purl>pkg:pypi/click@8.1.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/click/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L14">
+      <name>colorama</name>
+      <version>0.4.6</version>
+      <description>requirements line 14: colorama==0.4.6</description>
+      <purl>pkg:pypi/colorama@0.4.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/colorama/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L15">
+      <name>colorzero</name>
+      <version>2.0</version>
+      <description>requirements line 15: colorzero==2.0</description>
+      <purl>pkg:pypi/colorzero@2.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/colorzero/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L16">
+      <name>crit</name>
+      <version>3.17.1</version>
+      <description>requirements line 16: crit==3.17.1</description>
+      <purl>pkg:pypi/crit@3.17.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/crit/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L17">
+      <name>cryptography</name>
+      <version>38.0.4</version>
+      <description>requirements line 17: cryptography==38.0.4</description>
+      <purl>pkg:pypi/cryptography@38.0.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/cryptography/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L18">
+      <name>cupshelpers</name>
+      <version>1.0</version>
+      <description>requirements line 18: cupshelpers==1.0</description>
+      <purl>pkg:pypi/cupshelpers@1.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/cupshelpers/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L19">
+      <name>dbus-python</name>
+      <version>1.3.2</version>
+      <description>requirements line 19: dbus-python==1.3.2</description>
+      <purl>pkg:pypi/dbus-python@1.3.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/dbus-python/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L20">
+      <name>dill</name>
+      <version>0.3.6</version>
+      <description>requirements line 20: dill==0.3.6</description>
+      <purl>pkg:pypi/dill@0.3.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/dill/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L21">
+      <name>distro</name>
+      <version>1.8.0</version>
+      <description>requirements line 21: distro==1.8.0</description>
+      <purl>pkg:pypi/distro@1.8.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/distro/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L22">
+      <name>docker</name>
+      <version>5.0.3</version>
+      <description>requirements line 22: docker==5.0.3</description>
+      <purl>pkg:pypi/docker@5.0.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/docker/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L23">
+      <name>docker-compose</name>
+      <version>1.29.2</version>
+      <description>requirements line 23: docker-compose==1.29.2</description>
+      <purl>pkg:pypi/docker-compose@1.29.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/docker-compose/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L24">
+      <name>dockerpty</name>
+      <version>0.4.1</version>
+      <description>requirements line 24: dockerpty==0.4.1</description>
+      <purl>pkg:pypi/dockerpty@0.4.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/dockerpty/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L25">
+      <name>docopt</name>
+      <version>0.6.2</version>
+      <description>requirements line 25: docopt==0.6.2</description>
+      <purl>pkg:pypi/docopt@0.6.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/docopt/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L26">
+      <name>docutils</name>
+      <version>0.19</version>
+      <description>requirements line 26: docutils==0.19</description>
+      <purl>pkg:pypi/docutils@0.19</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/docutils/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L28">
+      <name>gpiozero</name>
+      <version>2.0.1</version>
+      <description>requirements line 28: gpiozero==2.0.1</description>
+      <purl>pkg:pypi/gpiozero@2.0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/gpiozero/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L29">
+      <name>html5lib</name>
+      <version>1.1</version>
+      <description>requirements line 29: html5lib==1.1</description>
+      <purl>pkg:pypi/html5lib@1.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/html5lib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L30">
+      <name>idna</name>
+      <version>3.3</version>
+      <description>requirements line 30: idna==3.3</description>
+      <purl>pkg:pypi/idna@3.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/idna/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L31">
+      <name>importlib-metadata</name>
+      <version>4.12.0</version>
+      <description>requirements line 31: importlib-metadata==4.12.0</description>
+      <purl>pkg:pypi/importlib-metadata@4.12.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/importlib-metadata/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L32">
+      <name>isort</name>
+      <version>5.6.4</version>
+      <description>requirements line 32: isort==5.6.4</description>
+      <purl>pkg:pypi/isort@5.6.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/isort/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L33">
+      <name>itsdangerous</name>
+      <version>2.1.2</version>
+      <description>requirements line 33: itsdangerous==2.1.2</description>
+      <purl>pkg:pypi/itsdangerous@2.1.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/itsdangerous/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L34">
+      <name>jedi</name>
+      <version>0.18.2</version>
+      <description>requirements line 34: jedi==0.18.2</description>
+      <purl>pkg:pypi/jedi@0.18.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/jedi/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L36">
+      <name>jsonpointer</name>
+      <version>2.3</version>
+      <description>requirements line 36: jsonpointer==2.3</description>
+      <purl>pkg:pypi/jsonpointer@2.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/jsonpointer/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L37">
+      <name>jsonschema</name>
+      <version>4.10.3</version>
+      <description>requirements line 37: jsonschema==4.10.3</description>
+      <purl>pkg:pypi/jsonschema@4.10.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/jsonschema/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L38">
+      <name>lazy-object-proxy</name>
+      <version>1.9.0</version>
+      <description>requirements line 38: lazy-object-proxy==1.9.0</description>
+      <purl>pkg:pypi/lazy-object-proxy@1.9.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/lazy-object-proxy/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L39">
+      <name>lgpio</name>
+      <version>0.2.2.0</version>
+      <description>requirements line 39: lgpio==0.2.2.0</description>
+      <purl>pkg:pypi/lgpio@0.2.2.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/lgpio/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L40">
+      <name>libarchive-c</name>
+      <version>2.9</version>
+      <description>requirements line 40: libarchive-c==2.9</description>
+      <purl>pkg:pypi/libarchive-c@2.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/libarchive-c/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L41">
+      <name>libevdev</name>
+      <version>0.5</version>
+      <description>requirements line 41: libevdev==0.5</description>
+      <purl>pkg:pypi/libevdev@0.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/libevdev/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L42">
+      <name>logilab-common</name>
+      <version>1.9.8</version>
+      <description>requirements line 42: logilab-common==1.9.8</description>
+      <purl>pkg:pypi/logilab-common@1.9.8</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/logilab-common/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L43">
+      <name>lxml</name>
+      <version>4.9.2</version>
+      <description>requirements line 43: lxml==4.9.2</description>
+      <purl>pkg:pypi/lxml@4.9.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/lxml/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L45">
+      <name>mccabe</name>
+      <version>0.7.0</version>
+      <description>requirements line 45: mccabe==0.7.0</description>
+      <purl>pkg:pypi/mccabe@0.7.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/mccabe/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L46">
+      <name>meson</name>
+      <version>1.0.1</version>
+      <description>requirements line 46: meson==1.0.1</description>
+      <purl>pkg:pypi/meson@1.0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/meson/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L47">
+      <name>more-itertools</name>
+      <version>8.10.0</version>
+      <description>requirements line 47: more-itertools==8.10.0</description>
+      <purl>pkg:pypi/more-itertools@8.10.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/more-itertools/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L48">
+      <name>mypy</name>
+      <version>1.0.1</version>
+      <description>requirements line 48: mypy==1.0.1</description>
+      <purl>pkg:pypi/mypy@1.0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/mypy/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L49">
+      <name>mypy-extensions</name>
+      <version>0.4.3</version>
+      <description>requirements line 49: mypy-extensions==0.4.3</description>
+      <purl>pkg:pypi/mypy-extensions@0.4.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/mypy-extensions/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L50">
+      <name>numpy</name>
+      <version>1.24.2</version>
+      <description>requirements line 50: numpy==1.24.2</description>
+      <purl>pkg:pypi/numpy@1.24.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/numpy/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L51">
+      <name>oauthlib</name>
+      <version>3.2.2</version>
+      <description>requirements line 51: oauthlib==3.2.2</description>
+      <purl>pkg:pypi/oauthlib@3.2.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/oauthlib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L52">
+      <name>olefile</name>
+      <version>0.46</version>
+      <description>requirements line 52: olefile==0.46</description>
+      <purl>pkg:pypi/olefile@0.46</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/olefile/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L53">
+      <name>parso</name>
+      <version>0.8.3</version>
+      <description>requirements line 53: parso==0.8.3</description>
+      <purl>pkg:pypi/parso@0.8.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/parso/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L54">
+      <name>pexpect</name>
+      <version>4.8.0</version>
+      <description>requirements line 54: pexpect==4.8.0</description>
+      <purl>pkg:pypi/pexpect@4.8.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pexpect/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L55">
+      <name>pgzero</name>
+      <version>1.2</version>
+      <description>requirements line 55: pgzero==1.2</description>
+      <purl>pkg:pypi/pgzero@1.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pgzero/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L56">
+      <name>picamera2</name>
+      <version>0.3.22</version>
+      <description>requirements line 56: picamera2==0.3.22</description>
+      <purl>pkg:pypi/picamera2@0.3.22</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/picamera2/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L57">
+      <name>pidng</name>
+      <version>4.0.9</version>
+      <description>requirements line 57: pidng==4.0.9</description>
+      <purl>pkg:pypi/pidng@4.0.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pidng/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L58">
+      <name>piexif</name>
+      <version>1.1.3</version>
+      <description>requirements line 58: piexif==1.1.3</description>
+      <purl>pkg:pypi/piexif@1.1.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/piexif/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L59">
+      <name>pigpio</name>
+      <version>1.78</version>
+      <description>requirements line 59: pigpio==1.78</description>
+      <purl>pkg:pypi/pigpio@1.78</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pigpio/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L61">
+      <name>platformdirs</name>
+      <version>2.6.0</version>
+      <description>requirements line 61: platformdirs==2.6.0</description>
+      <purl>pkg:pypi/platformdirs@2.6.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/platformdirs/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L62">
+      <name>protobuf</name>
+      <version>4.21.12</version>
+      <description>requirements line 62: protobuf==4.21.12</description>
+      <purl>pkg:pypi/protobuf@4.21.12</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/protobuf/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L63">
+      <name>psutil</name>
+      <version>5.9.4</version>
+      <description>requirements line 63: psutil==5.9.4</description>
+      <purl>pkg:pypi/psutil@5.9.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/psutil/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L64">
+      <name>ptyprocess</name>
+      <version>0.7.0</version>
+      <description>requirements line 64: ptyprocess==0.7.0</description>
+      <purl>pkg:pypi/ptyprocess@0.7.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/ptyprocess/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L75">
+      <name>pyOpenSSL</name>
+      <version>23.0.0</version>
+      <description>requirements line 75: pyOpenSSL==23.0.0</description>
+      <purl>pkg:pypi/pyopenssl@23.0.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pyOpenSSL/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L65">
+      <name>pycairo</name>
+      <version>1.20.1</version>
+      <description>requirements line 65: pycairo==1.20.1</description>
+      <purl>pkg:pypi/pycairo@1.20.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pycairo/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L66">
+      <name>pycryptodomex</name>
+      <version>3.11.0</version>
+      <description>requirements line 66: pycryptodomex==3.11.0</description>
+      <purl>pkg:pypi/pycryptodomex@3.11.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pycryptodomex/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L67">
+      <name>pycups</name>
+      <version>2.0.1</version>
+      <description>requirements line 67: pycups==2.0.1</description>
+      <purl>pkg:pypi/pycups@2.0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pycups/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L68">
+      <name>pygame</name>
+      <version>2.1.2</version>
+      <description>requirements line 68: pygame==2.1.2</description>
+      <purl>pkg:pypi/pygame@2.1.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pygame/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L71">
+      <name>pyinotify</name>
+      <version>0.9.6</version>
+      <description>requirements line 71: pyinotify==0.9.6</description>
+      <purl>pkg:pypi/pyinotify@0.9.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pyinotify/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L73">
+      <name>pylint</name>
+      <version>2.16.2</version>
+      <description>requirements line 73: pylint==2.16.2</description>
+      <purl>pkg:pypi/pylint@2.16.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pylint/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L78">
+      <name>pyrsistent</name>
+      <version>0.18.1</version>
+      <description>requirements line 78: pyrsistent==0.18.1</description>
+      <purl>pkg:pypi/pyrsistent@0.18.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pyrsistent/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L79">
+      <name>pyserial</name>
+      <version>3.5</version>
+      <description>requirements line 79: pyserial==3.5</description>
+      <purl>pkg:pypi/pyserial@3.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pyserial/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L80">
+      <name>pysmbc</name>
+      <version>1.0.23</version>
+      <description>requirements line 80: pysmbc==1.0.23</description>
+      <purl>pkg:pypi/pysmbc@1.0.23</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pysmbc/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L81">
+      <name>python-apt</name>
+      <version>2.6.0</version>
+      <description>requirements line 81: python-apt==2.6.0</description>
+      <purl>pkg:pypi/python-apt@2.6.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/python-apt/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L82">
+      <name>python-dotenv</name>
+      <version>0.21.0</version>
+      <description>requirements line 82: python-dotenv==0.21.0</description>
+      <purl>pkg:pypi/python-dotenv@0.21.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/python-dotenv/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L83">
+      <name>python-prctl</name>
+      <version>1.8.1</version>
+      <description>requirements line 83: python-prctl==1.8.1</description>
+      <purl>pkg:pypi/python-prctl@1.8.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/python-prctl/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L84">
+      <name>pytz</name>
+      <version>2022.7.1</version>
+      <description>requirements line 84: pytz==2022.7.1</description>
+      <purl>pkg:pypi/pytz@2022.7.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pytz/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L85">
+      <name>pyudev</name>
+      <version>0.24.0</version>
+      <description>requirements line 85: pyudev==0.24.0</description>
+      <purl>pkg:pypi/pyudev@0.24.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/pyudev/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L87">
+      <name>reportlab</name>
+      <version>3.6.12</version>
+      <description>requirements line 87: reportlab==3.6.12</description>
+      <purl>pkg:pypi/reportlab@3.6.12</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/reportlab/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L88">
+      <name>requests</name>
+      <version>2.28.1</version>
+      <description>requirements line 88: requests==2.28.1</description>
+      <purl>pkg:pypi/requests@2.28.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/requests/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L89">
+      <name>requests-oauthlib</name>
+      <version>1.3.0</version>
+      <description>requirements line 89: requests-oauthlib==1.3.0</description>
+      <purl>pkg:pypi/requests-oauthlib@1.3.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/requests-oauthlib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L90">
+      <name>responses</name>
+      <version>0.18.0</version>
+      <description>requirements line 90: responses==0.18.0</description>
+      <purl>pkg:pypi/responses@0.18.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/responses/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L91">
+      <name>rfc3987</name>
+      <version>1.3.8</version>
+      <description>requirements line 91: rfc3987==1.3.8</description>
+      <purl>pkg:pypi/rfc3987@1.3.8</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/rfc3987/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L92">
+      <name>roman</name>
+      <version>3.3</version>
+      <description>requirements line 92: roman==3.3</description>
+      <purl>pkg:pypi/roman@3.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/roman/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L96">
+      <name>sense-hat</name>
+      <version>2.6.0</version>
+      <description>requirements line 96: sense-hat==2.6.0</description>
+      <purl>pkg:pypi/sense-hat@2.6.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/sense-hat/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L97">
+      <name>simplejpeg</name>
+      <version>1.6.6</version>
+      <description>requirements line 97: simplejpeg==1.6.6</description>
+      <purl>pkg:pypi/simplejpeg@1.6.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/simplejpeg/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L98">
+      <name>simplejson</name>
+      <version>3.18.3</version>
+      <description>requirements line 98: simplejson==3.18.3</description>
+      <purl>pkg:pypi/simplejson@3.18.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/simplejson/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L99">
+      <name>six</name>
+      <version>1.16.0</version>
+      <description>requirements line 99: six==1.16.0</description>
+      <purl>pkg:pypi/six@1.16.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/six/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L100">
+      <name>smbus2</name>
+      <version>0.4.2</version>
+      <description>requirements line 100: smbus2==0.4.2</description>
+      <purl>pkg:pypi/smbus2@0.4.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/smbus2/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L101">
+      <name>soupsieve</name>
+      <version>2.3.2</version>
+      <description>requirements line 101: soupsieve==2.3.2</description>
+      <purl>pkg:pypi/soupsieve@2.3.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/soupsieve/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L102">
+      <name>spidev</name>
+      <version>3.5</version>
+      <description>requirements line 102: spidev==3.5</description>
+      <purl>pkg:pypi/spidev@3.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/spidev/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L103">
+      <name>ssh-import-id</name>
+      <version>5.10</version>
+      <description>requirements line 103: ssh-import-id==5.10</description>
+      <purl>pkg:pypi/ssh-import-id@5.10</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/ssh-import-id/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L104">
+      <name>texttable</name>
+      <version>1.6.7</version>
+      <description>requirements line 104: texttable==1.6.7</description>
+      <purl>pkg:pypi/texttable@1.6.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/texttable/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L105">
+      <name>thonny</name>
+      <version>4.1.4</version>
+      <description>requirements line 105: thonny==4.1.4</description>
+      <purl>pkg:pypi/thonny@4.1.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/thonny/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L106">
+      <name>toml</name>
+      <version>0.10.2</version>
+      <description>requirements line 106: toml==0.10.2</description>
+      <purl>pkg:pypi/toml@0.10.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/toml/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L107">
+      <name>tomlkit</name>
+      <version>0.11.7</version>
+      <description>requirements line 107: tomlkit==0.11.7</description>
+      <purl>pkg:pypi/tomlkit@0.11.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/tomlkit/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L108">
+      <name>tqdm</name>
+      <version>4.64.1</version>
+      <description>requirements line 108: tqdm==4.64.1</description>
+      <purl>pkg:pypi/tqdm@4.64.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/tqdm/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L109">
+      <name>twython</name>
+      <version>3.8.2</version>
+      <description>requirements line 109: twython==3.8.2</description>
+      <purl>pkg:pypi/twython@3.8.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/twython/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L133">
+      <name>types-D3DShot</name>
+      <version>0.1</version>
+      <description>requirements line 133: types-D3DShot==0.1</description>
+      <purl>pkg:pypi/types-d3dshot@0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-D3DShot/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L135">
+      <name>types-DateTimeRange</name>
+      <version>1.2</version>
+      <description>requirements line 135: types-DateTimeRange==1.2</description>
+      <purl>pkg:pypi/types-datetimerange@1.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-DateTimeRange/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L137">
+      <name>types-Deprecated</name>
+      <version>1.2</version>
+      <description>requirements line 137: types-Deprecated==1.2</description>
+      <purl>pkg:pypi/types-deprecated@1.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-Deprecated/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L153">
+      <name>types-Flask-Cors</name>
+      <version>3.0</version>
+      <description>requirements line 153: types-Flask-Cors==3.0</description>
+      <purl>pkg:pypi/types-flask-cors@3.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-Flask-Cors/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L154">
+      <name>types-Flask-SQLAlchemy</name>
+      <version>2.5</version>
+      <description>requirements line 154: types-Flask-SQLAlchemy==2.5</description>
+      <purl>pkg:pypi/types-flask-sqlalchemy@2.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-Flask-SQLAlchemy/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L163">
+      <name>types-JACK-Client</name>
+      <version>0.5</version>
+      <description>requirements line 163: types-JACK-Client==0.5</description>
+      <purl>pkg:pypi/types-jack-client@0.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-JACK-Client/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L168">
+      <name>types-Markdown</name>
+      <version>3.4</version>
+      <description>requirements line 168: types-Markdown==3.4</description>
+      <purl>pkg:pypi/types-markdown@3.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-Markdown/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L182">
+      <name>types-Pillow</name>
+      <version>9.3</version>
+      <description>requirements line 182: types-Pillow==9.3</description>
+      <purl>pkg:pypi/types-pillow@9.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-Pillow/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L190">
+      <name>types-PyAutoGUI</name>
+      <version>0.9</version>
+      <description>requirements line 190: types-PyAutoGUI==0.9</description>
+      <purl>pkg:pypi/types-pyautogui@0.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-PyAutoGUI/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L196">
+      <name>types-PyMySQL</name>
+      <version>1.0</version>
+      <description>requirements line 196: types-PyMySQL==1.0</description>
+      <purl>pkg:pypi/types-pymysql@1.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-PyMySQL/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L200">
+      <name>types-PyScreeze</name>
+      <version>0.1</version>
+      <description>requirements line 200: types-PyScreeze==0.1</description>
+      <purl>pkg:pypi/types-pyscreeze@0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-PyScreeze/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L212">
+      <name>types-PyYAML</name>
+      <version>6.0</version>
+      <description>requirements line 212: types-PyYAML==6.0</description>
+      <purl>pkg:pypi/types-pyyaml@6.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-PyYAML/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L194">
+      <name>types-Pygments</name>
+      <version>2.13</version>
+      <description>requirements line 194: types-Pygments==2.13</description>
+      <purl>pkg:pypi/types-pygments@2.13</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-Pygments/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L223">
+      <name>types-SQLAlchemy</name>
+      <version>1.4.43</version>
+      <description>requirements line 223: types-SQLAlchemy==1.4.43</description>
+      <purl>pkg:pypi/types-sqlalchemy@1.4.43</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-SQLAlchemy/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L217">
+      <name>types-Send2Trash</name>
+      <version>1.8</version>
+      <description>requirements line 217: types-Send2Trash==1.8</description>
+      <purl>pkg:pypi/types-send2trash@1.8</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-Send2Trash/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L110">
+      <name>types-aiofiles</name>
+      <version>22.1</version>
+      <description>requirements line 110: types-aiofiles==22.1</description>
+      <purl>pkg:pypi/types-aiofiles@22.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-aiofiles/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L111">
+      <name>types-annoy</name>
+      <version>1.17</version>
+      <description>requirements line 111: types-annoy==1.17</description>
+      <purl>pkg:pypi/types-annoy@1.17</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-annoy/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L112">
+      <name>types-appdirs</name>
+      <version>1.4</version>
+      <description>requirements line 112: types-appdirs==1.4</description>
+      <purl>pkg:pypi/types-appdirs@1.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-appdirs/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L113">
+      <name>types-aws-xray-sdk</name>
+      <version>2.10</version>
+      <description>requirements line 113: types-aws-xray-sdk==2.10</description>
+      <purl>pkg:pypi/types-aws-xray-sdk@2.10</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-aws-xray-sdk/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L114">
+      <name>types-babel</name>
+      <version>2.11</version>
+      <description>requirements line 114: types-babel==2.11</description>
+      <purl>pkg:pypi/types-babel@2.11</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-babel/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L115">
+      <name>types-backports.ssl-match-hostname</name>
+      <version>3.7</version>
+      <description>requirements line 115: types-backports.ssl-match-hostname==3.7</description>
+      <purl>pkg:pypi/types-backports.ssl-match-hostname@3.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-backports.ssl-match-hostname/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L116">
+      <name>types-beautifulsoup4</name>
+      <version>4.11</version>
+      <description>requirements line 116: types-beautifulsoup4==4.11</description>
+      <purl>pkg:pypi/types-beautifulsoup4@4.11</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-beautifulsoup4/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L117">
+      <name>types-bleach</name>
+      <version>5.0</version>
+      <description>requirements line 117: types-bleach==5.0</description>
+      <purl>pkg:pypi/types-bleach@5.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-bleach/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L118">
+      <name>types-boto</name>
+      <version>2.49</version>
+      <description>requirements line 118: types-boto==2.49</description>
+      <purl>pkg:pypi/types-boto@2.49</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-boto/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L119">
+      <name>types-braintree</name>
+      <version>4.17</version>
+      <description>requirements line 119: types-braintree==4.17</description>
+      <purl>pkg:pypi/types-braintree@4.17</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-braintree/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L120">
+      <name>types-cachetools</name>
+      <version>5.2</version>
+      <description>requirements line 120: types-cachetools==5.2</description>
+      <purl>pkg:pypi/types-cachetools@5.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-cachetools/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L121">
+      <name>types-caldav</name>
+      <version>0.10</version>
+      <description>requirements line 121: types-caldav==0.10</description>
+      <purl>pkg:pypi/types-caldav@0.10</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-caldav/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L122">
+      <name>types-certifi</name>
+      <version>2021.10.8</version>
+      <description>requirements line 122: types-certifi==2021.10.8</description>
+      <purl>pkg:pypi/types-certifi@2021.10.8</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-certifi/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L123">
+      <name>types-cffi</name>
+      <version>1.15</version>
+      <description>requirements line 123: types-cffi==1.15</description>
+      <purl>pkg:pypi/types-cffi@1.15</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-cffi/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L124">
+      <name>types-chardet</name>
+      <version>5.0</version>
+      <description>requirements line 124: types-chardet==5.0</description>
+      <purl>pkg:pypi/types-chardet@5.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-chardet/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L125">
+      <name>types-chevron</name>
+      <version>0.14</version>
+      <description>requirements line 125: types-chevron==0.14</description>
+      <purl>pkg:pypi/types-chevron@0.14</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-chevron/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L126">
+      <name>types-click-spinner</name>
+      <version>0.1</version>
+      <description>requirements line 126: types-click-spinner==0.1</description>
+      <purl>pkg:pypi/types-click-spinner@0.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-click-spinner/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L127">
+      <name>types-colorama</name>
+      <version>0.4</version>
+      <description>requirements line 127: types-colorama==0.4</description>
+      <purl>pkg:pypi/types-colorama@0.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-colorama/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L128">
+      <name>types-commonmark</name>
+      <version>0.9</version>
+      <description>requirements line 128: types-commonmark==0.9</description>
+      <purl>pkg:pypi/types-commonmark@0.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-commonmark/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L129">
+      <name>types-console-menu</name>
+      <version>0.7</version>
+      <description>requirements line 129: types-console-menu==0.7</description>
+      <purl>pkg:pypi/types-console-menu@0.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-console-menu/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L130">
+      <name>types-contextvars</name>
+      <version>2.4</version>
+      <description>requirements line 130: types-contextvars==2.4</description>
+      <purl>pkg:pypi/types-contextvars@2.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-contextvars/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L131">
+      <name>types-croniter</name>
+      <version>1.3</version>
+      <description>requirements line 131: types-croniter==1.3</description>
+      <purl>pkg:pypi/types-croniter@1.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-croniter/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L132">
+      <name>types-cryptography</name>
+      <version>3.3</version>
+      <description>requirements line 132: types-cryptography==3.3</description>
+      <purl>pkg:pypi/types-cryptography@3.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-cryptography/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L134">
+      <name>types-dateparser</name>
+      <version>1.1</version>
+      <description>requirements line 134: types-dateparser==1.1</description>
+      <purl>pkg:pypi/types-dateparser@1.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-dateparser/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L136">
+      <name>types-decorator</name>
+      <version>5.1</version>
+      <description>requirements line 136: types-decorator==5.1</description>
+      <purl>pkg:pypi/types-decorator@5.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-decorator/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L138">
+      <name>types-dj-database-url</name>
+      <version>1.0</version>
+      <description>requirements line 138: types-dj-database-url==1.0</description>
+      <purl>pkg:pypi/types-dj-database-url@1.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-dj-database-url/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L139">
+      <name>types-docopt</name>
+      <version>0.6</version>
+      <description>requirements line 139: types-docopt==0.6</description>
+      <purl>pkg:pypi/types-docopt@0.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-docopt/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L140">
+      <name>types-docutils</name>
+      <version>0.19</version>
+      <description>requirements line 140: types-docutils==0.19</description>
+      <purl>pkg:pypi/types-docutils@0.19</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-docutils/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L141">
+      <name>types-editdistance</name>
+      <version>0.6</version>
+      <description>requirements line 141: types-editdistance==0.6</description>
+      <purl>pkg:pypi/types-editdistance@0.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-editdistance/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L142">
+      <name>types-emoji</name>
+      <version>2.1</version>
+      <description>requirements line 142: types-emoji==2.1</description>
+      <purl>pkg:pypi/types-emoji@2.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-emoji/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L143">
+      <name>types-entrypoints</name>
+      <version>0.4</version>
+      <description>requirements line 143: types-entrypoints==0.4</description>
+      <purl>pkg:pypi/types-entrypoints@0.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-entrypoints/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L144">
+      <name>types-first</name>
+      <version>2.0</version>
+      <description>requirements line 144: types-first==2.0</description>
+      <purl>pkg:pypi/types-first@2.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-first/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L145">
+      <name>types-flake8-2020</name>
+      <version>1.7</version>
+      <description>requirements line 145: types-flake8-2020==1.7</description>
+      <purl>pkg:pypi/types-flake8-2020@1.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-2020/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L146">
+      <name>types-flake8-bugbear</name>
+      <version>22.10.27</version>
+      <description>requirements line 146: types-flake8-bugbear==22.10.27</description>
+      <purl>pkg:pypi/types-flake8-bugbear@22.10.27</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-bugbear/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L147">
+      <name>types-flake8-builtins</name>
+      <version>2.0</version>
+      <description>requirements line 147: types-flake8-builtins==2.0</description>
+      <purl>pkg:pypi/types-flake8-builtins@2.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-builtins/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L148">
+      <name>types-flake8-docstrings</name>
+      <version>1.6</version>
+      <description>requirements line 148: types-flake8-docstrings==1.6</description>
+      <purl>pkg:pypi/types-flake8-docstrings@1.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-docstrings/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L149">
+      <name>types-flake8-plugin-utils</name>
+      <version>1.3</version>
+      <description>requirements line 149: types-flake8-plugin-utils==1.3</description>
+      <purl>pkg:pypi/types-flake8-plugin-utils@1.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-plugin-utils/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L150">
+      <name>types-flake8-rst-docstrings</name>
+      <version>0.2</version>
+      <description>requirements line 150: types-flake8-rst-docstrings==0.2</description>
+      <purl>pkg:pypi/types-flake8-rst-docstrings@0.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-rst-docstrings/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L151">
+      <name>types-flake8-simplify</name>
+      <version>0.19</version>
+      <description>requirements line 151: types-flake8-simplify==0.19</description>
+      <purl>pkg:pypi/types-flake8-simplify@0.19</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-simplify/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L152">
+      <name>types-flake8-typing-imports</name>
+      <version>1.14</version>
+      <description>requirements line 152: types-flake8-typing-imports==1.14</description>
+      <purl>pkg:pypi/types-flake8-typing-imports@1.14</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-flake8-typing-imports/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L155">
+      <name>types-fpdf2</name>
+      <version>2.5</version>
+      <description>requirements line 155: types-fpdf2==2.5</description>
+      <purl>pkg:pypi/types-fpdf2@2.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-fpdf2/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L156">
+      <name>types-gdb</name>
+      <version>12.1</version>
+      <description>requirements line 156: types-gdb==12.1</description>
+      <purl>pkg:pypi/types-gdb@12.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-gdb/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L157">
+      <name>types-google-cloud-ndb</name>
+      <version>1.11</version>
+      <description>requirements line 157: types-google-cloud-ndb==1.11</description>
+      <purl>pkg:pypi/types-google-cloud-ndb@1.11</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-google-cloud-ndb/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L158">
+      <name>types-hdbcli</name>
+      <version>2.14</version>
+      <description>requirements line 158: types-hdbcli==2.14</description>
+      <purl>pkg:pypi/types-hdbcli@2.14</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-hdbcli/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L159">
+      <name>types-html5lib</name>
+      <version>1.1</version>
+      <description>requirements line 159: types-html5lib==1.1</description>
+      <purl>pkg:pypi/types-html5lib@1.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-html5lib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L160">
+      <name>types-httplib2</name>
+      <version>0.21</version>
+      <description>requirements line 160: types-httplib2==0.21</description>
+      <purl>pkg:pypi/types-httplib2@0.21</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-httplib2/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L161">
+      <name>types-humanfriendly</name>
+      <version>10.0</version>
+      <description>requirements line 161: types-humanfriendly==10.0</description>
+      <purl>pkg:pypi/types-humanfriendly@10.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-humanfriendly/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L162">
+      <name>types-invoke</name>
+      <version>1.7</version>
+      <description>requirements line 162: types-invoke==1.7</description>
+      <purl>pkg:pypi/types-invoke@1.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-invoke/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L164">
+      <name>types-jmespath</name>
+      <version>1.0</version>
+      <description>requirements line 164: types-jmespath==1.0</description>
+      <purl>pkg:pypi/types-jmespath@1.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-jmespath/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L165">
+      <name>types-jsonschema</name>
+      <version>4.17</version>
+      <description>requirements line 165: types-jsonschema==4.17</description>
+      <purl>pkg:pypi/types-jsonschema@4.17</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-jsonschema/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L166">
+      <name>types-keyboard</name>
+      <version>0.13</version>
+      <description>requirements line 166: types-keyboard==0.13</description>
+      <purl>pkg:pypi/types-keyboard@0.13</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-keyboard/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L167">
+      <name>types-ldap3</name>
+      <version>2.9</version>
+      <description>requirements line 167: types-ldap3==2.9</description>
+      <purl>pkg:pypi/types-ldap3@2.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-ldap3/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L169">
+      <name>types-mock</name>
+      <version>4.0</version>
+      <description>requirements line 169: types-mock==4.0</description>
+      <purl>pkg:pypi/types-mock@4.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-mock/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L170">
+      <name>types-mypy-extensions</name>
+      <version>0.4</version>
+      <description>requirements line 170: types-mypy-extensions==0.4</description>
+      <purl>pkg:pypi/types-mypy-extensions@0.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-mypy-extensions/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L171">
+      <name>types-mysqlclient</name>
+      <version>2.1</version>
+      <description>requirements line 171: types-mysqlclient==2.1</description>
+      <purl>pkg:pypi/types-mysqlclient@2.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-mysqlclient/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L172">
+      <name>types-oauthlib</name>
+      <version>3.2</version>
+      <description>requirements line 172: types-oauthlib==3.2</description>
+      <purl>pkg:pypi/types-oauthlib@3.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-oauthlib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L173">
+      <name>types-openpyxl</name>
+      <version>3.0</version>
+      <description>requirements line 173: types-openpyxl==3.0</description>
+      <purl>pkg:pypi/types-openpyxl@3.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-openpyxl/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L174">
+      <name>types-opentracing</name>
+      <version>2.4</version>
+      <description>requirements line 174: types-opentracing==2.4</description>
+      <purl>pkg:pypi/types-opentracing@2.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-opentracing/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L175">
+      <name>types-paho-mqtt</name>
+      <version>1.6</version>
+      <description>requirements line 175: types-paho-mqtt==1.6</description>
+      <purl>pkg:pypi/types-paho-mqtt@1.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-paho-mqtt/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L176">
+      <name>types-paramiko</name>
+      <version>2.11</version>
+      <description>requirements line 176: types-paramiko==2.11</description>
+      <purl>pkg:pypi/types-paramiko@2.11</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-paramiko/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L177">
+      <name>types-parsimonious</name>
+      <version>0.10</version>
+      <description>requirements line 177: types-parsimonious==0.10</description>
+      <purl>pkg:pypi/types-parsimonious@0.10</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-parsimonious/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L178">
+      <name>types-passlib</name>
+      <version>1.7</version>
+      <description>requirements line 178: types-passlib==1.7</description>
+      <purl>pkg:pypi/types-passlib@1.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-passlib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L179">
+      <name>types-passpy</name>
+      <version>1.0</version>
+      <description>requirements line 179: types-passpy==1.0</description>
+      <purl>pkg:pypi/types-passpy@1.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-passpy/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L180">
+      <name>types-peewee</name>
+      <version>3.15</version>
+      <description>requirements line 180: types-peewee==3.15</description>
+      <purl>pkg:pypi/types-peewee@3.15</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-peewee/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L181">
+      <name>types-pep8-naming</name>
+      <version>0.13</version>
+      <description>requirements line 181: types-pep8-naming==0.13</description>
+      <purl>pkg:pypi/types-pep8-naming@0.13</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pep8-naming/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L183">
+      <name>types-playsound</name>
+      <version>1.3</version>
+      <description>requirements line 183: types-playsound==1.3</description>
+      <purl>pkg:pypi/types-playsound@1.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-playsound/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L184">
+      <name>types-polib</name>
+      <version>1.1</version>
+      <description>requirements line 184: types-polib==1.1</description>
+      <purl>pkg:pypi/types-polib@1.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-polib/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L185">
+      <name>types-prettytable</name>
+      <version>3.4</version>
+      <description>requirements line 185: types-prettytable==3.4</description>
+      <purl>pkg:pypi/types-prettytable@3.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-prettytable/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L186">
+      <name>types-protobuf</name>
+      <version>3.20</version>
+      <description>requirements line 186: types-protobuf==3.20</description>
+      <purl>pkg:pypi/types-protobuf@3.20</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-protobuf/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L187">
+      <name>types-psutil</name>
+      <version>5.9</version>
+      <description>requirements line 187: types-psutil==5.9</description>
+      <purl>pkg:pypi/types-psutil@5.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-psutil/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L188">
+      <name>types-psycopg2</name>
+      <version>2.9</version>
+      <description>requirements line 188: types-psycopg2==2.9</description>
+      <purl>pkg:pypi/types-psycopg2@2.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-psycopg2/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L198">
+      <name>types-pyOpenSSL</name>
+      <version>22.1</version>
+      <description>requirements line 198: types-pyOpenSSL==22.1</description>
+      <purl>pkg:pypi/types-pyopenssl@22.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pyOpenSSL/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L199">
+      <name>types-pyRFC3339</name>
+      <version>1.1</version>
+      <description>requirements line 199: types-pyRFC3339==1.1</description>
+      <purl>pkg:pypi/types-pyrfc3339@1.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pyRFC3339/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L189">
+      <name>types-pyaudio</name>
+      <version>0.2</version>
+      <description>requirements line 189: types-pyaudio==0.2</description>
+      <purl>pkg:pypi/types-pyaudio@0.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pyaudio/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L191">
+      <name>types-pycurl</name>
+      <version>7.45</version>
+      <description>requirements line 191: types-pycurl==7.45</description>
+      <purl>pkg:pypi/types-pycurl@7.45</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pycurl/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L192">
+      <name>types-pyfarmhash</name>
+      <version>0.3</version>
+      <description>requirements line 192: types-pyfarmhash==0.3</description>
+      <purl>pkg:pypi/types-pyfarmhash@0.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pyfarmhash/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L193">
+      <name>types-pyflakes</name>
+      <version>2.5</version>
+      <description>requirements line 193: types-pyflakes==2.5</description>
+      <purl>pkg:pypi/types-pyflakes@2.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pyflakes/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L195">
+      <name>types-pyinstaller</name>
+      <version>5.6</version>
+      <description>requirements line 195: types-pyinstaller==5.6</description>
+      <purl>pkg:pypi/types-pyinstaller@5.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pyinstaller/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L197">
+      <name>types-pynput</name>
+      <version>1.7</version>
+      <description>requirements line 197: types-pynput==1.7</description>
+      <purl>pkg:pypi/types-pynput@1.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pynput/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L201">
+      <name>types-pysftp</name>
+      <version>0.2</version>
+      <description>requirements line 201: types-pysftp==0.2</description>
+      <purl>pkg:pypi/types-pysftp@0.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pysftp/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L202">
+      <name>types-pytest-lazy-fixture</name>
+      <version>0.6</version>
+      <description>requirements line 202: types-pytest-lazy-fixture==0.6</description>
+      <purl>pkg:pypi/types-pytest-lazy-fixture@0.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pytest-lazy-fixture/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L203">
+      <name>types-python-crontab</name>
+      <version>2.6</version>
+      <description>requirements line 203: types-python-crontab==2.6</description>
+      <purl>pkg:pypi/types-python-crontab@2.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-python-crontab/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L204">
+      <name>types-python-dateutil</name>
+      <version>2.8</version>
+      <description>requirements line 204: types-python-dateutil==2.8</description>
+      <purl>pkg:pypi/types-python-dateutil@2.8</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-python-dateutil/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L205">
+      <name>types-python-gflags</name>
+      <version>3.1</version>
+      <description>requirements line 205: types-python-gflags==3.1</description>
+      <purl>pkg:pypi/types-python-gflags@3.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-python-gflags/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L206">
+      <name>types-python-jose</name>
+      <version>3.3</version>
+      <description>requirements line 206: types-python-jose==3.3</description>
+      <purl>pkg:pypi/types-python-jose@3.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-python-jose/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L207">
+      <name>types-python-nmap</name>
+      <version>0.7</version>
+      <description>requirements line 207: types-python-nmap==0.7</description>
+      <purl>pkg:pypi/types-python-nmap@0.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-python-nmap/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L208">
+      <name>types-python-slugify</name>
+      <version>6.1</version>
+      <description>requirements line 208: types-python-slugify==6.1</description>
+      <purl>pkg:pypi/types-python-slugify@6.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-python-slugify/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L209">
+      <name>types-pytz</name>
+      <version>2022.6</version>
+      <description>requirements line 209: types-pytz==2022.6</description>
+      <purl>pkg:pypi/types-pytz@2022.6</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pytz/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L210">
+      <name>types-pyvmomi</name>
+      <version>7.0</version>
+      <description>requirements line 210: types-pyvmomi==7.0</description>
+      <purl>pkg:pypi/types-pyvmomi@7.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pyvmomi/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L211">
+      <name>types-pywin32</name>
+      <version>304</version>
+      <description>requirements line 211: types-pywin32==304</description>
+      <purl>pkg:pypi/types-pywin32@304</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-pywin32/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L213">
+      <name>types-redis</name>
+      <version>4.3</version>
+      <description>requirements line 213: types-redis==4.3</description>
+      <purl>pkg:pypi/types-redis@4.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-redis/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L214">
+      <name>types-regex</name>
+      <version>2022.10.31</version>
+      <description>requirements line 214: types-regex==2022.10.31</description>
+      <purl>pkg:pypi/types-regex@2022.10.31</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-regex/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L215">
+      <name>types-requests</name>
+      <version>2.28</version>
+      <description>requirements line 215: types-requests==2.28</description>
+      <purl>pkg:pypi/types-requests@2.28</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-requests/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L216">
+      <name>types-retry</name>
+      <version>0.9</version>
+      <description>requirements line 216: types-retry==0.9</description>
+      <purl>pkg:pypi/types-retry@0.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-retry/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L218">
+      <name>types-setuptools</name>
+      <version>65.5</version>
+      <description>requirements line 218: types-setuptools==65.5</description>
+      <purl>pkg:pypi/types-setuptools@65.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-setuptools/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L219">
+      <name>types-simplejson</name>
+      <version>3.17</version>
+      <description>requirements line 219: types-simplejson==3.17</description>
+      <purl>pkg:pypi/types-simplejson@3.17</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-simplejson/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L220">
+      <name>types-singledispatch</name>
+      <version>3.7</version>
+      <description>requirements line 220: types-singledispatch==3.7</description>
+      <purl>pkg:pypi/types-singledispatch@3.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-singledispatch/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L221">
+      <name>types-six</name>
+      <version>1.16</version>
+      <description>requirements line 221: types-six==1.16</description>
+      <purl>pkg:pypi/types-six@1.16</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-six/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L222">
+      <name>types-slumber</name>
+      <version>0.7</version>
+      <description>requirements line 222: types-slumber==0.7</description>
+      <purl>pkg:pypi/types-slumber@0.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-slumber/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L224">
+      <name>types-stdlib-list</name>
+      <version>0.8</version>
+      <description>requirements line 224: types-stdlib-list==0.8</description>
+      <purl>pkg:pypi/types-stdlib-list@0.8</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-stdlib-list/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L225">
+      <name>types-stripe</name>
+      <version>3.5</version>
+      <description>requirements line 225: types-stripe==3.5</description>
+      <purl>pkg:pypi/types-stripe@3.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-stripe/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L226">
+      <name>types-tabulate</name>
+      <version>0.9</version>
+      <description>requirements line 226: types-tabulate==0.9</description>
+      <purl>pkg:pypi/types-tabulate@0.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-tabulate/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L227">
+      <name>types-termcolor</name>
+      <version>1.1</version>
+      <description>requirements line 227: types-termcolor==1.1</description>
+      <purl>pkg:pypi/types-termcolor@1.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-termcolor/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L228">
+      <name>types-toml</name>
+      <version>0.10</version>
+      <description>requirements line 228: types-toml==0.10</description>
+      <purl>pkg:pypi/types-toml@0.10</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-toml/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L229">
+      <name>types-toposort</name>
+      <version>1.7</version>
+      <description>requirements line 229: types-toposort==1.7</description>
+      <purl>pkg:pypi/types-toposort@1.7</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-toposort/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L230">
+      <name>types-tqdm</name>
+      <version>4.64</version>
+      <description>requirements line 230: types-tqdm==4.64</description>
+      <purl>pkg:pypi/types-tqdm@4.64</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-tqdm/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L231">
+      <name>types-tree-sitter</name>
+      <version>0.20</version>
+      <description>requirements line 231: types-tree-sitter==0.20</description>
+      <purl>pkg:pypi/types-tree-sitter@0.20</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-tree-sitter/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L232">
+      <name>types-tree-sitter-languages</name>
+      <version>1.5</version>
+      <description>requirements line 232: types-tree-sitter-languages==1.5</description>
+      <purl>pkg:pypi/types-tree-sitter-languages@1.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-tree-sitter-languages/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L233">
+      <name>types-ttkthemes</name>
+      <version>3.2</version>
+      <description>requirements line 233: types-ttkthemes==3.2</description>
+      <purl>pkg:pypi/types-ttkthemes@3.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-ttkthemes/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L234">
+      <name>types-typed-ast</name>
+      <version>1.5</version>
+      <description>requirements line 234: types-typed-ast==1.5</description>
+      <purl>pkg:pypi/types-typed-ast@1.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-typed-ast/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L235">
+      <name>types-tzlocal</name>
+      <version>4.2</version>
+      <description>requirements line 235: types-tzlocal==4.2</description>
+      <purl>pkg:pypi/types-tzlocal@4.2</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-tzlocal/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L236">
+      <name>types-ujson</name>
+      <version>5.5</version>
+      <description>requirements line 236: types-ujson==5.5</description>
+      <purl>pkg:pypi/types-ujson@5.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-ujson/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L237">
+      <name>types-urllib3</name>
+      <version>1.26</version>
+      <description>requirements line 237: types-urllib3==1.26</description>
+      <purl>pkg:pypi/types-urllib3@1.26</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-urllib3/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L238">
+      <name>types-vobject</name>
+      <version>0.9</version>
+      <description>requirements line 238: types-vobject==0.9</description>
+      <purl>pkg:pypi/types-vobject@0.9</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-vobject/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L239">
+      <name>types-waitress</name>
+      <version>2.1</version>
+      <description>requirements line 239: types-waitress==2.1</description>
+      <purl>pkg:pypi/types-waitress@2.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-waitress/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L240">
+      <name>types-whatthepatch</name>
+      <version>1.0</version>
+      <description>requirements line 240: types-whatthepatch==1.0</description>
+      <purl>pkg:pypi/types-whatthepatch@1.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-whatthepatch/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L241">
+      <name>types-xmltodict</name>
+      <version>0.13</version>
+      <description>requirements line 241: types-xmltodict==0.13</description>
+      <purl>pkg:pypi/types-xmltodict@0.13</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-xmltodict/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L242">
+      <name>types-xxhash</name>
+      <version>3.0</version>
+      <description>requirements line 242: types-xxhash==3.0</description>
+      <purl>pkg:pypi/types-xxhash@3.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-xxhash/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L243">
+      <name>types-zxcvbn</name>
+      <version>4.4</version>
+      <description>requirements line 243: types-zxcvbn==4.4</description>
+      <purl>pkg:pypi/types-zxcvbn@4.4</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/types-zxcvbn/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L244">
+      <name>typing_extensions</name>
+      <version>4.4.0</version>
+      <description>requirements line 244: typing_extensions==4.4.0</description>
+      <purl>pkg:pypi/typing-extensions@4.4.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/typing_extensions/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L245">
+      <name>uritemplate</name>
+      <version>4.1.1</version>
+      <description>requirements line 245: uritemplate==4.1.1</description>
+      <purl>pkg:pypi/uritemplate@4.1.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/uritemplate/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L246">
+      <name>urllib3</name>
+      <version>1.26.12</version>
+      <description>requirements line 246: urllib3==1.26.12</description>
+      <purl>pkg:pypi/urllib3@1.26.12</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/urllib3/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L247">
+      <name>v4l2-python3</name>
+      <version>0.3.5</version>
+      <description>requirements line 247: v4l2-python3==0.3.5</description>
+      <purl>pkg:pypi/v4l2-python3@0.3.5</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/v4l2-python3/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L248">
+      <name>webcolors</name>
+      <version>1.11.1</version>
+      <description>requirements line 248: webcolors==1.11.1</description>
+      <purl>pkg:pypi/webcolors@1.11.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/webcolors/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L249">
+      <name>webencodings</name>
+      <version>0.5.1</version>
+      <description>requirements line 249: webencodings==0.5.1</description>
+      <purl>pkg:pypi/webencodings@0.5.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/webencodings/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L250">
+      <name>websocket-client</name>
+      <version>1.2.3</version>
+      <description>requirements line 250: websocket-client==1.2.3</description>
+      <purl>pkg:pypi/websocket-client@1.2.3</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/websocket-client/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L252">
+      <name>wrapt</name>
+      <version>1.14.1</version>
+      <description>requirements line 252: wrapt==1.14.1</description>
+      <purl>pkg:pypi/wrapt@1.14.1</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/wrapt/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="requirements-L253">
+      <name>zipp</name>
+      <version>1.0.0</version>
+      <description>requirements line 253: zipp==1.0.0</description>
+      <purl>pkg:pypi/zipp@1.0.0</purl>
+      <externalReferences>
+        <reference type="distribution">
+          <url>https://pypi.org/simple/zipp/</url>
+          <comment>implicit dist url</comment>
+        </reference>
+      </externalReferences>
+    </component>
+  </components>
+  <dependencies>
+    <dependency ref="requirements-L1"/>
+    <dependency ref="requirements-L10"/>
+    <dependency ref="requirements-L100"/>
+    <dependency ref="requirements-L101"/>
+    <dependency ref="requirements-L102"/>
+    <dependency ref="requirements-L103"/>
+    <dependency ref="requirements-L104"/>
+    <dependency ref="requirements-L105"/>
+    <dependency ref="requirements-L106"/>
+    <dependency ref="requirements-L107"/>
+    <dependency ref="requirements-L108"/>
+    <dependency ref="requirements-L109"/>
+    <dependency ref="requirements-L11"/>
+    <dependency ref="requirements-L110"/>
+    <dependency ref="requirements-L111"/>
+    <dependency ref="requirements-L112"/>
+    <dependency ref="requirements-L113"/>
+    <dependency ref="requirements-L114"/>
+    <dependency ref="requirements-L115"/>
+    <dependency ref="requirements-L116"/>
+    <dependency ref="requirements-L117"/>
+    <dependency ref="requirements-L118"/>
+    <dependency ref="requirements-L119"/>
+    <dependency ref="requirements-L12"/>
+    <dependency ref="requirements-L120"/>
+    <dependency ref="requirements-L121"/>
+    <dependency ref="requirements-L122"/>
+    <dependency ref="requirements-L123"/>
+    <dependency ref="requirements-L124"/>
+    <dependency ref="requirements-L125"/>
+    <dependency ref="requirements-L126"/>
+    <dependency ref="requirements-L127"/>
+    <dependency ref="requirements-L128"/>
+    <dependency ref="requirements-L129"/>
+    <dependency ref="requirements-L13"/>
+    <dependency ref="requirements-L130"/>
+    <dependency ref="requirements-L131"/>
+    <dependency ref="requirements-L132"/>
+    <dependency ref="requirements-L133"/>
+    <dependency ref="requirements-L134"/>
+    <dependency ref="requirements-L135"/>
+    <dependency ref="requirements-L136"/>
+    <dependency ref="requirements-L137"/>
+    <dependency ref="requirements-L138"/>
+    <dependency ref="requirements-L139"/>
+    <dependency ref="requirements-L14"/>
+    <dependency ref="requirements-L140"/>
+    <dependency ref="requirements-L141"/>
+    <dependency ref="requirements-L142"/>
+    <dependency ref="requirements-L143"/>
+    <dependency ref="requirements-L144"/>
+    <dependency ref="requirements-L145"/>
+    <dependency ref="requirements-L146"/>
+    <dependency ref="requirements-L147"/>
+    <dependency ref="requirements-L148"/>
+    <dependency ref="requirements-L149"/>
+    <dependency ref="requirements-L15"/>
+    <dependency ref="requirements-L150"/>
+    <dependency ref="requirements-L151"/>
+    <dependency ref="requirements-L152"/>
+    <dependency ref="requirements-L153"/>
+    <dependency ref="requirements-L154"/>
+    <dependency ref="requirements-L155"/>
+    <dependency ref="requirements-L156"/>
+    <dependency ref="requirements-L157"/>
+    <dependency ref="requirements-L158"/>
+    <dependency ref="requirements-L159"/>
+    <dependency ref="requirements-L16"/>
+    <dependency ref="requirements-L160"/>
+    <dependency ref="requirements-L161"/>
+    <dependency ref="requirements-L162"/>
+    <dependency ref="requirements-L163"/>
+    <dependency ref="requirements-L164"/>
+    <dependency ref="requirements-L165"/>
+    <dependency ref="requirements-L166"/>
+    <dependency ref="requirements-L167"/>
+    <dependency ref="requirements-L168"/>
+    <dependency ref="requirements-L169"/>
+    <dependency ref="requirements-L17"/>
+    <dependency ref="requirements-L170"/>
+    <dependency ref="requirements-L171"/>
+    <dependency ref="requirements-L172"/>
+    <dependency ref="requirements-L173"/>
+    <dependency ref="requirements-L174"/>
+    <dependency ref="requirements-L175"/>
+    <dependency ref="requirements-L176"/>
+    <dependency ref="requirements-L177"/>
+    <dependency ref="requirements-L178"/>
+    <dependency ref="requirements-L179"/>
+    <dependency ref="requirements-L18"/>
+    <dependency ref="requirements-L180"/>
+    <dependency ref="requirements-L181"/>
+    <dependency ref="requirements-L182"/>
+    <dependency ref="requirements-L183"/>
+    <dependency ref="requirements-L184"/>
+    <dependency ref="requirements-L185"/>
+    <dependency ref="requirements-L186"/>
+    <dependency ref="requirements-L187"/>
+    <dependency ref="requirements-L188"/>
+    <dependency ref="requirements-L189"/>
+    <dependency ref="requirements-L19"/>
+    <dependency ref="requirements-L190"/>
+    <dependency ref="requirements-L191"/>
+    <dependency ref="requirements-L192"/>
+    <dependency ref="requirements-L193"/>
+    <dependency ref="requirements-L194"/>
+    <dependency ref="requirements-L195"/>
+    <dependency ref="requirements-L196"/>
+    <dependency ref="requirements-L197"/>
+    <dependency ref="requirements-L198"/>
+    <dependency ref="requirements-L199"/>
+    <dependency ref="requirements-L2"/>
+    <dependency ref="requirements-L20"/>
+    <dependency ref="requirements-L200"/>
+    <dependency ref="requirements-L201"/>
+    <dependency ref="requirements-L202"/>
+    <dependency ref="requirements-L203"/>
+    <dependency ref="requirements-L204"/>
+    <dependency ref="requirements-L205"/>
+    <dependency ref="requirements-L206"/>
+    <dependency ref="requirements-L207"/>
+    <dependency ref="requirements-L208"/>
+    <dependency ref="requirements-L209"/>
+    <dependency ref="requirements-L21"/>
+    <dependency ref="requirements-L210"/>
+    <dependency ref="requirements-L211"/>
+    <dependency ref="requirements-L212"/>
+    <dependency ref="requirements-L213"/>
+    <dependency ref="requirements-L214"/>
+    <dependency ref="requirements-L215"/>
+    <dependency ref="requirements-L216"/>
+    <dependency ref="requirements-L217"/>
+    <dependency ref="requirements-L218"/>
+    <dependency ref="requirements-L219"/>
+    <dependency ref="requirements-L22"/>
+    <dependency ref="requirements-L220"/>
+    <dependency ref="requirements-L221"/>
+    <dependency ref="requirements-L222"/>
+    <dependency ref="requirements-L223"/>
+    <dependency ref="requirements-L224"/>
+    <dependency ref="requirements-L225"/>
+    <dependency ref="requirements-L226"/>
+    <dependency ref="requirements-L227"/>
+    <dependency ref="requirements-L228"/>
+    <dependency ref="requirements-L229"/>
+    <dependency ref="requirements-L23"/>
+    <dependency ref="requirements-L230"/>
+    <dependency ref="requirements-L231"/>
+    <dependency ref="requirements-L232"/>
+    <dependency ref="requirements-L233"/>
+    <dependency ref="requirements-L234"/>
+    <dependency ref="requirements-L235"/>
+    <dependency ref="requirements-L236"/>
+    <dependency ref="requirements-L237"/>
+    <dependency ref="requirements-L238"/>
+    <dependency ref="requirements-L239"/>
+    <dependency ref="requirements-L24"/>
+    <dependency ref="requirements-L240"/>
+    <dependency ref="requirements-L241"/>
+    <dependency ref="requirements-L242"/>
+    <dependency ref="requirements-L243"/>
+    <dependency ref="requirements-L244"/>
+    <dependency ref="requirements-L245"/>
+    <dependency ref="requirements-L246"/>
+    <dependency ref="requirements-L247"/>
+    <dependency ref="requirements-L248"/>
+    <dependency ref="requirements-L249"/>
+    <dependency ref="requirements-L25"/>
+    <dependency ref="requirements-L250"/>
+    <dependency ref="requirements-L251"/>
+    <dependency ref="requirements-L252"/>
+    <dependency ref="requirements-L253"/>
+    <dependency ref="requirements-L26"/>
+    <dependency ref="requirements-L27"/>
+    <dependency ref="requirements-L28"/>
+    <dependency ref="requirements-L29"/>
+    <dependency ref="requirements-L3"/>
+    <dependency ref="requirements-L30"/>
+    <dependency ref="requirements-L31"/>
+    <dependency ref="requirements-L32"/>
+    <dependency ref="requirements-L33"/>
+    <dependency ref="requirements-L34"/>
+    <dependency ref="requirements-L35"/>
+    <dependency ref="requirements-L36"/>
+    <dependency ref="requirements-L37"/>
+    <dependency ref="requirements-L38"/>
+    <dependency ref="requirements-L39"/>
+    <dependency ref="requirements-L4"/>
+    <dependency ref="requirements-L40"/>
+    <dependency ref="requirements-L41"/>
+    <dependency ref="requirements-L42"/>
+    <dependency ref="requirements-L43"/>
+    <dependency ref="requirements-L44"/>
+    <dependency ref="requirements-L45"/>
+    <dependency ref="requirements-L46"/>
+    <dependency ref="requirements-L47"/>
+    <dependency ref="requirements-L48"/>
+    <dependency ref="requirements-L49"/>
+    <dependency ref="requirements-L5"/>
+    <dependency ref="requirements-L50"/>
+    <dependency ref="requirements-L51"/>
+    <dependency ref="requirements-L52"/>
+    <dependency ref="requirements-L53"/>
+    <dependency ref="requirements-L54"/>
+    <dependency ref="requirements-L55"/>
+    <dependency ref="requirements-L56"/>
+    <dependency ref="requirements-L57"/>
+    <dependency ref="requirements-L58"/>
+    <dependency ref="requirements-L59"/>
+    <dependency ref="requirements-L6"/>
+    <dependency ref="requirements-L60"/>
+    <dependency ref="requirements-L61"/>
+    <dependency ref="requirements-L62"/>
+    <dependency ref="requirements-L63"/>
+    <dependency ref="requirements-L64"/>
+    <dependency ref="requirements-L65"/>
+    <dependency ref="requirements-L66"/>
+    <dependency ref="requirements-L67"/>
+    <dependency ref="requirements-L68"/>
+    <dependency ref="requirements-L69"/>
+    <dependency ref="requirements-L7"/>
+    <dependency ref="requirements-L70"/>
+    <dependency ref="requirements-L71"/>
+    <dependency ref="requirements-L72"/>
+    <dependency ref="requirements-L73"/>
+    <dependency ref="requirements-L74"/>
+    <dependency ref="requirements-L75"/>
+    <dependency ref="requirements-L76"/>
+    <dependency ref="requirements-L77"/>
+    <dependency ref="requirements-L78"/>
+    <dependency ref="requirements-L79"/>
+    <dependency ref="requirements-L8"/>
+    <dependency ref="requirements-L80"/>
+    <dependency ref="requirements-L81"/>
+    <dependency ref="requirements-L82"/>
+    <dependency ref="requirements-L83"/>
+    <dependency ref="requirements-L84"/>
+    <dependency ref="requirements-L85"/>
+    <dependency ref="requirements-L86"/>
+    <dependency ref="requirements-L87"/>
+    <dependency ref="requirements-L88"/>
+    <dependency ref="requirements-L89"/>
+    <dependency ref="requirements-L9"/>
+    <dependency ref="requirements-L90"/>
+    <dependency ref="requirements-L91"/>
+    <dependency ref="requirements-L92"/>
+    <dependency ref="requirements-L93"/>
+    <dependency ref="requirements-L94"/>
+    <dependency ref="requirements-L95"/>
+    <dependency ref="requirements-L96"/>
+    <dependency ref="requirements-L97"/>
+    <dependency ref="requirements-L98"/>
+    <dependency ref="requirements-L99"/>
+  </dependencies>
+</bom>
