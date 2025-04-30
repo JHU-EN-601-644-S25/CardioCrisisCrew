@@ -19,6 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "CardioCrisis"
-include(":app")
+include(":ccc")
  

@@ -5,7 +5,6 @@
 //  Created by Lily Wheeler on 4/8/25.
 //
 
-
 import SwiftUI
 import CoreBluetooth
 
@@ -73,7 +72,7 @@ class BLEScanner: NSObject, ObservableObject, CBCentralManagerDelegate {
                         advertisementData: [String: Any], rssi RSSI: NSNumber) {
         // Only proceed if the peripheral has a valid, non-empty name
         guard let name = peripheral.name, !name.isEmpty else { return }
-        
+
         // Check if the device is not already in the list
         if !devices.contains(where: { $0.identifier == peripheral.identifier }) {
             let device = BLEDevice(name: name, identifier: peripheral.identifier, rssi: RSSI.intValue)

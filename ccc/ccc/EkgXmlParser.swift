@@ -5,7 +5,6 @@
 //  Created by Lily Wheeler on 4/8/25.
 //
 
-
 import Foundation
 
 class EkgXmlParser: NSObject, XMLParserDelegate {
@@ -27,7 +26,7 @@ class EkgXmlParser: NSObject, XMLParserDelegate {
     // MARK: - XMLParserDelegate
 
     func parser(_ parser: XMLParser, didStartElement elementName: String,
-                namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+                namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
         currentElement = elementName
     }
 

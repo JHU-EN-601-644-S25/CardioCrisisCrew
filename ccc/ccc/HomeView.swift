@@ -6,22 +6,22 @@ struct HomeView: View {
     @State private var showBLEScanView = false
     @State private var showPatientInfo = false
     @State private var showSignOutAlert = false
-    
+
     // For navigation control
     @Environment(\.presentationMode) var presentationMode
-    
+
     // BLE connection state
     @State private var connectedDevice: BLEDevice?
     @StateObject private var connectionManager = BLEConnectionManager(deviceIdentifier: UUID())
-    
+
     // Patient form data
     @State private var patientInfo = PatientFormData()
-    
+
     // Mock patient data
     let patientName = "John Doe"
     let patientID = "P12345"
     let patientAge = 45
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -38,9 +38,9 @@ struct HomeView: View {
                         Text(connectionManager.isConnected ? "Connected" : "Disconnected")
                             .foregroundColor(connectionManager.isConnected ? .green : .red)
                     }
-                    
+
                     Divider()
-                    
+
                     if connectionManager.isConnected {
                         // Device information section
                         VStack(alignment: .leading, spacing: 8) {
@@ -48,18 +48,18 @@ struct HomeView: View {
                                 Text("Connected to: \(device.name)")
                                     .font(.headline)
                                     .foregroundColor(.green)
-                                
+
                                 Text("Device ID: \(device.identifier.uuidString.prefix(8))...")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
-                            
+
                             // Display characteristics if available
                             if !connectionManager.characteristics.isEmpty {
                                 Text("Available Characteristics:")
                                     .font(.subheadline)
                                     .padding(.top, 8)
-                                
+
                                 ForEach(connectionManager.characteristics, id: \.uuid) { characteristic in
                                     if characteristic.uuid == connectionManager.targetCharacteristicUUID {
                                         Text("✓ Target ECG Characteristic")
@@ -68,19 +68,19 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                            
+
                             if !connectionManager.receivedData.isEmpty {
                                 Text("Latest Data:")
                                     .font(.subheadline)
                                     .padding(.top, 4)
-                                
+
                                 Text(connectionManager.receivedData)
                                     .font(.caption)
                                     .padding(8)
                                     .background(Color(.systemGray6))
                                     .cornerRadius(8)
                             }
-                            
+
                             // API Status
                             if !connectionManager.apiStatus.isEmpty {
                                 Text(connectionManager.apiStatus)
@@ -88,7 +88,7 @@ struct HomeView: View {
                                     .foregroundColor(connectionManager.apiStatus.contains("failed") ? .red : .blue)
                                     .padding(.top, 4)
                             }
-                            
+
                             if connectionManager.isUploadingData {
                                 HStack {
                                     ProgressView()
@@ -100,14 +100,14 @@ struct HomeView: View {
                             }
                         }
                         .padding(.vertical)
-                        
+
                         // Display raw data visualization instead of fake BPM and wave
                         if !connectionManager.receivedData.isEmpty {
                             VStack(alignment: .leading) {
                                 Text("ECG Data Visualization")
                                     .font(.headline)
                                     .padding(.bottom, 4)
-                                
+
                                 // If the data can be parsed as numbers, show a visualization
                                 if let dataPoints = parseDataFromReceivedData() {
                                     ECGVisualizationView(data: .constant(dataPoints))
@@ -121,7 +121,7 @@ struct HomeView: View {
                             }
                             .padding(.vertical)
                         }
-                        
+
                         // Patient Information button
                         Button(action: {
                             showPatientInfo = true
@@ -137,7 +137,7 @@ struct HomeView: View {
                             .cornerRadius(10)
                         }
                         .disabled(connectionManager.isUploadingData)
-                        
+
                         // Add disconnect button
                         Button(action: {
                             connectionManager.disconnect()
@@ -158,7 +158,7 @@ struct HomeView: View {
                         Text("No ECG device connected")
                             .foregroundColor(.gray)
                             .padding()
-                        
+
                         Button(action: {
                             showBLEScanView = true
                         }) {
@@ -184,7 +184,7 @@ struct HomeView: View {
         .navigationTitle("Cardio Crisis ECG")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: 
+        .navigationBarItems(leading:
             Button(action: {
                 showSignOutAlert = true
             }) {
@@ -196,7 +196,7 @@ struct HomeView: View {
             PatientFormView(patientInfo: $patientInfo, isPresented: $showPatientInfo) { patientData in
                 // Parse ECG data from receivedData
                 let ecgData = parseECGDataForUpload()
-                
+
                 // Send the data to AWS
                 connectionManager.sendDataToAWS(patientData: patientData, ecgData: ecgData)
             }
@@ -220,20 +220,20 @@ struct HomeView: View {
             Text("Are you sure you want to sign out?")
         }
     }
-    
+
     // Helper function to parse data from received data string
     private func parseDataFromReceivedData() -> [Double]? {
         let receivedData = connectionManager.receivedData
-        
+
         // Try to parse as comma-separated values
         let components = receivedData.components(separatedBy: CharacterSet(charactersIn: ", \n"))
         let validComponents = components.compactMap { Double($0.trimmingCharacters(in: .whitespacesAndNewlines)) }
-        
+
         // If we have valid numeric data, return it
         if !validComponents.isEmpty {
             return validComponents
         }
-        
+
         // If we can't parse as numbers, try to interpret as hex data
         if receivedData.contains(" ") {
             // Might be hex data like "FF 00 A3 ..."
@@ -242,21 +242,21 @@ struct HomeView: View {
                 guard let value = UInt8(component, radix: 16) else { return nil }
                 return Double(value) / 255.0 * 2.0 - 1.0 // Scale to range -1.0 to 1.0
             }
-            
+
             if !values.isEmpty {
                 return values
             }
         }
-        
+
         // If all else fails, return a simple sine wave as fallback
         return nil
     }
-    
+
     // Helper function to parse ECG data for upload to AWS
     private func parseECGDataForUpload() -> [Double] {
         let receivedData = connectionManager.receivedData
         print("Parsing data for upload: \(receivedData)")
-        
+
         // First try to parse as voltage values (e.g., "0.066V 2.265 V")
         let components = receivedData.components(separatedBy: CharacterSet(charactersIn: ", \n"))
         let validComponents = components.compactMap { component -> Double? in
@@ -268,12 +268,12 @@ struct HomeView: View {
             }
             return nil
         }
-        
+
         if !validComponents.isEmpty {
             print("Successfully parsed voltage values: \(validComponents)")
             return validComponents
         }
-        
+
         // If that fails, try to parse as regular numbers
         let numberComponents = components.compactMap { component -> Double? in
             let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -282,12 +282,12 @@ struct HomeView: View {
             }
             return nil
         }
-        
+
         if !numberComponents.isEmpty {
             print("Successfully parsed numeric values: \(numberComponents)")
             return numberComponents
         }
-        
+
         // If that fails, try to parse as hex values
         if receivedData.contains(" ") {
             let hexComponents = receivedData.components(separatedBy: " ")
@@ -298,13 +298,13 @@ struct HomeView: View {
                 }
                 return nil
             }
-            
+
             if !values.isEmpty {
                 print("Successfully parsed hex values: \(values)")
                 return values
             }
         }
-        
+
         // If all parsing attempts fail, log the error and return empty array
         print("Failed to parse ECG data. Raw data: \(receivedData)")
         return []
@@ -313,18 +313,18 @@ struct HomeView: View {
 
 struct ECGVisualizationView: View {
     @Binding var data: [Double]
-    
+
     var body: some View {
         GeometryReader { geometry in
             Path { path in
                 let width = geometry.size.width
                 let height = geometry.size.height
                 let step = width / CGFloat(data.count - 1)
-                
+
                 for i in data.indices {
                     let x = step * CGFloat(i)
                     let y = height / 2 - CGFloat(data[i]) * height
-                    
+
                     if i == 0 {
                         path.move(to: CGPoint(x: x, y: y))
                     } else {
@@ -340,7 +340,7 @@ struct ECGVisualizationView: View {
 struct QuickActionButton: View {
     let icon: String
     let title: String
-    
+
     var body: some View {
         VStack {
             Image(systemName: icon)
@@ -349,7 +349,7 @@ struct QuickActionButton: View {
                 .frame(width: 50, height: 50)
                 .background(Color.blue.opacity(0.1))
                 .cornerRadius(10)
-            
+
             Text(title)
                 .font(.caption)
                 .multilineTextAlignment(.center)
@@ -362,18 +362,18 @@ struct HealthTipView: View {
     let icon: String
     let title: String
     let description: String
-    
+
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             Image(systemName: icon)
                 .foregroundColor(.red)
                 .frame(width: 30)
-            
+
             VStack(alignment: .leading, spacing: 5) {
                 Text(title)
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                
+
                 Text(description)
                     .font(.caption)
                     .foregroundColor(.gray)
@@ -387,4 +387,4 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(user: ContentView.User(username: "admin", role: "ADMIN"))
     }
-} 
+}

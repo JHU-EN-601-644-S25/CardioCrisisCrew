@@ -11,11 +11,11 @@ struct BLEScanView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedDevice: BLEDevice?
     @State private var showConnectionView = false
-    
+
     init(selectedDevice: Binding<BLEDevice?> = .constant(nil)) {
         _selectedDevice = selectedDevice
     }
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -25,29 +25,29 @@ struct BLEScanView: View {
                     Image(systemName: "arrow.left")
                         .padding()
                 }
-                
+
                 Spacer()
-                
+
                 Text("Available Devices")
                     .font(.headline)
-                
+
                 Spacer()
-                
+
                 // Empty view for balance
                 Image(systemName: "arrow.left")
                     .padding()
                     .opacity(0)
             }
-            
+
             Text(scanner.status)
                 .font(.subheadline)
                 .padding(.top)
-            
+
             if scanner.devices.isEmpty && scanner.scanning {
                 Text("Searching for devices...")
                     .foregroundColor(.secondary)
                     .padding()
-                
+
                 ProgressView()
                     .padding()
             } else if scanner.devices.isEmpty {
@@ -55,7 +55,7 @@ struct BLEScanView: View {
                     .foregroundColor(.secondary)
                     .padding()
             }
-            
+
             List(scanner.devices) { device in
                 VStack(alignment: .leading) {
                     Text(device.name)
@@ -73,7 +73,7 @@ struct BLEScanView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
-            
+
             Button(scanner.scanning ? "Stop Scan" : "Start Scan") {
                 scanner.scanning ? scanner.stopScan() : scanner.startScan()
             }

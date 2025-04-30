@@ -2,9 +2,9 @@ import SwiftUI
 
 struct EkgGraphView: View {
     var readings: [Float]
-    
+
     var body: some View {
-        GeometryReader { geo in
+        GeometryReader { _ in
             Canvas { context, size in
                 let width = size.width
                 let height = size.height

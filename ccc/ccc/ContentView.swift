@@ -110,7 +110,6 @@ struct ContentView: View {
             )
 
             let response = try await client.initiateAuth(input: input)
-            
 
             if let token = response.authenticationResult?.accessToken {
                 print("Login succeeded.")

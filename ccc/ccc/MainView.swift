@@ -3,7 +3,7 @@ import CoreBluetooth
 
 struct MainView: View {
     @State private var isSignedIn = false
-    @State private var ekgData: EkgData? = nil
+    @State private var ekgData: EkgData?
     @State private var showExportSheet = false
     @State private var selectedHospitalIndex = 0
     @StateObject private var scanner = BLEScanner()

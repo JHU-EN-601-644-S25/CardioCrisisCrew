@@ -1,0 +1,54 @@
+# Disable rules
+disabled_rules:
+  - line_length
+  - function_body_length
+  - file_length
+  - type_body_length
+  - identifier_name
+
+# Configure rules
+opt_in_rules:
+  - empty_count
+  - missing_docs
+  - closure_spacing
+  - force_unwrapping
+  - force_cast
+  - force_try
+
+# Custom rules
+custom_rules:
+  no_print:
+    name: "No print statements"
+    regex: 'print\('
+    message: "Prefer using a proper logging system instead of print statements"
+    severity: warning
+
+# Exclude files
+excluded:
+  - Pods
+  - Carthage
+  - build
+  - .expo
+  - ccc.xcodeproj
+  - Assets.xcassets
+
+# Configure severity levels
+warning_threshold: 10
+error_threshold: 20
+
+# Configure line length
+line_length:
+  warning: 120
+  error: 200
+  ignores_comments: true
+  ignores_urls: true
+
+# Whitespace rules
+vertical_whitespace:
+  max_empty_lines: 1
+  severity: warning
+
+trailing_whitespace:
+  severity: warning
+  ignores_empty_lines: false
+  ignores_comments: true 

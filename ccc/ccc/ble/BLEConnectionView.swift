@@ -3,17 +3,17 @@ import CoreBluetooth
 
 struct BLEConnectionView: View {
     let device: BLEDevice
-    
+
     // Service and characteristic UUIDs for Raspberry Pi
     private let raspberryPiServiceUUID = "00000001-1E3C-FAD4-74E2-97A033F1BFAA"
     private let raspberryPiCharacteristicUUID = "00000002-1E3C-FAD4-74E2-97A033F1BFAA"
-    
+
     @StateObject private var connectionManager: BLEConnectionManager
     @Environment(\.presentationMode) var presentationMode
     @State private var showDisconnectAlert = false
     @State private var showPatientForm = false
     @State private var patientInfo = PatientFormData()
-    
+
     init(device: BLEDevice) {
         self.device = device
         // Initialize the connection manager with the device's identifier
@@ -23,7 +23,7 @@ struct BLEConnectionView: View {
             characteristicUUID: "00000002-1E3C-FAD4-74E2-97A033F1BFAA"
         ))
     }
-    
+
     var body: some View {
         VStack {
             // Header with device info
@@ -31,33 +31,33 @@ struct BLEConnectionView: View {
                 Text(device.name)
                     .font(.title)
                     .fontWeight(.bold)
-                
+
                 Text(device.identifier.uuidString)
                     .font(.caption)
                     .foregroundColor(.gray)
-                
+
                 Text("RSSI: \(device.rssi)")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
-            
+
             // Connection status
             HStack {
                 Circle()
                     .fill(connectionStatusColor)
                     .frame(width: 12, height: 12)
-                
+
                 Text(connectionManager.connectionStatus)
                     .font(.subheadline)
             }
             .padding(.horizontal)
             .frame(maxWidth: .infinity, alignment: .leading)
-            
+
             Divider()
                 .padding(.vertical)
-            
+
             // Data display
             if connectionManager.isConnected {
                 ScrollView {
@@ -67,12 +67,12 @@ struct BLEConnectionView: View {
                             VStack(alignment: .leading) {
                                 Text("Received Data:")
                                     .font(.headline)
-                                
+
                                 Text(connectionManager.receivedData)
                                     .padding()
                                     .background(Color(.systemGray6))
                                     .cornerRadius(8)
-                                
+
                                 // AWS API Integration buttons
                                 HStack {
                                     Button(action: {
@@ -83,7 +83,7 @@ struct BLEConnectionView: View {
                                     .buttonStyle(.bordered)
                                     .tint(.blue)
                                     .disabled(connectionManager.isUploadingData)
-                                    
+
                                     Button("Fetch Patient Data") {
                                         connectionManager.fetchPatientData()
                                     }
@@ -92,7 +92,7 @@ struct BLEConnectionView: View {
                                     .disabled(connectionManager.isUploadingData)
                                 }
                                 .padding(.top, 8)
-                                
+
                                 // API Status
                                 if !connectionManager.apiStatus.isEmpty {
                                     Text(connectionManager.apiStatus)
@@ -100,7 +100,7 @@ struct BLEConnectionView: View {
                                         .foregroundColor(connectionManager.apiStatus.contains("failed") ? .red : .blue)
                                         .padding(.top, 4)
                                 }
-                                
+
                                 if connectionManager.isUploadingData {
                                     HStack {
                                         ProgressView()
@@ -112,19 +112,19 @@ struct BLEConnectionView: View {
                                 }
                             }
                         }
-                        
+
                         // Display characteristics if available
                         if !connectionManager.characteristics.isEmpty {
                             VStack(alignment: .leading) {
                                 Text("Characteristics:")
                                     .font(.headline)
-                                
+
                                 ForEach(connectionManager.characteristics, id: \.uuid) { characteristic in
                                     HStack {
                                         VStack(alignment: .leading) {
                                             Text(characteristic.uuid.uuidString)
                                                 .font(.subheadline)
-                                            
+
                                             // Show if this is the Raspberry Pi characteristic
                                             if characteristic.uuid.uuidString.uppercased() == raspberryPiCharacteristicUUID.uppercased() {
                                                 Text("Raspberry Pi Data Characteristic")
@@ -132,9 +132,9 @@ struct BLEConnectionView: View {
                                                     .foregroundColor(.green)
                                             }
                                         }
-                                        
+
                                         Spacer()
-                                        
+
                                         // Read button for readable characteristics
                                         if characteristic.properties.contains(.read) {
                                             Button("Read") {
@@ -156,16 +156,16 @@ struct BLEConnectionView: View {
                         .font(.system(size: 50))
                         .foregroundColor(.orange)
                         .padding()
-                    
+
                     Text("Connection timed out")
                         .font(.headline)
-                    
+
                     Text("Please make sure the device is powered on and in range")
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.secondary)
                         .padding()
-                    
+
                     Button("Try Again") {
                         connectionManager.reconnect()
                     }
@@ -178,16 +178,16 @@ struct BLEConnectionView: View {
                 VStack {
                     ProgressView()
                         .padding()
-                    
+
                     Text("Connecting to device...")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 .frame(maxHeight: .infinity)
             }
-            
+
             Spacer()
-            
+
             // Disconnect button
             if connectionManager.isConnected {
                 Button(action: {
@@ -234,18 +234,18 @@ struct BLEConnectionView: View {
                     let voltageString = trimmed.replacingOccurrences(of: "V", with: "").trimmingCharacters(in: .whitespaces)
                     return Double(voltageString)
                 }
-                
+
                 // Send the data to AWS
                 connectionManager.sendDataToAWS(patientData: patientData, ecgData: ecgData)
             }
         }
     }
-    
+
     // Helper function to read a characteristic
     private func readCharacteristic(_ characteristic: CBCharacteristic) {
         connectionManager.readCharacteristic(characteristic)
     }
-    
+
     // Color indicator for connection status
     private var connectionStatusColor: Color {
         if connectionManager.isConnected {
@@ -272,10 +272,10 @@ struct PatientFormView: View {
     @Binding var patientInfo: PatientFormData
     @Binding var isPresented: Bool
     var onSubmit: (PatientData) -> Void
-    
+
     @State private var showValidationAlert = false
     @State private var validationMessage = ""
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -283,28 +283,28 @@ struct PatientFormView: View {
                     TextField("Patient ID", text: $patientInfo.patientId)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                    
+
                     TextField("First Name", text: $patientInfo.firstName)
                         .autocapitalization(.words)
-                    
+
                     TextField("Last Name", text: $patientInfo.lastName)
                         .autocapitalization(.words)
-                    
+
                     Picker("Sex", selection: $patientInfo.sex) {
                         Text("Male").tag("male")
                         Text("Female").tag("female")
                         Text("Other").tag("other")
                     }
-                    
+
                     TextField("Age", text: $patientInfo.age)
                         .keyboardType(.numberPad)
                 }
-                
+
                 Section {
                     Button("Submit") {
                         if validateForm() {
                             let age = Int(patientInfo.age) ?? 0
-                            
+
                             let patientData = PatientData(
                                 patientId: patientInfo.patientId,
                                 firstName: patientInfo.firstName,
@@ -312,7 +312,7 @@ struct PatientFormView: View {
                                 sex: patientInfo.sex,
                                 age: age
                             )
-                            
+
                             onSubmit(patientData)
                             isPresented = false
                         } else {
@@ -338,33 +338,33 @@ struct PatientFormView: View {
             }
         }
     }
-    
+
     private func validateForm() -> Bool {
         if patientInfo.patientId.isEmpty {
             validationMessage = "Patient ID is required"
             return false
         }
-        
+
         if patientInfo.firstName.isEmpty {
             validationMessage = "First name is required"
             return false
         }
-        
+
         if patientInfo.lastName.isEmpty {
             validationMessage = "Last name is required"
             return false
         }
-        
+
         if patientInfo.age.isEmpty {
             validationMessage = "Age is required"
             return false
         }
-        
+
         if Int(patientInfo.age) == nil {
             validationMessage = "Age must be a number"
             return false
         }
-        
+
         return true
     }
 }

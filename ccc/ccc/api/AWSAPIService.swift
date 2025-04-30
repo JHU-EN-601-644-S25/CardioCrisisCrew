@@ -12,7 +12,7 @@ enum APIError: Error {
 
 class AWSAPIService {
     private let baseURL = "https://qdiphk7654.execute-api.us-east-2.amazonaws.com/v2/"
-    
+
     // For testing purposes - will be replaced with actual data from Raspberry Pi
     static let dummyPatientData = PatientData(
         patientId: "CURRENT",
@@ -21,37 +21,37 @@ class AWSAPIService {
         sex: "male",
         age: 45
     )
-    
+
     static let dummyECGData = [1, 2, 3, 4, -1, -2, -3, -4]
-    
+
     // POST ECG data to AWS
     func postECGData(patientData: PatientData, ecgData: [Double]) -> AnyPublisher<Bool, APIError> {
         guard let url = URL(string: baseURL) else {
             return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }
-        
+
         // Create timestamp for current time
         let dateFormatter = ISO8601DateFormatter()
         let timestamp = dateFormatter.string(from: Date())
-        
+
         // Create request body
         let requestData = ECGDataRequest(
             patientData: patientData,
             ecgTimestamp: timestamp,
             ecgData: ecgData
         )
-        
+
         // Create request
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         do {
             request.httpBody = try JSONEncoder().encode(requestData)
         } catch {
             return Fail(error: APIError.requestFailed(error)).eraseToAnyPublisher()
         }
-        
+
         // Send request
         return URLSession.shared.dataTaskPublisher(for: request)
             .mapError { APIError.requestFailed($0) }
@@ -59,7 +59,7 @@ class AWSAPIService {
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw APIError.invalidResponse
                 }
-                
+
                 if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                     return true
                 } else {
@@ -76,7 +76,7 @@ class AWSAPIService {
             }
             .eraseToAnyPublisher()
     }
-    
+
     // GET patient data from AWS
     func getPatientData(patientData: PatientData) -> AnyPublisher<PatientData, APIError> {
         // Build URL with query parameters
@@ -84,7 +84,7 @@ class AWSAPIService {
         if urlComponents == nil {
             return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }
-        
+
         // Add query parameters
         urlComponents?.queryItems = [
             URLQueryItem(name: "patient_id", value: patientData.patientId),
@@ -93,16 +93,16 @@ class AWSAPIService {
             URLQueryItem(name: "sex", value: patientData.sex),
             URLQueryItem(name: "age", value: String(patientData.age))
         ]
-        
+
         guard let url = urlComponents?.url else {
             return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }
-        
+
         // Create request
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         // Send request (without a body)
         return URLSession.shared.dataTaskPublisher(for: request)
             .mapError { APIError.requestFailed($0) }
@@ -110,7 +110,7 @@ class AWSAPIService {
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw APIError.invalidResponse
                 }
-                
+
                 if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                     return data
                 } else {
@@ -130,4 +130,4 @@ class AWSAPIService {
             }
             .eraseToAnyPublisher()
     }
-} 
+}
