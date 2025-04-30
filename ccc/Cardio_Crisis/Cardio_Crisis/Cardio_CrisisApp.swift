@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Cardio_CrisisApp: App {
+struct CardiocrisisApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

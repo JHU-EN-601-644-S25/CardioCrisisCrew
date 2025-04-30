@@ -7,9 +7,9 @@
 
 import XCTest
 
-final class Cardio_CrisisUITestsLaunchTests: XCTestCase {
+final class CardiocrisisUITestsLaunchTests: XCTestCase {
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+    override static var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
 
@@ -17,7 +17,6 @@ final class Cardio_CrisisUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    @MainActor
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()
