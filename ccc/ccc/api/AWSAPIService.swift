@@ -11,7 +11,7 @@ enum APIError: Error {
 }
 
 class AWSAPIService {
-    private let baseURL = "https://qdiphk7654.execute-api.us-east-2.amazonaws.com/v2/"
+    private let baseURL = "https://qdiphk7654.execute-api.us-east-2.amazonaws.com/v3/"
     
     // For testing purposes - will be replaced with actual data from Raspberry Pi
     static let dummyPatientData = PatientData(
