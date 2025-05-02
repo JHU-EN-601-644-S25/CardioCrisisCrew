@@ -272,15 +272,29 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         
         // Check if this is our target characteristic
         if characteristic.uuid == targetCharacteristicUUID, let data = characteristic.value {
-            // Try to convert the data to a string
-            if let string = String(data: data, encoding: .utf8) {
-                print("Received UTF-8 string: \(string)")
-                receivedData = string
+            // Try to decode as base64 first
+            if let base64String = String(data: data, encoding: .utf8),
+               let decodedData = Data(base64Encoded: base64String) {
+                // Try to convert the decoded data to a string
+                if let decodedString = String(data: decodedData, encoding: .utf8) {
+                    print("Received decoded string: \(decodedString)")
+                    receivedData = decodedString
+                } else {
+                    // If it's not a string, show the raw decoded data as hex
+                    let hexString = decodedData.map { String(format: "%02X", $0) }.joined(separator: " ")
+                    print("Received decoded hex data: \(hexString)")
+                    receivedData = hexString
+                }
             } else {
-                // If it's not a string, show the raw data as hex
-                let hexString = data.map { String(format: "%02X", $0) }.joined(separator: " ")
-                print("Received hex data: \(hexString)")
-                receivedData = hexString
+                // If base64 decoding fails, try to show the raw data
+                if let string = String(data: data, encoding: .utf8) {
+                    print("Received raw UTF-8 string: \(string)")
+                    receivedData = string
+                } else {
+                    let hexString = data.map { String(format: "%02X", $0) }.joined(separator: " ")
+                    print("Received raw hex data: \(hexString)")
+                    receivedData = hexString
+                }
             }
         }
     }
