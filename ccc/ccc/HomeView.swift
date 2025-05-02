@@ -103,6 +103,7 @@ struct HomeView: View {
                                 Text("ECG Data Visualization")
                                     .font(.headline)
                                     .padding(.bottom, 4)
+                                    .padding(.top, 12)
                                 
                                 // If the data can be parsed as numbers, show a visualization
                                 if let dataPoints = parseDataFromReceivedData() {
@@ -322,7 +323,8 @@ struct ECGVisualizationView: View {
                 
                 for i in data.indices {
                     let x = step * CGFloat(i)
-                    let y = height / 2 - CGFloat(data[i]) * height
+                    let y = height - CGFloat(data[i]) * (height * 0.3)
+
                     
                     if i == 0 {
                         path.move(to: CGPoint(x: x, y: y))
