@@ -119,11 +119,11 @@ struct ContentView: View {
         }
     }
 
-//     // MARK: - Local User Struct (used only to pass to HomeView)
+    // MARK: - Local User Struct (used only to pass to HomeView)
 
-//     struct User: Identifiable {
-//         let id = UUID()
-//         let username: String
-//         let role: String
-//     }
-// }
+    struct User: Identifiable {
+        let id = UUID()
+        let username: String
+        let role: String
+    }
+}
