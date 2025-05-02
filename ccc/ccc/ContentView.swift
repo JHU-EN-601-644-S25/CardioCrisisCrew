@@ -5,6 +5,13 @@
 //  Created by Lily Wheeler on 4/8/25.
 //
 
+//
+//  ContentView.swift
+//  ccc
+//
+//  Created by Lily Wheeler on 4/8/25.
+//
+
 import SwiftUI
 import AWSCognitoIdentityProvider
 import AWSClientRuntime
@@ -119,11 +126,11 @@ struct ContentView: View {
         }
     }
 
-//     // MARK: - Local User Struct (used only to pass to HomeView)
+    // MARK: - Local User Struct (used only to pass to HomeView)
 
-//     struct User: Identifiable {
-//         let id = UUID()
-//         let username: String
-//         let role: String
-//     }
-// }
+    struct User: Identifiable {
+        let id = UUID()
+        let username: String
+        let role: String
+    }
+}
