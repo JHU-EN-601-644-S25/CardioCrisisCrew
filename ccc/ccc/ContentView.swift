@@ -23,7 +23,14 @@ struct ContentView: View {
     @State private var navigateToHome = false
     @State private var currentUser: User?
     @State private var isLoading = false
-
+    @State private var failedAttempts = 0
+    @State private var isLockedOut = false
+    @State private var lockoutEndTime: Date?
+    @State private var remainingLockoutTime = 0
+    
+    // Timer for lockout countdown
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -46,14 +53,25 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                     .autocapitalization(.none)
+                    .disabled(isLockedOut)
 
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
+                    .disabled(isLockedOut)
 
                 if isLoading {
                     ProgressView()
                         .padding()
+                } else if isLockedOut {
+                    VStack {
+                        Text("Account locked")
+                            .foregroundColor(.red)
+                            .font(.headline)
+                        Text("Please try again in \(remainingLockoutTime) seconds")
+                            .foregroundColor(.gray)
+                    }
+                    .padding()
                 } else {
                     Button("Login") {
                         Task {
@@ -61,9 +79,16 @@ struct ContentView: View {
                             let success = await loginWithCognito(username: username, password: password)
                             isLoading = false
                             if success {
-                                currentUser = User(username: username, role: "USER") // Customize role logic as needed
+                                failedAttempts = 0
+                                currentUser = User(username: username, role: "USER")
                                 navigateToHome = true
                             } else {
+                                failedAttempts += 1
+                                if failedAttempts >= 5 {
+                                    isLockedOut = true
+                                    lockoutEndTime = Date().addingTimeInterval(60) // 1 minute lockout
+                                    remainingLockoutTime = 60
+                                }
                                 showInvalidAlert = true
                             }
                         }
@@ -73,6 +98,7 @@ struct ContentView: View {
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
+                    .disabled(isLockedOut)
                 }
 
                 NavigationLink(
@@ -86,6 +112,21 @@ struct ContentView: View {
             .background(Color(.systemBackground))
             .alert("Invalid credentials", isPresented: $showInvalidAlert) {
                 Button("OK", role: .cancel) { }
+            } message: {
+                Text("Invalid username or password. \(5 - failedAttempts) attempts remaining.")
+            }
+            .onReceive(timer) { _ in
+                if let endTime = lockoutEndTime {
+                    let remaining = Int(endTime.timeIntervalSince(Date()))
+                    if remaining <= 0 {
+                        isLockedOut = false
+                        lockoutEndTime = nil
+                        failedAttempts = 0
+                        remainingLockoutTime = 0
+                    } else {
+                        remainingLockoutTime = remaining
+                    }
+                }
             }
         }
     }
