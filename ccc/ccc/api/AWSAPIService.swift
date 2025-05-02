@@ -13,17 +13,6 @@ enum APIError: Error {
 class AWSAPIService {
     private let baseURL = "https://qdiphk7654.execute-api.us-east-2.amazonaws.com/v3/"
     
-    // For testing purposes - will be replaced with actual data from Raspberry Pi
-    static let dummyPatientData = PatientData(
-        patientId: "CURRENT",
-        firstName: "John",
-        lastName: "Doe",
-        sex: "male",
-        age: 45
-    )
-    
-    static let dummyECGData = [1, 2, 3, 4, -1, -2, -3, -4]
-    
     // POST ECG data to AWS
     func postECGData(patientData: PatientData, ecgData: [Double]) -> AnyPublisher<Bool, APIError> {
         guard let url = URL(string: baseURL) else {

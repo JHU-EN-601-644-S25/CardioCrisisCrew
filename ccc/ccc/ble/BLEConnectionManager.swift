@@ -113,10 +113,7 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     
     // MARK: - AWS API Integration
     
-    func sendDataToAWS(patientData: PatientData? = nil, ecgData: [Double]? = nil) {
-        // Use provided patient data or dummy data
-        let patientInfo = patientData ?? AWSAPIService.dummyPatientData
-        
+    func sendDataToAWS(patientData: PatientData, ecgData: [Double]? = nil) {
         // Use provided ECG data, but don't fall back to dummy data
         guard let ecgValues = ecgData, !ecgValues.isEmpty else {
             apiStatus = "No ECG data available to upload"
@@ -126,7 +123,7 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         isUploadingData = true
         apiStatus = "Uploading data to AWS..."
         
-        apiService.postECGData(patientData: patientInfo, ecgData: ecgValues)
+        apiService.postECGData(patientData: patientData, ecgData: ecgValues)
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
@@ -145,9 +142,7 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
             .store(in: &cancellables)
     }
     
-    func fetchPatientData() {
-        let patientData = AWSAPIService.dummyPatientData
-        
+    func fetchPatientData(patientData: PatientData) {
         apiStatus = "Fetching patient data..."
         
         apiService.getPatientData(patientData: patientData)
