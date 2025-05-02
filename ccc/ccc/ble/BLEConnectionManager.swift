@@ -142,30 +142,6 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
             .store(in: &cancellables)
     }
     
-    func fetchPatientData(patientData: PatientData) {
-        apiStatus = "Fetching patient data..."
-        
-        apiService.getPatientData(patientData: patientData)
-            .receive(on: DispatchQueue.main)
-            .sink(
-                receiveCompletion: { [weak self] completion in
-                    guard let self = self else { return }
-                    
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let error):
-                        self.apiStatus = "Fetch failed: \(error.localizedDescription)"
-                    }
-                },
-                receiveValue: { [weak self] patientData in
-                    guard let self = self else { return }
-                    self.apiStatus = "Patient data retrieved: \(patientData.firstName) \(patientData.lastName)"
-                }
-            )
-            .store(in: &cancellables)
-    }
-    
     // MARK: - CBCentralManagerDelegate
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {

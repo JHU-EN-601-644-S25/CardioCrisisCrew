@@ -84,12 +84,12 @@ struct BLEConnectionView: View {
                                     .tint(.blue)
                                     .disabled(connectionManager.isUploadingData)
                                     
-                                    Button("Fetch Patient Data") {
-                                        connectionManager.fetchPatientData()
-                                    }
-                                    .buttonStyle(.bordered)
-                                    .tint(.green)
-                                    .disabled(connectionManager.isUploadingData)
+                                    // Button("Fetch Patient Data") {
+                                    //     connectionManager.fetchPatientData()
+                                    // }
+                                    // .buttonStyle(.bordered)
+                                    // .tint(.green)
+                                    // .disabled(connectionManager.isUploadingData)
                                 }
                                 .padding(.top, 8)
                                 

@@ -17,11 +17,6 @@ struct HomeView: View {
     // Patient form data
     @State private var patientInfo = PatientFormData()
     
-    // Mock patient data
-    let patientName = "John Doe"
-    let patientID = "P12345"
-    let patientAge = 45
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
