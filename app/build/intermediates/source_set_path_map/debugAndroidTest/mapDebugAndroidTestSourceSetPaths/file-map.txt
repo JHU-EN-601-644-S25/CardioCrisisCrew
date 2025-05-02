@@ -1,6 +1,0 @@
-com.example.cardiocrisis.test.app-annotation-experimental-1.3.0-0 /Users/lilywheeler/.gradle/caches/8.10.2/transforms/1c5b068161346e313080e94cf55d3b26/transformed/annotation-experimental-1.3.0/res
-com.example.cardiocrisis.test.app-core-1.5.0-1 /Users/lilywheeler/.gradle/caches/8.10.2/transforms/2f728500901ed55ea59a3c78c8ab9ec6/transformed/core-1.5.0/res
-com.example.cardiocrisis.test.app-androidTest-2 /Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/build/generated/res/resValues/androidTest/debug
-com.example.cardiocrisis.test.app-mergeDebugAndroidTestResources-3 /Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-com.example.cardiocrisis.test.app-mergeDebugAndroidTestResources-4 /Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-com.example.cardiocrisis.test.app-debugAndroidTest-5 /Users/lilywheeler/AndroidStudioProjects/CardioCrisis/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources

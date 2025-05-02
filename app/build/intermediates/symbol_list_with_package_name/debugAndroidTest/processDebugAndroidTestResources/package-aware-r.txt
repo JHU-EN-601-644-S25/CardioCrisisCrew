@@ -1,3 +1,0 @@
-com.example.cardiocrisis.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
