@@ -9,9 +9,12 @@ import sys
 import atexit
 from datetime import datetime
 import socket
+from db import create_db, save_data_session
 
 LINE = 27
 B_LINE = 21
+
+create_db()
 
 # Initialize the I2C bus and ADS1115
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -69,14 +72,15 @@ with gpiod.request_lines(
 				for v in samples:
 					f.write(f"{v}\n")
 			print(f"Data written to {filename}")
-			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-			s.connect(('127.0.0.1', 5000))
+			#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			#s.connect(('127.0.0.1', 5000))
 
 			msg_lines = [f"{v:.3f}V" for v in samples]
 			msg = "\n".join(msg_lines).encode('utf-8')
-			s.sendall(msg)
+			#s.sendall(msg)
+			save_data_session(samples)
 			print("Data sent successfully.")
-			s.close()
+			#s.close()
 		else:
 			if collecting:
 				print("Stopping data collection")
