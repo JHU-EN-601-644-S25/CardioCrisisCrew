@@ -76,7 +76,7 @@ struct ContentView: View {
                 }
 
                 NavigationLink(
-                    destination: HomeView(user: currentUser ?? User(username: "", role: "")),
+                    destination: HomeView(user: currentUser ?? User(username: "", role: ""), onSignOut: signOut),
                     isActive: $navigateToHome
                 ) {
                     EmptyView()
@@ -127,11 +127,46 @@ struct ContentView: View {
     }
 
     // MARK: - Local User Struct (used only to pass to HomeView)
-    // MARK: - Local User Struct (used only to pass to HomeView)
 
     struct User: Identifiable {
         let id = UUID()
         let username: String
         let role: String
+        
+        func signOut() {
+            // Clear any stored tokens or credentials
+            UserDefaults.standard.removeObject(forKey: "cognitoAccessToken")
+            UserDefaults.standard.removeObject(forKey: "cognitoRefreshToken")
+            UserDefaults.standard.removeObject(forKey: "cognitoIdToken")
+            UserDefaults.standard.synchronize()
+        }
+    }
+
+    // MARK: - Cognito Sign Out Function
+    func signOut() async {
+        let clientId = "7g0tcvh99nrkp5k0q790krqefr"
+        let region = "us-east-2"
+        
+        do {
+            let config = try await CognitoIdentityProviderClient.CognitoIdentityProviderClientConfiguration(region: region)
+            let client = CognitoIdentityProviderClient(config: config)
+            
+            // Clear local credentials
+            currentUser?.signOut()
+            currentUser = nil
+            username = ""
+            password = ""
+            
+            // Revoke tokens if available
+            if let refreshToken = UserDefaults.standard.string(forKey: "cognitoRefreshToken") {
+                let input = RevokeTokenInput(
+                    clientId: clientId,
+                    token: refreshToken
+                )
+                _ = try await client.revokeToken(input: input)
+            }
+        } catch {
+            print("Sign out error: \(error)")
+        }
     }
 }

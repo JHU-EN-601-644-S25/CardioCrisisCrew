@@ -3,6 +3,7 @@ import CoreBluetooth
 
 struct HomeView: View {
     let user: ContentView.User
+    let onSignOut: () async -> Void
     @State private var showBLEScanView = false
     @State private var showPatientInfo = false
     @State private var showSignOutAlert = false
@@ -209,7 +210,10 @@ struct HomeView: View {
         .alert("Sign Out", isPresented: $showSignOutAlert) {
             Button("Cancel", role: .cancel) { }
             Button("Sign Out", role: .destructive) {
-                presentationMode.wrappedValue.dismiss()
+                Task {
+                    await onSignOut()
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
         } message: {
             Text("Are you sure you want to sign out?")
@@ -380,6 +384,6 @@ struct HealthTipView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(user: ContentView.User(username: "admin", role: "ADMIN"))
+        HomeView(user: ContentView.User(username: "admin", role: "ADMIN"), onSignOut: {})
     }
 } 
