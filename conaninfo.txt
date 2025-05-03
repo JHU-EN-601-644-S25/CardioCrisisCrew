@@ -1,0 +1,48 @@
+[settings]
+    arch=armv8
+    build_type=Release
+    compiler=gcc
+    compiler.libcxx=libstdc++
+    compiler.version=12
+    os=Linux
+
+[requires]
+    fmt/10.Y.Z
+    spdlog/1.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=armv8
+    arch_build=armv8
+    build_type=Release
+    compiler=gcc
+    compiler.libcxx=libstdc++
+    compiler.version=12
+    os=Linux
+    os_build=Linux
+
+[full_requires]
+    fmt/10.1.1:31087773b5f8776a06568e9ab11b2ab9a5732d38
+    spdlog/1.12.0:a9ef26e270b42e6653657da60b6a557b19d58ae7
+
+[full_options]
+    fmt:fPIC=True
+    fmt:header_only=False
+    fmt:shared=False
+    fmt:with_fmt_alias=False
+    fmt:with_os_api=True
+    spdlog:fPIC=True
+    spdlog:header_only=False
+    spdlog:no_exceptions=False
+    spdlog:shared=False
+    spdlog:use_std_fmt=False
+    spdlog:wchar_filenames=False
+    spdlog:wchar_support=False
+
+[recipe_hash]
+
+
+[env]
+

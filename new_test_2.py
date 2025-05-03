@@ -67,11 +67,11 @@ with gpiod.request_lines(
         			samples.append(voltage)
         			time.sleep(sample_interval)
 			timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-			filename = f"data_{timestamp}.txt"
-			with open(filename, "w") as f:
-				for v in samples:
-					f.write(f"{v}\n")
-			print(f"Data written to {filename}")
+			#filename = f"data_{timestamp}.txt"
+			#with open(filename, "w") as f:
+				#for v in samples:
+					#f.write(f"{v}\n")
+			#print(f"Data written to {filename}")
 			#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			#s.connect(('127.0.0.1', 5000))
 
