@@ -18,13 +18,13 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     private var connectionTimer: Timer?
     private let connectionTimeout: TimeInterval = 10.0 // 10 seconds timeout
     
-    // Add these properties for Raspberry Pi specific communication
+    // Raspberry Pi specific communication
     var targetServiceUUID: CBUUID
     var targetCharacteristicUUID: CBUUID
     private var targetCharacteristic: CBCharacteristic?
     
-    // AWS API Service
-    private let apiService = AWSAPIService()
+    // AWS API Service using shared instance
+    private let apiService = AWSAPIService.shared
     private var cancellables = Set<AnyCancellable>()
     
     init(deviceIdentifier: UUID, serviceUUID: String? = nil, characteristicUUID: String? = nil) {
@@ -329,4 +329,4 @@ extension BLEConnectionManager {
         connectionStatus = "Reconnecting..."
         connect()
     }
-} 
+}

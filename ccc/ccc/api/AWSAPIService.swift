@@ -3,74 +3,85 @@ import Combine
 
 enum APIError: Error {
     case invalidURL
+    case unauthorized
     case requestFailed(Error)
     case invalidResponse
+    case serverError(statusCode: Int, message: String)
     case decodingFailed(Error)
-    case serverError(Int, String)
-    case unauthorized
     case unknown
 }
 
+/// Service to send ECG data to AWS API Gateway using Cognito JWT auth.
 class AWSAPIService {
-    private let baseURL = "https://qdiphk7654.execute-api.us-east-2.amazonaws.com/v3/"
-    
+    static let shared = AWSAPIService()
+    private let session: URLSession
+
+    private var baseURLComponents: URLComponents {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "qdiphk7654.execute-api.us-east-2.amazonaws.com"
+        components.path = "/v3"  // adjust to your deployed resource path
+        return components
+    }
+
+    private init(session: URLSession = .shared) {
+        self.session = session
+    }
+
+    /// Posts ECG data along with patient metadata. Requires a valid Cognito access token.
     func postECGData(patientData: PatientData, ecgData: [Double]) -> AnyPublisher<Bool, APIError> {
-        guard let url = URL(string: baseURL) else {
+        // Build URL
+        guard let url = baseURLComponents.url else {
             return Fail(error: .invalidURL).eraseToAnyPublisher()
         }
 
-        guard let token = UserDefaults.standard.string(forKey: "cognitoAccessToken") else {
-            print("No access token found.")
+        // Fetch Cognito token
+        guard let token = UserDefaults.standard.string(forKey: "cognitoIdToken"), !token.isEmpty else {
+            print("No access ID found.")
             return Fail(error: .unauthorized).eraseToAnyPublisher()
         }
 
-        let timestamp = ISO8601DateFormatter().string(from: Date())
+        // Create request
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
+        // Encode JSON body
+        let timestamp = ISO8601DateFormatter().string(from: Date())
         let requestData = ECGDataRequest(
             patientData: patientData,
             ecgTimestamp: timestamp,
             ecgData: ecgData
         )
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
         do {
-            request.httpBody = try JSONEncoder().encode(requestData)
-            if let body = String(data: request.httpBody!, encoding: .utf8) {
-                print("Sending JSON: \(body)")
+            let body = try JSONEncoder().encode(requestData)
+            request.httpBody = body
+            if let bodyString = String(data: body, encoding: .utf8) {
+                print("Sending ECG data: \(bodyString)")
             }
         } catch {
             return Fail(error: .requestFailed(error)).eraseToAnyPublisher()
         }
 
-        return URLSession.shared.dataTaskPublisher(for: request)
+        // Send network call
+        return session.dataTaskPublisher(for: request)
             .mapError { APIError.requestFailed($0) }
-            .tryMap { data, response in
+            .flatMap { data, response -> AnyPublisher<Bool, APIError> in
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    throw APIError.invalidResponse
+                    return Fail(error: .invalidResponse).eraseToAnyPublisher()
                 }
-
-                let statusCode = httpResponse.statusCode
-                let responseBody = String(data: data, encoding: .utf8) ?? "<no body>"
-
-                print("Status code: \(statusCode)")
+                let responseBody = String(data: data, encoding: .utf8) ?? "<empty>"
+                print("Status code: \(httpResponse.statusCode)")
                 print("Response body: \(responseBody)")
 
-                if (200...299).contains(statusCode) {
-                    return true
-                } else {
-                    throw APIError.serverError(statusCode, responseBody)
+                if (200...299).contains(httpResponse.statusCode) {
+                    return Just(true)
+                        .setFailureType(to: APIError.self)
+                        .eraseToAnyPublisher()
                 }
-            }
-            .mapError {
-                if let apiError = $0 as? APIError {
-                    return apiError
-                } else {
-                    return .unknown
-                }
+                return Fail(error: .serverError(statusCode: httpResponse.statusCode, message: responseBody))
+                    .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
     }
