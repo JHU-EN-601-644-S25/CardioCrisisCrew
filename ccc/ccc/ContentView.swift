@@ -134,8 +134,8 @@ struct ContentView: View {
     // MARK: - Cognito Login Function
 
     func loginWithCognito(username: String, password: String) async -> Bool {
-        let clientId = "7g0tcvh99nrkp5k0q790krqefr"  // Replace with your actual App Client ID
-        let region = "us-east-2"               // e.g. "us-east-1"
+        let clientId = "7g0tcvh99nrkp5k0q790krqefr" 
+        let region = "us-east-2"              
 
         do {
             let config = try await CognitoIdentityProviderClient.CognitoIdentityProviderClientConfiguration(region: region)
@@ -153,12 +153,13 @@ struct ContentView: View {
             let response = try await client.initiateAuth(input: input)
             
 
-            if let token = response.authenticationResult?.accessToken {
-                print("Login succeeded.")
-                // Store token securely as needed
+            if let idToken = response.authenticationResult?.idToken {
+                print("Login succeeded, got ID token.")
+                UserDefaults.standard.set(idToken, forKey: "cognitoIdToken")
+                print("Saved ID token to UserDefaults")
                 return true
             } else {
-                print("Login failed: no access token returned.")
+                print("Login failed: no ID token returned.")
                 return false
             }
         } catch {
