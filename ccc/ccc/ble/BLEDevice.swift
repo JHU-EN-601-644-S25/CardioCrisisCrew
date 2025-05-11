@@ -71,13 +71,17 @@ class BLEScanner: NSObject, ObservableObject, CBCentralManagerDelegate {
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
                         advertisementData: [String: Any], rssi RSSI: NSNumber) {
-        // Only proceed if the peripheral has a valid, non-empty name
+        
         guard let name = peripheral.name, !name.isEmpty else { return }
         
-        // Check if the device is not already in the list
-        if !devices.contains(where: { $0.identifier == peripheral.identifier }) {
-            let device = BLEDevice(name: name, identifier: peripheral.identifier, rssi: RSSI.intValue)
-            devices.append(device)
+        // Add devices that have either "raspberry" or "gobble" in their name
+        let lowercasedName = name.lowercased()
+        if lowercasedName.contains("raspberry") || lowercasedName.contains("gobble") {  // change as needed
+            // Check if the device is not already in the list
+            if !devices.contains(where: { $0.identifier == peripheral.identifier }) {
+                let device = BLEDevice(name: name, identifier: peripheral.identifier, rssi: RSSI.intValue)
+                devices.append(device)
+            }
         }
     }
 }
