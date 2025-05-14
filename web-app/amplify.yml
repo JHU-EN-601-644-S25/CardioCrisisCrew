@@ -8,7 +8,7 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: dist  # or build if using Create React App
+    baseDirectory: web-app  # or build if using Create React App
     files:
       - '**/*'
   cache:
