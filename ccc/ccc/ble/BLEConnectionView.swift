@@ -39,6 +39,12 @@ struct BLEConnectionView: View {
                 Text("RSSI: \(device.rssi)")
                     .font(.caption)
                     .foregroundColor(.secondary)
+                
+                if let patientId = connectionManager.currentPatientId {
+                    Text("Patient ID: \(patientId)")
+                        .font(.caption)
+                        .foregroundColor(.blue)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
@@ -78,18 +84,11 @@ struct BLEConnectionView: View {
                                     Button(action: {
                                         showPatientForm = true
                                     }) {
-                                        Label("Send to Cloud", systemImage: "cloud.upload")
+                                        Label("Update Patient Info", systemImage: "person.crop.circle.badge.plus")
                                     }
                                     .buttonStyle(.bordered)
                                     .tint(.blue)
                                     .disabled(connectionManager.isUploadingData)
-                                    
-                                    // Button("Fetch Patient Data") {
-                                    //     connectionManager.fetchPatientData()
-                                    // }
-                                    // .buttonStyle(.bordered)
-                                    // .tint(.green)
-                                    // .disabled(connectionManager.isUploadingData)
                                 }
                                 .padding(.top, 8)
                                 
@@ -226,17 +225,24 @@ struct BLEConnectionView: View {
         }
         .sheet(isPresented: $showPatientForm) {
             PatientFormView(patientInfo: $patientInfo, isPresented: $showPatientForm) { patientData in
-                // Parse the received data into doubles
-                let components = connectionManager.receivedData.components(separatedBy: CharacterSet(charactersIn: ", \n"))
-                let ecgData = components.compactMap { component -> Double? in
-                    let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
-                    // Remove 'V' suffix if present
-                    let voltageString = trimmed.replacingOccurrences(of: "V", with: "").trimmingCharacters(in: .whitespaces)
-                    return Double(voltageString)
+                // Update the patient data with the existing patient ID
+                if let existingPatientId = connectionManager.currentPatientId {
+                    let updatedPatientData = PatientData(
+                        patientId: existingPatientId, 
+                        firstName: patientData.firstName,
+                        lastName: patientData.lastName,
+                        sex: patientData.sex,
+                        age: Int(patientData.age) ?? 0
+                    )
+                    
+                    // Send the patient data with current ECG data
+                    if !connectionManager.currentECGData.isEmpty {
+                        connectionManager.sendDataToAWS(patientData: updatedPatientData, ecgData: connectionManager.currentECGData)
+                    } else {
+                        // If no ECG data is available, show an alert
+                        connectionManager.apiStatus = "No ECG data available to upload with patient information"
+                    }
                 }
-                
-                // Send the data to AWS
-                connectionManager.sendDataToAWS(patientData: patientData, ecgData: ecgData)
             }
         }
     }
@@ -260,7 +266,6 @@ struct BLEConnectionView: View {
 
 // Form data structure
 struct PatientFormData {
-    var patientId: String = ""
     var firstName: String = ""
     var lastName: String = ""
     var sex: String = "male"
@@ -280,10 +285,6 @@ struct PatientFormView: View {
         NavigationView {
             Form {
                 Section(header: Text("Patient Information")) {
-                    TextField("Patient ID", text: $patientInfo.patientId)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                    
                     TextField("First Name", text: $patientInfo.firstName)
                         .autocapitalization(.words)
                     
@@ -306,7 +307,7 @@ struct PatientFormView: View {
                             let age = Int(patientInfo.age) ?? 0
                             
                             let patientData = PatientData(
-                                patientId: patientInfo.patientId,
+                                patientId: "",  // This will be set by the parent view
                                 firstName: patientInfo.firstName,
                                 lastName: patientInfo.lastName,
                                 sex: patientInfo.sex,
@@ -340,11 +341,6 @@ struct PatientFormView: View {
     }
     
     private func validateForm() -> Bool {
-        if patientInfo.patientId.isEmpty {
-            validationMessage = "Patient ID is required"
-            return false
-        }
-        
         if patientInfo.firstName.isEmpty {
             validationMessage = "First name is required"
             return false

@@ -20,7 +20,7 @@ class AWSAPIService {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "qdiphk7654.execute-api.us-east-2.amazonaws.com"
-        components.path = "/v3"  // adjust to your deployed resource path
+        components.path = "/v3" 
         return components
     }
 

@@ -11,12 +11,22 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     @Published var connectionTimedOut = false
     @Published var apiStatus: String = ""
     @Published var isUploadingData = false
+    @Published var currentPatientId: String?
+    @Published var currentECGData: [Double] = []
     
     private var centralManager: CBCentralManager!
     var peripheral: CBPeripheral?
     var deviceIdentifier: UUID
     private var connectionTimer: Timer?
     private let connectionTimeout: TimeInterval = 10.0 // 10 seconds timeout
+    
+    // Track if initial data was sent
+    private var initialDataSent = false
+    
+    // Track last uploaded data to avoid duplicates
+    private var lastUploadedData: String = ""
+    private var lastUploadTime: Date?
+    private let minimumUploadInterval: TimeInterval = 1.0 // Minimum time between uploads
     
     // Raspberry Pi specific communication
     var targetServiceUUID: CBUUID
@@ -114,8 +124,10 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     // MARK: - AWS API Integration
     
     func sendDataToAWS(patientData: PatientData, ecgData: [Double]? = nil) {
-        // Use provided ECG data, but don't fall back to dummy data
-        guard let ecgValues = ecgData, !ecgValues.isEmpty else {
+        // Use provided ECG data or fall back to current ECG data
+        let ecgValues = ecgData ?? currentECGData
+        
+        guard !ecgValues.isEmpty else {
             apiStatus = "No ECG data available to upload"
             return
         }
@@ -123,7 +135,21 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         isUploadingData = true
         apiStatus = "Uploading data to AWS..."
         
-        apiService.postECGData(patientData: patientData, ecgData: ecgValues)
+        // Create a new patient data object with the current patient ID if available
+        let finalPatientData: PatientData
+        if let currentId = currentPatientId {
+            finalPatientData = PatientData(
+                patientId: currentId,
+                firstName: patientData.firstName,
+                lastName: patientData.lastName,
+                sex: patientData.sex,
+                age: patientData.age
+            )
+        } else {
+            finalPatientData = patientData
+        }
+        
+        apiService.postECGData(patientData: finalPatientData, ecgData: ecgValues)
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
@@ -133,6 +159,9 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
                     switch completion {
                     case .finished:
                         self.apiStatus = "Data uploaded successfully"
+                        // Update last upload time
+                        self.lastUploadTime = Date()
+                        self.lastUploadedData = ecgValues.description
                     case .failure(let error):
                         self.apiStatus = "Upload failed: \(error.localizedDescription)"
                     }
@@ -181,13 +210,24 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        connectionStatus = "Connected, discovering services..."
-        isConnecting = false
-        isConnected = true
-        stopConnectionTimer()
+        print("Connected to \(peripheral.name ?? "unknown device")")
+        self.peripheral = peripheral
+        peripheral.delegate = self
         
-        // Discover the services we're interested in
+        // Generate a new patient ID when connection is established
+        currentPatientId = UUID().uuidString
+        print("Generated new patient ID: \(currentPatientId ?? "none")")
+        
+        // Reset initial data sent flag
+        initialDataSent = false
+        
+        // Discover services
         peripheral.discoverServices([targetServiceUUID])
+        
+        isConnected = true
+        isConnecting = false
+        connectionStatus = "Connected"
+        connectionTimer?.invalidate()
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
@@ -266,34 +306,44 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
-            print("Error reading characteristic value: \(error.localizedDescription)")
+            print("Error reading characteristic: \(error.localizedDescription)")
             return
         }
         
-        // Check if this is our target characteristic
-        if characteristic.uuid == targetCharacteristicUUID, let data = characteristic.value {
-            // Try to decode as base64 first
-            if let base64String = String(data: data, encoding: .utf8),
-               let decodedData = Data(base64Encoded: base64String) {
-                // Try to convert the decoded data to a string
-                if let decodedString = String(data: decodedData, encoding: .utf8) {
-                    print("Received decoded string: \(decodedString)")
-                    receivedData = decodedString
-                } else {
-                    // If it's not a string, show the raw decoded data as hex
-                    let hexString = decodedData.map { String(format: "%02X", $0) }.joined(separator: " ")
-                    print("Received decoded hex data: \(hexString)")
-                    receivedData = hexString
-                }
-            } else {
-                // If base64 decoding fails, try to show the raw data
-                if let string = String(data: data, encoding: .utf8) {
-                    print("Received raw UTF-8 string: \(string)")
-                    receivedData = string
-                } else {
-                    let hexString = data.map { String(format: "%02X", $0) }.joined(separator: " ")
-                    print("Received raw hex data: \(hexString)")
-                    receivedData = hexString
+        if let data = characteristic.value {
+            if let string = String(data: data, encoding: .utf8) {
+                DispatchQueue.main.async {
+                    self.receivedData = string
+                    
+                    // Parse ECG data
+                    let components = string.components(separatedBy: CharacterSet(charactersIn: ", \n"))
+                    let ecgData = components.compactMap { component -> Double? in
+                        let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
+                        let voltageString = trimmed.replacingOccurrences(of: "V", with: "").trimmingCharacters(in: .whitespaces)
+                        return Double(voltageString)
+                    }
+                    
+                    // Update current ECG data
+                    if !ecgData.isEmpty {
+                        self.currentECGData = ecgData
+                        
+                        // If we have a patient ID, send the data to AWS
+                        if let patientId = self.currentPatientId {
+                            // Check if we have any patient information stored
+                            let patientData = PatientData(
+                                patientId: patientId,
+                                firstName: UserDefaults.standard.string(forKey: "patientFirstName") ?? "",
+                                lastName: UserDefaults.standard.string(forKey: "patientLastName") ?? "",
+                                sex: UserDefaults.standard.string(forKey: "patientSex") ?? "",
+                                age: UserDefaults.standard.integer(forKey: "patientAge")
+                            )
+                            
+                            // Send data if it's new (different from last upload)
+                            if ecgData.description != self.lastUploadedData {
+                                self.sendDataToAWS(patientData: patientData, ecgData: ecgData)
+                            }
+                        }
+                    }
                 }
             }
         }

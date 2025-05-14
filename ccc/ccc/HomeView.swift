@@ -191,8 +191,14 @@ struct HomeView: View {
         )
         .sheet(isPresented: $showPatientInfo) {
             PatientFormView(patientInfo: $patientInfo, isPresented: $showPatientInfo) { patientData in
-                // Parse ECG data from receivedData
-                let ecgData = parseECGDataForUpload()
+                // Store patient information in UserDefaults
+                UserDefaults.standard.set(patientData.firstName, forKey: "patientFirstName")
+                UserDefaults.standard.set(patientData.lastName, forKey: "patientLastName")
+                UserDefaults.standard.set(patientData.sex, forKey: "patientSex")
+                UserDefaults.standard.set(patientData.age, forKey: "patientAge")
+                
+                // Use the current ECG data from the connection manager
+                let ecgData = connectionManager.currentECGData
                 
                 // Send the data to AWS
                 connectionManager.sendDataToAWS(patientData: patientData, ecgData: ecgData)
