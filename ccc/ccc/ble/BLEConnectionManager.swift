@@ -13,6 +13,12 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     @Published var isUploadingData = false
     @Published var currentPatientId: String?
     @Published var currentECGData: [Double] = []
+    @Published var isDeveloperMode = false
+    
+    // Developer mode properties
+    private var developerModeTimer: Timer?
+    private var developerModeDataCount = 0
+    private let maxDeveloperModeDataPoints = 100 // Increased for better visualization
     
     private var centralManager: CBCentralManager!
     var peripheral: CBPeripheral?
@@ -26,7 +32,7 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
     // Track last uploaded data to avoid duplicates
     private var lastUploadedData: String = ""
     private var lastUploadTime: Date?
-    private let minimumUploadInterval: TimeInterval = 1.0 // Minimum time between uploads
+    private let minimumUploadInterval: TimeInterval = 30.0 // Minimum time between uploads
     
     // Raspberry Pi specific communication
     var targetServiceUUID: CBUUID
@@ -121,15 +127,26 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         connectionTimer = nil
     }
     
-    // MARK: - AWS API Integration
-    
-    func sendDataToAWS(patientData: PatientData, ecgData: [Double]? = nil) {
+    // AWS API Integration
+    func sendDataToAWS(patientData: PatientData, ecgData: [Double]? = nil, forceUpload: Bool = false) {
         // Use provided ECG data or fall back to current ECG data
         let ecgValues = ecgData ?? currentECGData
         
         guard !ecgValues.isEmpty else {
             apiStatus = "No ECG data available to upload"
             return
+        }
+        
+        // Check time interval only for automatic uploads and if it's not the first data
+        if !forceUpload && !initialDataSent {
+            let now = Date()
+            if let lastUpload = self.lastUploadTime {
+                let timeSinceLastUpload = now.timeIntervalSince(lastUpload)
+                if timeSinceLastUpload < self.minimumUploadInterval {
+                    return
+                }
+            }
+            self.lastUploadTime = now
         }
         
         isUploadingData = true
@@ -159,9 +176,10 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
                     switch completion {
                     case .finished:
                         self.apiStatus = "Data uploaded successfully"
-                        // Update last upload time
+                        // Update last upload time and mark initial data as sent
                         self.lastUploadTime = Date()
                         self.lastUploadedData = ecgValues.description
+                        self.initialDataSent = true
                     case .failure(let error):
                         self.apiStatus = "Upload failed: \(error.localizedDescription)"
                     }
@@ -218,6 +236,16 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         currentPatientId = UUID().uuidString
         print("Generated new patient ID: \(currentPatientId ?? "none")")
         
+        // Reset patient information in UserDefaults
+        UserDefaults.standard.removeObject(forKey: "patientFirstName")
+        UserDefaults.standard.removeObject(forKey: "patientLastName")
+        UserDefaults.standard.removeObject(forKey: "patientSex")
+        UserDefaults.standard.removeObject(forKey: "patientAge")
+        
+        // Reset upload tracking data
+        lastUploadedData = ""
+        lastUploadTime = nil
+        
         // Reset initial data sent flag
         initialDataSent = false
         
@@ -246,7 +274,7 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         receivedData = ""
     }
     
-    // MARK: - CBPeripheralDelegate
+    // CBPeripheralDelegate
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let error = error {
@@ -313,35 +341,43 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         if let data = characteristic.value {
             if let string = String(data: data, encoding: .utf8) {
                 DispatchQueue.main.async {
-                    self.receivedData = string
+                    // Append new data to existing received data
+                    if !self.receivedData.isEmpty {
+                        self.receivedData += ", "
+                    }
+                    self.receivedData += string
                     
-                    // Parse ECG data
+                    // Parse ECG data - improved parsing logic
                     let components = string.components(separatedBy: CharacterSet(charactersIn: ", \n"))
                     let ecgData = components.compactMap { component -> Double? in
                         let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
+                        // Skip empty components
+                        guard !trimmed.isEmpty else { return nil }
                         let voltageString = trimmed.replacingOccurrences(of: "V", with: "").trimmingCharacters(in: .whitespaces)
-                        return Double(voltageString)
+                        if let value = Double(voltageString) {
+                            // Round to 5 decimal places
+                            return (value * 100000).rounded() / 100000
+                        }
+                        return nil
                     }
                     
-                    // Update current ECG data
+                    // Append new ECG data to current data
                     if !ecgData.isEmpty {
-                        self.currentECGData = ecgData
+                        self.currentECGData.append(contentsOf: ecgData)
                         
                         // If we have a patient ID, send the data to AWS
                         if let patientId = self.currentPatientId {
-                            // Check if we have any patient information stored
-                            let patientData = PatientData(
+                            // Create a temporary patient data with just the ID for automatic uploads
+                            let tempPatientData = PatientData(
                                 patientId: patientId,
-                                firstName: UserDefaults.standard.string(forKey: "patientFirstName") ?? "",
-                                lastName: UserDefaults.standard.string(forKey: "patientLastName") ?? "",
-                                sex: UserDefaults.standard.string(forKey: "patientSex") ?? "",
-                                age: UserDefaults.standard.integer(forKey: "patientAge")
+                                firstName: "TEMP",  // Temporary name for automatic uploads
+                                lastName: "",
+                                sex: "",
+                                age: 0
                             )
                             
-                            // Send data if it's new (different from last upload)
-                            if ecgData.description != self.lastUploadedData {
-                                self.sendDataToAWS(patientData: patientData, ecgData: ecgData)
-                            }
+                            // Force upload on first data, then use normal interval
+                            self.sendDataToAWS(patientData: tempPatientData, ecgData: ecgData, forceUpload: !self.initialDataSent)
                         }
                     }
                 }
@@ -363,6 +399,93 @@ class BLEConnectionManager: NSObject, ObservableObject, CBCentralManagerDelegate
         } else {
             print("Notification state updated for characteristic")
         }
+    }
+
+    // Add after init method
+    func startDeveloperMode() {
+        isDeveloperMode = true
+        isConnected = true
+        isConnecting = false
+        connectionStatus = "Developer Mode Active"
+        
+        // Generate a new patient ID
+        currentPatientId = UUID().uuidString
+        
+        // Reset data
+        currentECGData = []
+        receivedData = "" // Reset received data
+        developerModeDataCount = 0
+        
+        // Generate all data points immediately
+        for _ in 0..<maxDeveloperModeDataPoints {
+            generateDummyECGData()
+        }
+        
+        // Update receivedData string with the generated data
+        receivedData = currentECGData.map { String(format: "%.5fV", $0) }.joined(separator: ", ")
+        
+        // If we have a patient ID, send all the data to AWS at once
+        if let patientId = currentPatientId {
+            let tempPatientData = PatientData(
+                patientId: patientId,
+                firstName: "DEV_MODE",
+                lastName: "",
+                sex: "",
+                age: 0
+            )
+            
+            sendDataToAWS(patientData: tempPatientData, ecgData: currentECGData, forceUpload: true)
+        }
+    }
+    
+    func stopDeveloperMode() {
+        isDeveloperMode = false
+        isConnected = false
+        connectionStatus = "Developer Mode Stopped"
+        developerModeTimer?.invalidate()
+        developerModeTimer = nil
+        developerModeDataCount = 0
+        currentECGData = []
+    }
+    
+    private func generateDummyECGData() {
+        guard isDeveloperMode, developerModeDataCount < maxDeveloperModeDataPoints else {
+            return
+        }
+        
+        // Generate a more realistic ECG-like pattern
+        let time = Double(developerModeDataCount)
+        var value: Double
+        
+        // Create a basic ECG-like pattern that will work well with the visualization
+        if time.truncatingRemainder(dividingBy: 20) < 2 {
+            // P wave - small positive deflection
+            value = 0.1 + 0.05 * sin(time * 10)
+        } else if time.truncatingRemainder(dividingBy: 20) < 4 {
+            // QRS complex - sharp spike
+            if time.truncatingRemainder(dividingBy: 20) < 3 {
+                value = 0.8 // R wave peak
+            } else {
+                value = 0.2 // S wave
+            }
+        } else if time.truncatingRemainder(dividingBy: 20) < 6 {
+            // T wave - rounded positive deflection
+            value = 0.3 + 0.1 * sin(time * 5)
+        } else {
+            // Baseline - slight variation around 0.5
+            value = 0.5 + Double.random(in: -0.05...0.05)
+        }
+        
+        // Add some noise
+        let noise = Double.random(in: -0.02...0.02)
+        value += noise
+        
+        // Ensure value stays within 0-1V range
+        value = max(0.0, min(1.0, value))
+        
+        // Add the value to current ECG data
+        currentECGData.append(value)
+        developerModeDataCount += 1
     }
 }
 

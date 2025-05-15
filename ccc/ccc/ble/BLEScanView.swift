@@ -10,7 +10,6 @@ struct BLEScanView: View {
     @StateObject private var scanner = BLEScanner()
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedDevice: BLEDevice?
-    @State private var showConnectionView = false
     
     init(selectedDevice: Binding<BLEDevice?> = .constant(nil)) {
         _selectedDevice = selectedDevice
@@ -97,11 +96,6 @@ struct BLEScanView: View {
             // Stop scanning when view disappears
             if scanner.scanning {
                 scanner.stopScan()
-            }
-        }
-        .sheet(isPresented: $showConnectionView) {
-            if let device = selectedDevice {
-                BLEConnectionView(device: device)
             }
         }
     }
