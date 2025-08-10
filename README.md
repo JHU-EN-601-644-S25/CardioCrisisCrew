@@ -1,5 +1,6 @@
 # CardioCrisisCrew
 Project created as part of 601.444 Medical Device Cybersecurity at Johns Hopkins.
+
 Authors: Jason Mihalopoulos, Madeline Estey, Casey Burhoe, and Lily Wheeler
 
 # Project Overview
