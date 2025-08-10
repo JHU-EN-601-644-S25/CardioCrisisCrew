@@ -44,3 +44,11 @@ The device will integrate with both a mobile app via Bluetooth, and a cloud plat
 ## Device Setup
 
 # Security
+
+# Development Setup
+Instructions on how to set up the app and hardware development environments to make any changes to the project.
+
+## App Setup
+
+## Device Setup
+
