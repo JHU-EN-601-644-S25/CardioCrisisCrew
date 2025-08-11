@@ -40,6 +40,43 @@ The device will integrate with both a mobile app via Bluetooth, and a cloud plat
 # System Setup
 
 ## App Setup
+The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Bluetooth, view ECG readings in real time, and upload them to the cloud.
+
+### Prerequisites
+- A Mac with Xcode installed
+- An Apple ID (free account is sufficient for development and testing)
+- An iPhone with iOS Developer Mode enabled (for Bluetooth testing)
+
+**Note:** A free Apple ID allows you to run the app on your own iPhone for 7 days at a time. You'll need to re-sign the app every 7 days. A paid Apple Developer account ($99/year) is only required if you want to distribute the app or test on multiple devices.
+
+### 1. Download the App Source
+- Switch to the `ios-app` branch of the CardioCrisisCrew repository
+- Download the `ccc/ccc.xcodeproj` file and the full `ccc/` folder (both are in the same branch)
+
+### 2. Open in Xcode
+- Open `ccc.xcodeproj` in Xcode
+- In the left project navigator, select the project file (blue icon)
+- Go to **Signing & Capabilities**
+- Change the **Team** to your Apple Developer account
+- Update the **Bundle Identifier** to a unique value (e.g., `com.yourname.CCCECG`)
+
+### 3. Choose Run Destination
+**For simulator testing (no Bluetooth):**
+- Select an iOS simulator (e.g., iPhone 15) from the run destination menu
+
+**For real device testing (Bluetooth enabled):**
+- Connect your iPhone to your Mac via USB
+- On your iPhone, go to **Settings → Privacy & Security → Developer Mode** and enable it
+- Select your iPhone as the run destination in Xcode
+
+### 4. Build and Run the App
+- Click the **Run ▶️** button in Xcode to install and launch the app
+- If prompted on your iPhone, trust the developer certificate
+
+### 5. Pair with the Raspberry Pi
+- Ensure the Pi is running the ECG service (`systemctl --user restart ecg.service`)
+- In the app, scan for devices and select your Pi from the list
+- Start a new session to view live ECG data
 
 ## Device Setup
 
