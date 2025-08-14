@@ -71,6 +71,52 @@ The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Blueto
 ## Device Setup
 
 # Security
+Security was integrated into every stage of the CC ECG's development — from requirements gathering and architecture design to implementation and testing. Our approach followed recognized medical device cybersecurity standards and regulatory guidance to ensure safety, reliability, and compliance.
+
+## Secure Development Lifecycle
+We adopted a Secure Product Development Lifecycle (SPDLC) approach, including:
+
+- **Requirements Definition**: Established cybersecurity requirements alongside functional requirements
+- **Design Reviews**: Incorporated threat modeling, trust boundaries, and data flow diagrams into early-stage design
+- **Risk Assessments**: Conducted both safety and cybersecurity risk assessments, with mitigation strategies implemented
+- **Verification & Validation**: Tested against defined security requirements
+
+## Cybersecurity Requirements
+- EMT authentication required for device access
+- End-to-end encryption for data in transit (Bluetooth, cloud uploads)
+- Encryption at rest for on-device ECG data (SQLite)
+- Logging and alerts for failed login attempts
+- Automatic reauthentication after app closure
+
+## Standards & Compliance
+Our process aligned with established industry and regulatory frameworks, including:
+
+- **ISO 14971** – Medical Device Risk Management
+- **IEC 62304** – Medical Device Software Lifecycle
+- **AAMI TIR57** – Principles for Medical Device Security
+- **FDA Cybersecurity Premarket Guidance** – 2023 edition
+
+## Threat Modeling & Risk Management
+Our threat modeling identified authentication, encryption, and access control as critical to protecting patient data and device integrity. Based on this model, we defined concrete cybersecurity requirements and validated them through targeted testing. All critical tests passed.
+
+Key Cybersecurity Controls
+- Authentication & Access Control
+- Encryption
+- Data Protection
+- Device Hardening
+
+
+## Security Testing
+- **Vulnerability Scanning**: Performed on device, app, and cloud components
+- **Penetration Testing**: Conducted by an independent third-party team to simulate real-world attack scenarios
+
+## Ongoing Security Maintenance
+We plan to:
+
+- Periodically re-run threat models and risk assessments
+- Maintain and review an SBOM (Software Bill of Materials) for third-party component vulnerabilities
+- Conduct recurring penetration tests
+- Implement hospital cloud interface security reviews
 
 # Development Setup
 Instructions on how to set up the app and hardware development environments to make any changes to the project.
