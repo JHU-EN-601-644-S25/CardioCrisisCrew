@@ -174,3 +174,14 @@ The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Blueto
 
 ## Device Setup
 The physical ECG device collects and stores heart data. 
+
+### 1. Connect to the device
+- Connect to the device so that hardware or software modifications can be implemented
+- Option 1: Use an Ethernet cable to connect the device to your computer. Then, ssh into the Raspberry Pi using the following command: `ssh cccpi@192.168.4.1`
+- Option 2: Connect your laptop to a wireless network that has already been configured in the Raspberry Pi settings. Connect to the pi using: `ssh cccpi@raspberrypi`
+
+**Note:** For remote development of the device by multiple individuals, Tailscale is recommended. If Tailscale is used, the corresponding Tailscale IP would replace 'raspberrypi' in the 'Option 2' command above.
+
+### 2. Run Data Collection Script
+
+### 3. Run Bluetooth Configuration Script
