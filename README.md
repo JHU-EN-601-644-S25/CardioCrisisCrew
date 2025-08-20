@@ -69,6 +69,18 @@ The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Blueto
 - The session data remains available in the cloud for medical records
 
 ## Device Setup
+The physical ECG device collects and stores heart data. 
+
+**Note:** For our purpose, we used an outlet as a power source. However, in a real-world scenario, a battery pack should be attached to the device before use.
+
+### 1. Place Electrodes
+- Three electrodes need to be placed on the body (see electrode diagram)
+
+### 2. Turn on Device and Begin Data Collection
+- Press the black button on the device
+- Data collection is occurring while blue LED on device is on
+- Data collection sessions last 30 seconds, as currently configured
+- Can press button multiple times if more data is desired
 
 # Security
 Security was integrated into every stage of the CC ECG's development — from requirements gathering and architecture design to implementation and testing. Our approach followed recognized medical device cybersecurity standards and regulatory guidance to ensure safety, reliability, and compliance.
@@ -161,4 +173,4 @@ The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Blueto
 - Start a new session to view live ECG data
 
 ## Device Setup
-
+The physical ECG device collects and stores heart data. 
