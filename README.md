@@ -74,7 +74,8 @@ The physical ECG device collects and stores heart data.
 **Note:** For our purpose, we used an outlet as a power source. However, in a real-world scenario, a battery pack should be attached to the device before use.
 
 ### 1. Place Electrodes
-- Three electrodes need to be placed on the body (see electrode diagram)
+- Three electrodes need to be placed on the body
+  ![electrode diagram](ecgdiagram.png)
 
 ### 2. Turn on Device and Begin Data Collection
 - Press the black button on the device
