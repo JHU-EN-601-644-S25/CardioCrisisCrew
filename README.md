@@ -74,7 +74,7 @@ The physical ECG device collects and stores heart data.
 **Note:** For our purpose, we used an outlet as a power source. However, in a real-world scenario, a battery pack should be attached to the device before use.
 
 ### 1. Place Electrodes
-- Three electrodes need to be placed on the body
+- Three electrodes need to be placed on the body. There are a few possible configurations:
   ![electrode diagram](ecgdiagram.png)
 
 ### 2. Turn on Device and Begin Data Collection
@@ -184,5 +184,24 @@ The physical ECG device collects and stores heart data.
 **Note:** For remote development of the device by multiple individuals, Tailscale is recommended. If Tailscale is used, the corresponding Tailscale IP would replace 'raspberrypi' in the 'Option 2' command above.
 
 ### 2. Run Data Collection Script
+- The Python file that collects the ECG data and stores it in a database is 'new_test_2.py'
+- Run with 'python3 new_test_2.py'
 
 ### 3. Run Bluetooth Configuration Script
+- Run 'sudo systemctl restart bluetooth' followed by 'sudo ./pi_to_phone_2 -d'
+- If any changes are made to the 'pi_to_phone_2.cpp,' recompile by running 'g++ -std=c++17 -pthread -Iexternal/gobbledegook/include -I/usr/include/python3.11 pi_to_phone_2.cpp -o pi_to_phone_2 -Lexternal/gobbledegook/src -lggk -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lpython3.11'
+
+### Bluetooth Troubleshooting Commands
+- If more information is needed, see the Gobbledegook GutHub repository
+- 'systemctl --user enable ecg.service'
+- 'systemctl --user is-enabled ecg.service'
+- 'systemctl --user start ecg.service'
+- 'systemctl --user status ecg.service'
+- 'systemctl --user daemon-reload'
+- 'systemctl --user restart ecg.service'
+- 'sudo systemctl restart ecg.service'
+- 'systemctl daemon-reload'
+- 'systemctl restart ecg.service'
+  
+### Other Key Files
+- To modify any database functionalities, edit 'db.py'
