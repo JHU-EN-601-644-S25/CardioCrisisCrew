@@ -205,3 +205,35 @@ The physical ECG device collects and stores heart data.
   
 ### Other Key Files
 - To modify any database functionalities, edit 'db.py'
+
+## Cloud Setup
+Amazon Cognito is used for mobile app user authentication and AWS DynamoDB is used for persistent storage in the cloud.
+
+### 1. Create a Cognito User pool
+
+### 2. Create a DynamoDB table
+The table should have the following attributes:
+- patient_id (string, Partition key)
+- ecg_timestamp (string, Sort key)
+- age
+- ecg_data
+- first_name
+- last_name
+- sex
+
+### 3. Create the Lambda functions
+The code for these functions is found under /cloud/api (need to create directory and upload source code)
+
+### 4. Create the API Gateway resource
+Create one resource with path '/' and two Methods
+- GET
+- POST
+
+Both Methods have integration type 'Lambda' and authorization using Cognito user pools.
+
+### 5. Create an API Authorizer
+- Under Authorizers, select 'Create Authorizer'
+- Give the authorizer a name
+- for type, select Cognito
+- for Cognito user pool, select the user pool created above
+- for token source, enter 'Authorization'
