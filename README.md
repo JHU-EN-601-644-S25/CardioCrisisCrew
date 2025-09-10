@@ -222,7 +222,13 @@ The table should have the following attributes:
 - sex
 
 ### 3. Create the Lambda functions
-The code for these functions is found under /cloud/api (need to create directory and upload source code)
+The code for these functions can be found under /cloud/api (need to create directory and upload source code)
+- Author from scratch
+- give it a name
+- for runtime, select the latest version of Python (3.13 at time of writing)
+- architecture is x86_64
+
+Once created, zip the Python code for each function in /cloud/api separately and select "Upload from .zip file" from the dropdown menu.
 
 ### 4. Create the API Gateway resource
 Create one resource with path '/' and two Methods
