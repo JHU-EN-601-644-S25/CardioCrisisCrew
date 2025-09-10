@@ -230,16 +230,18 @@ The code for these functions can be found under /cloud/api (need to create direc
 
 Once created, zip the Python code for each function in /cloud/api separately and select "Upload from .zip file" from the dropdown menu.
 
-### 4. Create the API Gateway resource
-Create one resource with path '/' and two Methods
-- GET
-- POST
-
-Both Methods have integration type 'Lambda' and authorization using Cognito user pools.
-
-### 5. Create an API Authorizer
+### 4. Create an API Authorizer
 - Under Authorizers, select 'Create Authorizer'
 - Give the authorizer a name
 - for type, select Cognito
 - for Cognito user pool, select the user pool created above
 - for token source, enter 'Authorization'
+
+
+### 5. Create the API Gateway resource
+- Create one resource with path '/' and two Methods
+- For the Method types, set one method to each of the following types:
+  - GET
+  - POST
+- Choose the Lambda function you created before corresponding to the Method type
+- Under Method request settings, set the Authorization to use Cognito user pool Authorizer you created above
