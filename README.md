@@ -215,7 +215,8 @@ The physical ECG device collects and stores heart data.
 Amazon Cognito is used for mobile app user authentication and AWS DynamoDB is used for persistent storage in the cloud.
 
 ### 1. Create a Cognito User pool
-
+- Within the user pool, create a client for the mobile app. Keep note of the Client ID, as this will be used to set up mobile app user authentication
+  
 ### 2. Create a DynamoDB table
 The table should have the following attributes:
 - patient_id (string, Partition key)
