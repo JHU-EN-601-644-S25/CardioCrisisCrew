@@ -141,6 +141,7 @@ The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Blueto
 - A Mac with Xcode installed
 - An Apple ID (free account is sufficient for development and testing)
 - An iPhone with iOS Developer Mode enabled (for Bluetooth testing)
+- AWS configured with Cognito for app user authentication
 
 **Note:** A free Apple ID allows you to run the app on your own iPhone for 7 days at a time. You'll need to re-sign the app every 7 days. A paid Apple Developer account ($99/year) is only required if you want to distribute the app or test on multiple devices.
 
@@ -155,7 +156,11 @@ The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Blueto
 - Change the **Team** to your Apple Developer account
 - Update the **Bundle Identifier** to a unique value (e.g., `com.yourname.CCCECG`)
 
-### 3. Choose Run Destination
+### 3. Edit the Cognito authentication API details
+- Open `ccc/ccc/api/AWSAPIService` and edit lines 22 and 23 to match the API Gateway endpoint set up in AWS (see Cloud Setup below)
+- Open `ccc/ccc/ContentView.swift` and edit the clientId (lines 137 and 189) and region (lines 138 and 190), replacing with your AWS Cognito region and the ID of the app client in your user pool
+
+### 4. Choose Run Destination
 **For simulator testing (no Bluetooth):**
 - Select an iOS simulator (e.g., iPhone 15) from the run destination menu
 
@@ -164,11 +169,11 @@ The CC ECG iOS app enables EMTs to connect to the Raspberry Pi device via Blueto
 - On your iPhone, go to **Settings → Privacy & Security → Developer Mode** and enable it
 - Select your iPhone as the run destination in Xcode
 
-### 4. Build and Run the App
+### 5. Build and Run the App
 - Click the **Run ▶️** button in Xcode to install and launch the app
 - If prompted on your iPhone, trust the developer certificate
 
-### 5. Pair with the Raspberry Pi
+### 6. Pair with the Raspberry Pi
 - Ensure the Pi is running the ECG service (`systemctl --user restart ecg.service`)
 - In the app, scan for devices and select your Pi from the list
 - Start a new session to view live ECG data
